@@ -1,9 +1,0 @@
-/// Hack to only target IE
-/// @tag tag-ie tag-hack tag-ie-only tag-internet-explorer tag-ie11
-/// @deprecated We no longer support IE11.
-
-@mixin ie-only {
-  @media (min-width: 0\0) {
-    @content;
-  }
-}

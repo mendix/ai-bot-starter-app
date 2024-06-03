@@ -1,8 +1,0 @@
-@forward "generated/border-width";
-@use "generated/border-width";
-
-$thin: border-width.$x1;
-$thick: border-width.$x2;
-$default: $thin;
-
-$elevation: border-width.$x1;
