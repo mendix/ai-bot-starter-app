@@ -15,14 +15,18 @@ import mendixsso.implementation.ConfigurationManager;
 
 public class LoadBooleanValueFromEnvOrDefault extends CustomJavaAction<java.lang.Boolean>
 {
-	private java.lang.String envVarName;
-	private java.lang.Boolean defaultvalue;
+	private final java.lang.String envVarName;
+	private final java.lang.Boolean defaultvalue;
 
-	public LoadBooleanValueFromEnvOrDefault(IContext context, java.lang.String envVarName, java.lang.Boolean defaultvalue)
+	public LoadBooleanValueFromEnvOrDefault(
+		IContext context,
+		java.lang.String _envVarName,
+		java.lang.Boolean _defaultvalue
+	)
 	{
 		super(context);
-		this.envVarName = envVarName;
-		this.defaultvalue = defaultvalue;
+		this.envVarName = _envVarName;
+		this.defaultvalue = _defaultvalue;
 	}
 
 	@java.lang.Override

@@ -15,12 +15,15 @@ import mendixsso.implementation.CustomSignupHintParameterMapper;
 
 public class InitializeCustomSignupHintParameter extends CustomJavaAction<java.lang.Boolean>
 {
-	private java.lang.String SignupHintMicroflow;
+	private final java.lang.String SignupHintMicroflow;
 
-	public InitializeCustomSignupHintParameter(IContext context, java.lang.String SignupHintMicroflow)
+	public InitializeCustomSignupHintParameter(
+		IContext context,
+		java.lang.String _signupHintMicroflow
+	)
 	{
 		super(context);
-		this.SignupHintMicroflow = SignupHintMicroflow;
+		this.SignupHintMicroflow = _signupHintMicroflow;
 	}
 
 	@java.lang.Override

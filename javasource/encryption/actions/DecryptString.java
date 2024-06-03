@@ -25,18 +25,24 @@ import com.mendix.webui.CustomJavaAction;
 
 public class DecryptString extends CustomJavaAction<java.lang.String>
 {
-	private java.lang.String value;
-	private java.lang.String key;
-	private java.lang.String prefix;
-	private java.lang.String legacyKey;
+	private final java.lang.String value;
+	private final java.lang.String key;
+	private final java.lang.String prefix;
+	private final java.lang.String legacyKey;
 
-	public DecryptString(IContext context, java.lang.String value, java.lang.String key, java.lang.String prefix, java.lang.String legacyKey)
+	public DecryptString(
+		IContext context,
+		java.lang.String _value,
+		java.lang.String _key,
+		java.lang.String _prefix,
+		java.lang.String _legacyKey
+	)
 	{
 		super(context);
-		this.value = value;
-		this.key = key;
-		this.prefix = prefix;
-		this.legacyKey = legacyKey;
+		this.value = _value;
+		this.key = _key;
+		this.prefix = _prefix;
+		this.legacyKey = _legacyKey;
 	}
 
 	@java.lang.Override

@@ -24,12 +24,15 @@ import java.util.Map;
 
 public class FindOrCreateUserWithUserInfo extends CustomJavaAction<IMendixObject>
 {
-	private java.lang.String UserInfoJSON;
+	private final java.lang.String UserInfoJSON;
 
-	public FindOrCreateUserWithUserInfo(IContext context, java.lang.String UserInfoJSON)
+	public FindOrCreateUserWithUserInfo(
+		IContext context,
+		java.lang.String _userInfoJSON
+	)
 	{
 		super(context);
-		this.UserInfoJSON = UserInfoJSON;
+		this.UserInfoJSON = _userInfoJSON;
 	}
 
 	@java.lang.Override

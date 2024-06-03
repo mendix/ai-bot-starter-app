@@ -15,12 +15,15 @@ import mendixsso.implementation.SessionManager;
 
 public class LogOutUser extends CustomJavaAction<java.lang.Boolean>
 {
-	private java.lang.String uuid;
+	private final java.lang.String uuid;
 
-	public LogOutUser(IContext context, java.lang.String uuid)
+	public LogOutUser(
+		IContext context,
+		java.lang.String _uuid
+	)
 	{
 		super(context);
-		this.uuid = uuid;
+		this.uuid = _uuid;
 	}
 
 	@java.lang.Override

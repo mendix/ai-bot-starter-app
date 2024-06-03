@@ -21,18 +21,24 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  */
 public class CreateLocalAdminOption extends CustomJavaAction<IMendixObject>
 {
-	private java.lang.String label;
-	private java.lang.Long order;
-	private java.lang.String deeplinkURL;
-	private java.lang.String openPageMf;
+	private final java.lang.String label;
+	private final java.lang.Long order;
+	private final java.lang.String deeplinkURL;
+	private final java.lang.String openPageMf;
 
-	public CreateLocalAdminOption(IContext context, java.lang.String label, java.lang.Long order, java.lang.String deeplinkURL, java.lang.String openPageMf)
+	public CreateLocalAdminOption(
+		IContext context,
+		java.lang.String _label,
+		java.lang.Long _order,
+		java.lang.String _deeplinkURL,
+		java.lang.String _openPageMf
+	)
 	{
 		super(context);
-		this.label = label;
-		this.order = order;
-		this.deeplinkURL = deeplinkURL;
-		this.openPageMf = openPageMf;
+		this.label = _label;
+		this.order = _order;
+		this.deeplinkURL = _deeplinkURL;
+		this.openPageMf = _openPageMf;
 	}
 
 	@java.lang.Override

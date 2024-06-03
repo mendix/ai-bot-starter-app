@@ -19,25 +19,31 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class ProviderConfig_ExecuteAction extends CustomJavaAction<java.lang.Boolean>
 {
-	private IMendixObject __ProviderConfig;
-	private synthiaui.proxies.ProviderConfig ProviderConfig;
-	private IMendixObject __ChatContext;
-	private synthiaui.proxies.ChatContext ChatContext;
+	/** @deprecated use ProviderConfig.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __ProviderConfig;
+	private final synthiaui.proxies.ProviderConfig ProviderConfig;
+	/** @deprecated use ChatContext.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __ChatContext;
+	private final synthiaui.proxies.ChatContext ChatContext;
 
-	public ProviderConfig_ExecuteAction(IContext context, IMendixObject ProviderConfig, IMendixObject ChatContext)
+	public ProviderConfig_ExecuteAction(
+		IContext context,
+		IMendixObject _providerConfig,
+		IMendixObject _chatContext
+	)
 	{
 		super(context);
-		this.__ProviderConfig = ProviderConfig;
-		this.__ChatContext = ChatContext;
+		this.__ProviderConfig = _providerConfig;
+		this.ProviderConfig = _providerConfig == null ? null : synthiaui.proxies.ProviderConfig.initialize(getContext(), _providerConfig);
+		this.__ChatContext = _chatContext;
+		this.ChatContext = _chatContext == null ? null : synthiaui.proxies.ChatContext.initialize(getContext(), _chatContext);
 	}
 
 	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
-		this.ProviderConfig = this.__ProviderConfig == null ? null : synthiaui.proxies.ProviderConfig.initialize(getContext(), __ProviderConfig);
-
-		this.ChatContext = this.__ChatContext == null ? null : synthiaui.proxies.ChatContext.initialize(getContext(), __ChatContext);
-
 		// BEGIN USER CODE
 		try {
 			requireNonNull(ProviderConfig, "ProviderConfig is required.");

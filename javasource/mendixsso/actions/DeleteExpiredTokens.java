@@ -20,12 +20,15 @@ import java.time.Instant;
 
 public class DeleteExpiredTokens extends CustomJavaAction<java.lang.Boolean>
 {
-	private java.lang.Boolean removeAll;
+	private final java.lang.Boolean removeAll;
 
-	public DeleteExpiredTokens(IContext context, java.lang.Boolean removeAll)
+	public DeleteExpiredTokens(
+		IContext context,
+		java.lang.Boolean _removeAll
+	)
 	{
 		super(context);
-		this.removeAll = removeAll;
+		this.removeAll = _removeAll;
 	}
 
 	@java.lang.Override

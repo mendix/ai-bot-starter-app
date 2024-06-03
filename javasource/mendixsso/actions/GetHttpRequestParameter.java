@@ -22,22 +22,27 @@ import java.util.StringTokenizer;
 
 public class GetHttpRequestParameter extends CustomJavaAction<java.lang.String>
 {
-	private IMendixObject __HttpRequest;
-	private system.proxies.HttpRequest HttpRequest;
-	private java.lang.String ParameterName;
+	/** @deprecated use HttpRequest.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __HttpRequest;
+	private final system.proxies.HttpRequest HttpRequest;
+	private final java.lang.String ParameterName;
 
-	public GetHttpRequestParameter(IContext context, IMendixObject HttpRequest, java.lang.String ParameterName)
+	public GetHttpRequestParameter(
+		IContext context,
+		IMendixObject _httpRequest,
+		java.lang.String _parameterName
+	)
 	{
 		super(context);
-		this.__HttpRequest = HttpRequest;
-		this.ParameterName = ParameterName;
+		this.__HttpRequest = _httpRequest;
+		this.HttpRequest = _httpRequest == null ? null : system.proxies.HttpRequest.initialize(getContext(), _httpRequest);
+		this.ParameterName = _parameterName;
 	}
 
 	@java.lang.Override
 	public java.lang.String executeAction() throws Exception
 	{
-		this.HttpRequest = this.__HttpRequest == null ? null : system.proxies.HttpRequest.initialize(getContext(), __HttpRequest);
-
 		// BEGIN USER CODE
 		if(Optional.ofNullable(this.HttpRequest).isEmpty()){
 			throw new MendixRuntimeException("HttpRequest parameter can not be null");

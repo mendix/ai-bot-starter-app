@@ -14,12 +14,15 @@ import com.mendix.webui.CustomJavaAction;
 
 public class DecodeJwtTokenBody extends CustomJavaAction<java.lang.String>
 {
-	private java.lang.String token;
+	private final java.lang.String token;
 
-	public DecodeJwtTokenBody(IContext context, java.lang.String token)
+	public DecodeJwtTokenBody(
+		IContext context,
+		java.lang.String _token
+	)
 	{
 		super(context);
-		this.token = token;
+		this.token = _token;
 	}
 
 	@java.lang.Override

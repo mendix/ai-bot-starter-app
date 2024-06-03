@@ -15,12 +15,15 @@ import mendixsso.implementation.utils.OpenIDUtils;
 
 public class ExtractUUIDFromOpenID extends CustomJavaAction<java.lang.String>
 {
-	private java.lang.String openId;
+	private final java.lang.String openId;
 
-	public ExtractUUIDFromOpenID(IContext context, java.lang.String openId)
+	public ExtractUUIDFromOpenID(
+		IContext context,
+		java.lang.String _openId
+	)
 	{
 		super(context);
-		this.openId = openId;
+		this.openId = _openId;
 	}
 
 	@java.lang.Override

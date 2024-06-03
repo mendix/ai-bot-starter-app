@@ -1,9 +1,11 @@
-.listview-horizontal.mx-listview {
+.chat-listview-horizontal.mx-listview {
     > ul {
         display: contents;
         margin-bottom: none;
         > li {
             display: inline-block;
+            &:hover {
+                background-color: transparent;}
         }
     }
 }
