@@ -1,0 +1,28 @@
+/// @info this value is the current max width in the layout grid
+/// @tag tag-max-width tag-max-width-layout-grid tag-width-1170
+
+@use "../constants/size";
+@use "../constants/spacing";
+@use "../functions";
+
+$mxdock-height: size.$x48;
+/// Topbar requires a fixed height for layout purposes - assumes 32px content + 12px top and bottom padding;
+$topbar-height: size.$x32 + spacing.$x12 * 2;
+$visual-max-width: functions.remify(1176px);
+$page-margin-min: spacing.$x16;
+$page-margin-max: spacing.$x40;
+$page-margin-preferred: 5vw;
+$page-margin: clamp(#{$page-margin-min, $page-margin-preferred, $page-margin-max});
+$page-margin-full-width: max(#{$page-margin-min, $page-margin-preferred});
+$gutter-size-regular: spacing.$x24;
+$gutter-size-small: spacing.$x16;
+$sidebar-width: functions.remify(232px);
+
+// Common values
+$padding-modal: spacing.$x32;
+$padding-alert: spacing.$x16;
+
+// Deprecated values - do not use
+$size-legacy-deprecated: 1170px; // Bootstrap max layout based on 15 pixel grid
+$size-integer-deprecated: (12 * 72 + 11 * 24); // 1128
+$size-default-deprecated: $size-integer-deprecated * 1px; // 1128px = 12 columns * 72 pixels content + 11 columns * 24 pixels gutter

@@ -1,0 +1,26 @@
+/// Media query sizes. Also known as break point
+/// @tag tag-break tag-point tag-break-point tag-media tag-query tag-media-query tag-screen-sizes
+/// Added whole file to .prettierignore to keep formatting.
+@use "layout";
+@use "../functions";
+
+/// Break points
+$for-phone-only:          functions.remify(599px);                                                
+$for-tablet-portrait-up:  functions.remify(600px);                                           
+$for-tablet-landscape-up: functions.remify(800px);                                           
+$for-desktop-up: layout.$visual-max-width + layout.$page-margin-max * 2;    // 1256px as of 14/10/21
+$for-big-desktop-up:      functions.remify(1536px);  
+
+$screens: (
+  "default": null,
+  "xs": $for-phone-only,
+  "sm": $for-tablet-portrait-up,
+  "md": $for-tablet-landscape-up,
+  "lg": $for-desktop-up,
+  "xl": $for-big-desktop-up,
+);
+
+/// Deprecated 2021-03-01
+$for-tablet-landscape-up-deprecated: 56.25rem; //  900px
+$for-desktop-up-deprecated: 75rem;             // 1200px
+$for-big-desktop-up-deprecated: 112.5rem;      // 1800px

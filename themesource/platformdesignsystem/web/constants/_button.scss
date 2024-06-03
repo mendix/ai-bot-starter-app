@@ -1,0 +1,44 @@
+@use "forms";
+@use "size";
+@use "spacing";
+@use "font-weight";
+@use "font-size";
+@use "border-radius";
+@use "animation";
+@use "../functions/px-to-rems" as *;
+
+$font-weight: font-weight.$default;
+$font-size: font-size.$body;
+$font-size-small: font-size.$body;
+$font-size-large: font-size.$body-lg;
+//
+$border-radius: border-radius.$regular;
+//
+$padding-small-v: spacing.$xs;
+$padding-small-h: spacing.$sm;
+$padding-small: $padding-small-v $padding-small-h;
+//
+$padding-regular-v: spacing.$sm;
+$padding-regular-h: spacing.$md;
+$padding-regular: $padding-regular-v $padding-regular-h;
+//
+$padding-large-v: spacing.$sm;
+$padding-large-h: spacing.$lg;
+$padding-large: $padding-large-v $padding-large-h;
+//
+$min-width: size.$x64;
+$hover-transition: all animation.$duration-fast animation.$timing-function-default;
+//
+$size: forms.$input-height;
+$size-small: forms.$input-height-small;
+$size-large: size.$x48;
+$size-close: $size;
+$size-close-small: $size-small;
+//
+$icon-size-small: size.$x16;
+$icon-size-medium: size.$x20;
+$icon-size-large: size.$x24;
+//
+$gap-small: spacing.$xs;
+$gap-medium: spacing.$xs;
+$gap-large: px-to-rems(6);

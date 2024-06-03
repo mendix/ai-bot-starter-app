@@ -1,0 +1,93 @@
+/// Conditions for exclusion do not have to be based on the same module.
+/// To override multiple Atlas files with a single PDS file make sure to update
+/// the final parameter in the get-configuration and to be identical to another
+/// one and combine the configuration in `configuration-default`.
+/// @example $exclude-bootstrap: pds.get-configuration("include-base", "legacy");
+///          $exclude-mxui: pds.get-configuration("include-base", "legacy");
+///          $include-base: (
+///            legacy: false,
+///            animations: false,
+///            etc...
+///          );
+
+$use-theme-cool-dark: false;
+
+$include-base: (
+  bootstrap: false,
+  mxui: false,
+  animations: false,
+  flex: false,
+  spacing: false,
+  base: true,
+  login: false,
+);
+
+$include-widget: (
+  accordion: false,
+  accordion-helpers: false,
+  background-helpers: false,
+  badge: false,
+  badge-button: false,
+  badge-button-helpers: false,
+  barcode-scanner: false,
+  button: false,
+  button-helpers: false,
+  check-box: false,
+  custom-dijit-widget: false,
+  custom-switch: false,
+  data-grid: false,
+  data-grid-helpers: false,
+  data-view: false,
+  data-picker: false,
+  glyphicon: false,
+  grid: false,
+  group-box: false,
+  group-box-helpers: false,
+  header: false,
+  helper-classes: false,
+  input: false,
+  image-helpers: false,
+  label: false,
+  label-helpers: false,
+  layout-grid: true,
+  list-view: false,
+  list-view-helpers: false,
+  modal: false,
+  navigation-bar: false,
+  navigation-bar-helpers: false,
+  navigation-list: false,
+  navigation-tree: false,
+  navigation-tree-helpers: false,
+  pagination: false,
+  pop-up-menu: false,
+  progress: false,
+  progress-bar: false,
+  progress-bar-helpers: false,
+  progress-circle: false,
+  progress-circle-helpers: false,
+  radio-button: false,
+  range-slider: false,
+  range-slider-helpers: false,
+  rating: false,
+  rating-helpers: false,
+  simple-menu-bar: false,
+  simple-menu-bar-helpers: false,
+  slider: false,
+  slider-helpers: false,
+  table: false,
+  table-helpers: false,
+  tab-container: false,
+  tab-container-helpers: false,
+  template-grid: false,
+  template-grid-helpers: false,
+  timeline: false,
+  typography: true,
+  typography-helpers: false,
+);
+
+$include-layout: (
+  layout-atlas: false,
+  layout-atlas-phone: false,
+  layout-atlas-responsive: false,
+  layout-atlas-tablet: false,
+);

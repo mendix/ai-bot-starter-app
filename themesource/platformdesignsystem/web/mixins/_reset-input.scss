@@ -1,0 +1,67 @@
+/// Resets an input to the PDS required base.
+/// @example
+/// .pds-example-misbehaving-input {
+///   @include mixins.reset-input;
+/// }
+/// @tag tag-restyle-input tag-pds-input-base tag-text-field tag-textbox
+
+@use "../constants/border-radius";
+@use "../constants/forms";
+@use "../constants/spacing";
+@use "../functions";
+@use "make-control-label" as *;
+@use "make-form-control" as *;
+@use "make-validation-message" as *;
+@use "make-text" as *;
+
+@mixin reset-input {
+  margin: 0 0 forms.$input-margin-bottom;
+
+  &--disabled {
+    opacity: forms.$disabled-opacity;
+  }
+
+  &::before,
+  &::after {
+    content: none;
+  }
+
+  > div {
+    width: 100%;
+    padding: 0;
+    float: none;
+  }
+
+  > .control-label {
+    @include make-control-label;
+  }
+
+  .form-control {
+    @include make-form-control;
+  }
+
+  .form-control-static {
+    @include make-text-14;
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  //stylelint-disable no-descending-specificity
+  &--small .form-control {
+    height: forms.$input-height-small;
+    padding-left: forms.$input-padding-sm;
+    padding-right: forms.$input-padding-sm;
+  }
+  //stylelint-enable
+
+  // Mendix specific class indicating failed form validation
+  &.has-error {
+    .form-control {
+      border-color: forms.$color-border-error;
+    }
+
+    .alert-danger {
+      @include make-validation-message;
+    }
+  }
+}

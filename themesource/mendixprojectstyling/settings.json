@@ -1,0 +1,13 @@
+{
+  "excludes": {
+    "Atlas_Core": {
+      "layouts": true,
+      "pageTemplates": false
+    },
+    "Atlas_Web_Content": {
+      "buildingBlocks": true,
+      "designProperties": false,
+      "styling": false
+    }
+  }
+}

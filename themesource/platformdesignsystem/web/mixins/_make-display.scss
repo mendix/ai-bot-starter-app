@@ -1,0 +1,22 @@
+/// Used to make an element a display text using Patron.
+/// Patron is used on elements that need to attract the attention of the user visually, like marketing pages.
+/// @see pds/constants/font-size for the available options.
+/// @see make-header for regular headers using Noto Sans.
+/// @example @include mixins.make-display(32);
+/// @tag tag-font-size tag-header tag-set-header-size tag-include-header tag-page-title tag-title
+
+@use "../constants/font-family";
+@use "../constants/line-height";
+@use "../mixins/make-text" as *;
+
+@mixin make-display($font-size) {
+  @include make-text(
+    $size: $font-size,
+    $color: var(--text-display),
+    $font-weight: normal,
+    $font-smoothing: false,
+    $line-height: line-height.$compact,
+    $margin-bottom: 1em
+  );
+  font-family: font-family.$font-display;
+}

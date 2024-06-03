@@ -1,0 +1,57 @@
+/// Transforms the container where the mixin is included into a basic card.
+/// @param {Boolean} $border deprecated - will not do anything. Styling defined in make-elevation.
+/// @param {CSS Custom Property} $shadow deprecated - will not do anything. Styling defined in make-elevation.
+/// @param {CSS Custom Property} $bg-color deprecated - will not do anything. Styling defined in make-elevation.
+/// @param {Spacing Token} $border-radius
+/// @param $interactive-styles deprecated - will not do anything. Styling defined in make-elevation
+/// @param {Spacing Token} $padding you can pass any value here.
+/// @example
+/// .pds-example {
+///   @include mixins.card();
+/// }
+/// @see .pds-card
+/// @tag tag-card tag-shadow-container
+
+@use "../constants/border-radius";
+@use "../constants/spacing";
+@use "../constants/border-width";
+@use "../constants/animation";
+@use "../constants/forms";
+@use "../mixins/make-elevation" as *;
+
+$_border-width: border-width.$elevation;
+
+@mixin card(
+  $border: null,
+  $shadow: null,
+  $bg-color: null,
+  $border-radius: border-radius.$large,
+  $interactive-styles: null,
+  $padding: spacing.$x24
+) {
+  @include make-elevation(1);
+  border-radius: $border-radius;
+  padding: $padding;
+  transition-property: outline, box-shadow, background-color;
+  transition-timing-function: animation.$timing-function-default;
+  transition-duration: animation.$duration-fast;
+
+  // see .pds-card interactive styles.
+  &--interactive,
+  &[role="button"] {
+    &:hover,
+    &:focus-visible {
+      @include make-elevation(8);
+    }
+
+    &:focus-visible {
+      outline: solid forms.$focus-border-width forms.$color-focus;
+      outline-offset: 0 - $_border-width;
+    }
+
+    &:active {
+      outline: none;
+      @include make-elevation(4);
+    }
+  }
+}

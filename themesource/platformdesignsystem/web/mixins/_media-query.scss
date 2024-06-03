@@ -1,0 +1,68 @@
+/// Media queries to make the interface adapt to different screen sizes.
+/// @example
+/// padding-left: spacing.$x64;
+///
+/// @include mixins.for-phone-only {
+///   padding-left: spacing.$x16;
+/// }
+/// @tag tag-media-query tag-mq tag-responsive tag-phone tag-tablet tag-monitor tag-tv
+
+@use "../constants/media-query" as screen-size;
+
+// 599px
+@mixin for-phone-only {
+  @media (max-width: screen-size.$for-phone-only) {
+    @content;
+  }
+}
+
+// 600px
+@mixin for-tablet-portrait-up {
+  @media (min-width: screen-size.$for-tablet-portrait-up) {
+    @content;
+  }
+}
+
+// 792px
+@mixin for-tablet-landscape-up {
+  @media (min-width: screen-size.$for-tablet-landscape-up) {
+    @content;
+  }
+}
+
+// 984px
+@mixin for-desktop-up {
+  @media (min-width: screen-size.$for-desktop-up) {
+    @content;
+  }
+}
+
+// 1536px
+@mixin for-big-desktop-up {
+  @media (min-width: screen-size.$for-big-desktop-up) {
+    @content;
+  }
+}
+
+/// Deprecated 2021-03-01
+
+// 900px
+@mixin for-tablet-landscape-up-deprecated {
+  @media (min-width: screen-size.$for-tablet-landscape-up-deprecated) {
+    @content;
+  }
+}
+
+// 1200px
+@mixin for-desktop-up-deprecated {
+  @media (min-width: screen-size.$for-desktop-up-deprecated) {
+    @content;
+  }
+}
+
+// 1800px
+@mixin for-big-desktop-up-deprecated {
+  @media (min-width: screen-size.$for-big-desktop-up-deprecated) {
+    @content;
+  }
+}

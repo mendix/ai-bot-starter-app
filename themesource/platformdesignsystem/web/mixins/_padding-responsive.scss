@@ -1,0 +1,76 @@
+/// Used to create a padding that automatically linearly halves for the smallest devices.
+/// Not for use outside of generating padding.
+/// @tag tag-padding tag-gutter tag-spacing tag-space tag-void tag-moving-elements
+
+@use "sass:math";
+@use "sass:meta";
+@use "sass:map";
+@use "../constants/media-query";
+@use "../constants/spacing";
+@use "../functions";
+@use "../mixins/poly-fluid-sizing" as pfs;
+
+@mixin padding-responsive($size, $direction: null) {
+  $value: null;
+  @if meta.type-of($size) == "number" and math.is-unitless($size) {
+    // convert to a string for lookup
+    $size: meta.inspect($size);
+  }
+
+  @if meta.type-of($size) == "string" {
+    $value: map-get(spacing.$map, $size);
+    @if not $value {
+      @error "#{$size} is not valid. Use one of #{map.keys(spacing.$map)} instead.";
+    }
+  } @else {
+    $value: functions.remify($size);
+  }
+
+  @if ($direction == vertical) {
+    @include pfs.poly-fluid-sizing(
+      padding-top,
+      (
+        media-query.$for-phone-only: math.div($value, 2),
+        media-query.$for-tablet-landscape-up: $value
+      )
+    );
+    @include pfs.poly-fluid-sizing(
+      padding-bottom,
+      (
+        media-query.$for-phone-only: math.div($value, 2),
+        media-query.$for-tablet-landscape-up: $value
+      )
+    );
+  } @else if ($direction == horizontal) {
+    @include pfs.poly-fluid-sizing(
+      padding-left,
+      (
+        media-query.$for-phone-only: math.div($value, 2),
+        media-query.$for-tablet-landscape-up: $value
+      )
+    );
+    @include pfs.poly-fluid-sizing(
+      padding-right,
+      (
+        media-query.$for-phone-only: math.div($value, 2),
+        media-query.$for-tablet-landscape-up: $value
+      )
+    );
+  } @else if ($direction == null) {
+    @include pfs.poly-fluid-sizing(
+      padding,
+      (
+        media-query.$for-phone-only: math.div($value, 2),
+        media-query.$for-tablet-landscape-up: $value
+      )
+    );
+  } @else if ($direction != null and $direction != vertical and $direction != horizontal) {
+    @include pfs.poly-fluid-sizing(
+      padding-#{$direction},
+      (
+        media-query.$for-phone-only: math.div($value, 2),
+        media-query.$for-tablet-landscape-up: $value
+      )
+    );
+  }
+}

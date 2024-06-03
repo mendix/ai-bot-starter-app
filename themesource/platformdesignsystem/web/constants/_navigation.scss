@@ -1,0 +1,36 @@
+@use "font-size";
+@use "font-weight";
+@use "line-height";
+@use "spacing";
+@use "border-radius";
+@use "size";
+
+// Main nav
+$bg: var(--background-nav-item-default);
+$bg-hover: var(--background-nav-item-hover);
+$bg-active: var(--background-nav-item-active);
+$font-size: font-size.$x14;
+$font-weight: font-weight.$default;
+$item-padding-x: spacing.$x12;
+$item-padding-y: spacing.$x12;
+$item-line-height: line-height.$compact;
+$color: var(--text-nav-item-default);
+$color-hover: $color;
+$color-active: $color;
+$item-border-radius: border-radius.$regular;
+$glyph-size: size.$x20;
+
+// Sub nav
+$sub-bg: $bg;
+$sub-bg-hover: $bg-hover;
+$sub-bg-active: $bg-active;
+$sub-color: $color;
+$sub-color-hover: $color-hover;
+$sub-color-active: $color-active;
+$sub-font-size: $font-size;
+
+// Section Header
+$header-font-size: font-size.$caption;
+$header-color: var(--text-nav-item-header);
+$header-font-weight: font-weight.$default;
+$header-line-height: line-height.$compact;

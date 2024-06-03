@@ -1,0 +1,18 @@
+.border-primary {
+    border: 1px solid $brand-primary;
+}
+
+.hover-trigger{
+  .show-on-hover {
+    visibility: hidden; // Initially hide the hover content
+  }
+
+  &:hover .show-on-hover {
+    display: inline;
+    visibility: visible; // Show hover content, when hovering over the hover trigger
+  }
+}
+
+.text-break-word {
+  word-break: break-word;
+}

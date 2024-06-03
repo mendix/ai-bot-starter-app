@@ -1,0 +1,10 @@
+/// Easily add styles scoped to dark theme.
+/// Will create a dark-theme scoped block based on current selector.
+/// Recommended use: place immediately after the specific style rules you intend to alter
+/// for best readability, rather than at the end of a component.
+
+@mixin dark-theme {
+  @at-root :--namespace.theme-dark & {
+    @content;
+  }
+}

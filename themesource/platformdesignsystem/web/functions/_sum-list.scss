@@ -1,0 +1,26 @@
+/// Sums all items in a list
+/// @param {List} $list - A list of values separated by spaces
+/// @param {Boolean} $force - Forced units to be removed from values
+/// @returns number
+/// @example sum-list(1, 2, 3) // 6
+/// @author Hugo Giraudel
+/// @tag tag-count tag-sum tag-total
+
+@use "sass:math";
+
+@function sum-list($list, $force: false) {
+  $result: 0;
+
+  @each $item in $list {
+    @if type-of($item) == number {
+      @if $force and unit($item) {
+        $item: math.div($item, ($item * 0 + 1));
+      }
+      @if unitless($item) {
+        $result: $result + $item;
+      }
+    }
+  }
+
+  @return $result;
+}

@@ -1,0 +1,34 @@
+/// Calculate the definition of a straight line between two points.
+/// This can be used to create a size based on the viewport size between two values.
+/// The size will never be smaller or bigger than the values entered.
+/// The same can now be done using clamp
+/// @see https://developer.mozilla.org/en-US/docs/Web/CSS/clamp()
+/// @param $map - A SASS map of viewport widths and size value pairs
+/// @returns A linear equation as a calc() function
+/// @example font-size: linear-interpolation((320px: 18px, 768px: 26px));
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+/// @tag tag-between tag-responsive-values tag-responsive-font-size
+
+@use "sass:math";
+
+@function linear-interpolation($map) {
+  $keys: map-keys($map);
+  @if (length($keys) != 2) {
+    @error "linear-interpolation() $map must be exactly 2 values";
+  }
+
+  // The slope
+  $m: math.div((map-get($map, nth($keys, 2)) - map-get($map, nth($keys, 1))), (nth($keys, 2) - nth($keys, 1)));
+
+  // The y-intercept
+  $b: map-get($map, nth($keys, 1)) - $m * nth($keys, 1);
+
+  // Determine if the sign should be positive or negative
+  $sign: "+";
+  @if ($b < 0) {
+    $sign: "-";
+    $b: abs($b);
+  }
+
+  @return calc(#{$m * 100}vw #{$sign} #{$b});
+}

@@ -1,0 +1,34 @@
+// spacing variables are generally associated with margin or padding.
+@use "sass:meta";
+@use "sass:map";
+@use "sass:list";
+@use "sass:string";
+@use "generated/spacing";
+@forward "generated/spacing";
+
+$xxs: spacing.$x2;
+$xs: spacing.$x4;
+$sm: spacing.$x8;
+$md: spacing.$x16;
+$lg: spacing.$x20;
+$xl: spacing.$x24;
+$xxl: spacing.$x32;
+
+// Load generated tokens as a map.
+$_tokens: meta.module-variables("spacing");
+
+// Remove the "x" from the key string.
+$_tokens-processed: ();
+@each $key, $value in $_tokens {
+  @if (string.index($key, "x") == 1) {
+    $new-key: string.slice($key, 2);
+    // check whether newkey starts with number
+    @if list.index(("1", "2", "3", "4", "5", "6", "7", "8", "9", "0"), string.slice($new-key, 0, 1)) {
+      $key: $new-key;
+    }
+  }
+  $_tokens-processed: map.set($_tokens-processed, $key, $value);
+}
+
+/// A map of available generated tokens, with the "x" removed from key names.
+$map: $_tokens-processed; /// ("128": 8rem, "96": 6rem, "80": 5rem, "64": 4rem, "48": 3rem, "40": 2.5rem, "32": 2rem, "24": 1.5rem, "20": 1.25rem, "16": 1rem, "12": 0.75rem, "8": 0.5rem, "4": 0.25rem, "2": 0.125rem, "0": 0)

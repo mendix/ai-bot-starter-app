@@ -1,0 +1,18 @@
+/// Only add functions to this file. Functions can be called from all other files.
+/// It's allowed to split this file up into multiple function files.
+/// When possible use the constants, functions and mixins in PDS. They can be
+/// found in `platformdesignsystem/web/[constants/functions/mixins]`
+/// Ask the PDS team about more info.
+
+/// Example function:
+/// @function example($parameter) {
+///   @return $parameter * 2;
+/// }
+
+/// Call a function as follows in other files:
+/// @use "functions/function";
+/// .example {
+///   width: function.example($parameter);
+/// }
+
+/// Functions go here

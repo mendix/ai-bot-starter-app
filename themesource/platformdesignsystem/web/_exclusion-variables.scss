@@ -1,0 +1,99 @@
+/// List of all Atlas exclusion variables. These are used to exclude files in
+/// Atlas from being loaded in the final compiled css and replaced with PDS
+/// equivalents saved in this repository. This allows us to create a PDS base
+/// layer alongside Atlas to slowly replace Atlas where needed.
+
+/// The variables are set using the `configuration-default` can be overwritten
+/// by the configuration in `mendixprojectstyling/web/main`.
+
+/// Conditions for exclusion do not have to be based on the same module.
+/// To override multiple Atlas files with a single PDS file make sure to update
+/// the final parameter in the get-configuration and to be identical to another
+/// one and combine the configuration in `configuration-default`.
+/// @example $exclude-bootstrap: pds.get-configuration("include-base", "legacy");
+///          $exclude-mxui: pds.get-configuration("include-base", "legacy");
+///          $include-base: (
+///            legacy: false,
+///            animations: false,
+///            etc...
+///          );
+
+@use "sass:meta";
+@use "configurator" as pds;
+
+//== Core style exclusion
+$exclude-bootstrap: pds.get-configuration("include-base", "bootstrap");
+$exclude-mxui: pds.get-configuration("include-base", "mxui");
+$exclude-animations: pds.get-configuration("include-base", "animations");
+$exclude-flex: pds.get-configuration("include-base", "flex");
+$exclude-spacing: pds.get-configuration("include-base", "spacing");
+$exclude-base: pds.get-configuration("include-base", "base");
+$exclude-login: pds.get-configuration("include-base", "login");
+
+//== Widget style exclusion
+$exclude-accordion: pds.get-configuration("include-widget", "accordion");
+$exclude-accordion-helpers: pds.get-configuration("include-widget", "accordion-helpers");
+$exclude-background-helpers: pds.get-configuration("include-widget", "background-helpers");
+$exclude-badge: pds.get-configuration("include-widget", "badge");
+$exclude-badge-button: pds.get-configuration("include-widget", "badge-button");
+$exclude-badge-button-helpers: pds.get-configuration("include-widget", "badge-button-helpers");
+$exclude-barcode-scanner: pds.get-configuration("include-widget", "barcode-scanner");
+$exclude-button: pds.get-configuration("include-widget", "button");
+$exclude-button-helpers: pds.get-configuration("include-widget", "button-helpers");
+$exclude-check-box: pds.get-configuration("include-widget", "check-box");
+$exclude-custom-dijit-widget: pds.get-configuration("include-widget", "custom-dijit-widget");
+$exclude-custom-switch: pds.get-configuration("include-widget", "custom-switch");
+$exclude-data-grid: pds.get-configuration("include-widget", "data-grid");
+$exclude-data-grid-helpers: pds.get-configuration("include-widget", "data-grid-helpers");
+$exclude-data-view: pds.get-configuration("include-widget", "data-view");
+$exclude-data-picker: pds.get-configuration("include-widget", "data-picker");
+$exclude-glyphicon: pds.get-configuration("include-widget", "glyphicon");
+$exclude-grid: pds.get-configuration("include-widget", "grid");
+$exclude-group-box: pds.get-configuration("include-widget", "group-box");
+$exclude-group-box-helpers: pds.get-configuration("include-widget", "group-box-helpers");
+$exclude-header: pds.get-configuration("include-widget", "header");
+$exclude-helper-classes: pds.get-configuration("include-widget", "helper-classes");
+$exclude-input: pds.get-configuration("include-widget", "input");
+$exclude-image-helpers: pds.get-configuration("include-widget", "image-helpers");
+$exclude-label: pds.get-configuration("include-widget", "label");
+$exclude-label-helpers: pds.get-configuration("include-widget", "label-helpers");
+$exclude-layout-grid: pds.get-configuration("include-widget", "layout-grid");
+$exclude-list-view: pds.get-configuration("include-widget", "list-view");
+$exclude-list-view-helpers: pds.get-configuration("include-widget", "list-view-helpers");
+$exclude-modal: pds.get-configuration("include-widget", "modal");
+$exclude-navigation-bar: pds.get-configuration("include-widget", "navigation-bar");
+$exclude-navigation-bar-helpers: pds.get-configuration("include-widget", "navigation-bar-helpers");
+$exclude-navigation-list: pds.get-configuration("include-widget", "navigation-list");
+$exclude-navigation-tree: pds.get-configuration("include-widget", "navigation-tree");
+$exclude-navigation-tree-helpers: pds.get-configuration("include-widget", "navigation-tree-helpers");
+$exclude-pagination: pds.get-configuration("include-widget", "pagination");
+$exclude-pop-up-menu: pds.get-configuration("include-widget", "pop-up-menu");
+$exclude-progress: pds.get-configuration("include-widget", "progress");
+$exclude-progress-bar: pds.get-configuration("include-widget", "progress-bar");
+$exclude-progress-bar-helpers: pds.get-configuration("include-widget", "progress-bar-helpers");
+$exclude-progress-circle: pds.get-configuration("include-widget", "progress-circle");
+$exclude-progress-circle-helpers: pds.get-configuration("include-widget", "progress-circle-helpers");
+$exclude-radio-button: pds.get-configuration("include-widget", "radio-button");
+$exclude-range-slider: pds.get-configuration("include-widget", "range-slider");
+$exclude-range-slider-helpers: pds.get-configuration("include-widget", "range-slider-helpers");
+$exclude-rating: pds.get-configuration("include-widget", "rating");
+$exclude-rating-helpers: pds.get-configuration("include-widget", "rating-helpers");
+$exclude-simple-menu-bar: pds.get-configuration("include-widget", "simple-menu-bar");
+$exclude-simple-menu-bar-helpers: pds.get-configuration("include-widget", "simple-menu-bar-helpers");
+$exclude-slider: pds.get-configuration("include-widget", "slider");
+$exclude-slider-helpers: pds.get-configuration("include-widget", "slider-helpers");
+$exclude-table: pds.get-configuration("include-widget", "table");
+$exclude-table-helpers: pds.get-configuration("include-widget", "table-helpers");
+$exclude-tab-container: pds.get-configuration("include-widget", "tab-container");
+$exclude-tab-container-helpers: pds.get-configuration("include-widget", "tab-container-helpers");
+$exclude-template-grid: pds.get-configuration("include-widget", "template-grid");
+$exclude-template-grid-helpers: pds.get-configuration("include-widget", "template-grid-helpers");
+$exclude-timeline: pds.get-configuration("include-widget", "timeline");
+$exclude-typography: pds.get-configuration("include-widget", "typography");
+$exclude-typography-helpers: pds.get-configuration("include-widget", "typography-helpers");
+
+//== Layouts style exclusion
+$exclude-layout-atlas: pds.get-configuration("include-layout", "layout-atlas");
+$exclude-layout-atlas-phone: pds.get-configuration("include-layout", "layout-atlas-phone");
+$exclude-layout-atlas-responsive: pds.get-configuration("include-layout", "layout-atlas-responsive");
+$exclude-layout-atlas-tablet: pds.get-configuration("include-layout", "layout-atlas-tablet");

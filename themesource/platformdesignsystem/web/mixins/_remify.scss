@@ -1,0 +1,31 @@
+/// @mixin remify - Inspired by https://github.com/pierreburel/sass-rem -
+/// Will accept a comma separated property, value pair or a map of property: values. It will return any numbers with px unit converted to rems.
+/// This is especially helpful when dealing with a list of properties with complex values, eg box-shadows.
+/// @param { CSS property | Map<CSS properties> } $properties - Either a single property or a map of property: value pairs
+/// @param { List } $values... comma-separated list of 0 or more values. Only specify if $properties is a single property.
+/// @example
+/// @use "mixins";
+/// @include mixins.remify(font-size, 24px); // Simple
+/// @include mixins.remify(padding, 5px 10px); // Multiple values
+/// @include mixins.remify(border-bottom, 1px solid black); // Multiple mixed values
+/// @include mixins.remify(box-shadow, 0 0 2px #ccc, inset 0 0 5px #eee); // Comma-separated values
+/// //Multiple properties
+/// @include mixins.remify((
+///   margin: 10px 5px,
+///   text-shadow: (1px 1px #eee, -1px -1px #eee) // Parentheses needed because of comma
+/// ));
+
+@use "sass:meta";
+@use "../functions";
+
+@mixin remify($properties, $values...) {
+  @if meta.type-of($properties) == "map" {
+    @each $property, $values in $properties {
+      @include remify($property, $values);
+    }
+  } @else {
+    @each $property in $properties {
+      #{$property}: functions.remify($values...);
+    }
+  }
+}

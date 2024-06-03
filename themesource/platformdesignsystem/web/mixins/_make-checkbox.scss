@@ -1,0 +1,99 @@
+/// Styles an input[type="checkbox"]
+/// Use within components to keep consistent checkbox styles.
+/// @tag tag-checkbox @tag-input @tag-form @tag-checkbox-set
+
+@use "../constants/border-radius";
+@use "../constants/forms";
+@use "../constants/size";
+@use "../constants/spacing";
+@use "../constants/animation";
+@use "../constants/image";
+@use "../functions";
+@use "make-validation-message" as *;
+
+$_size: size.$x16;
+
+@mixin make-checkbox {
+  --color-border: #{forms.$color-border-selector};
+  --color-background: #{forms.$color-background-selector};
+
+  // This section describes the hover shape.
+  appearance: none;
+  height: $_size;
+  width: $_size;
+  position: relative;
+  outline: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  // The checkbox
+  &::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: border-radius.$small;
+    pointer-events: none;
+    background-color: var(--color-background);
+    transition-property: outline, outline-offset, background-color, border-color;
+    transition-duration: animation.$duration-fast;
+    transition-timing-function: animation.$timing-function-default;
+  }
+
+  // The checkmark
+  &::after {
+    content: "";
+    border: 0;
+    pointer-events: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: none;
+    transition: none;
+  }
+
+  &:hover {
+    --color-border: #{forms.$color-border-selector-hover};
+  }
+
+  &:active {
+    --color-border: #{forms.$color-border-selector-active};
+  }
+
+  &:checked {
+    --color-background: #{forms.$color-background-selector-selected};
+    --color-border: #{forms.$color-border-selector-selected};
+  }
+
+  &:checked::after {
+    background-color: forms.$color-checkmark;
+    mask-image: image.$checkmark-white;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  // Use the ::before element for focus so it renders the correct shape in firefox
+  &:focus-visible:not(:active)::before {
+    outline: 2px solid forms.$color-focus;
+    outline-offset: 2px;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    cursor: not-allowed;
+
+    &:checked {
+      opacity: forms.$disabled-opacity;
+    }
+
+    &:not(:checked) {
+      --color-background: #{forms.$input-color-background-readonly};
+      --color-border: #{forms.$input-color-border-readonly};
+    }
+  }
+}

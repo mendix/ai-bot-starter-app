@@ -1,0 +1,120 @@
+@use "sass:math";
+@use "../constants/color";
+@use "../constants/font-weight";
+@use "../constants/spacing";
+@use "../constants/size";
+@use "../constants/font-size";
+@use "../constants/forms";
+@use "../constants/animation";
+@use "../mixins/line-clamp" as *;
+@use "sass:map";
+@use "sass:list";
+
+$_height: size.$x24;
+$_hues: ("yellow", "violet", "red", "purple", "green", "blue", "grey");
+$_color-values: ("light", "medium", "dark");
+
+///
+/// Add common tag styling to elements within widgets
+/// @param {String} $variant ["grey"] One of ("yellow", "violet", "red", "purple", "green", "blue", "grey").
+/// @param {String} $variant ["light"] One of ("light", "medium", "dark").
+/// @param {Boolean} $interactive [false]
+/// @param {Boolean} $include-base [true]
+@mixin make-tag($hue: "grey", $color-value: "light", $interactive: false, $include-base: true) {
+  @if not list.index($_hues, $hue) {
+    @error "Unknown value for $hue. Use one of #{$_hues} instead.";
+  }
+  @if not list.index($_color-values, $color-value) {
+    @error "Unknown value for $color-value. Use one of #{$_color-values} instead.";
+  }
+
+  @if $hue == "grey" {
+    // Grey colors use a slightly different scheme for values
+    @if $color-value == "light" {
+      //
+      --color: var(--grey-9);
+      --background-color: var(--grey-3);
+      --background-color-hover: var(--grey-4);
+      --background-color-active: var(--grey-5);
+      //
+    } @else if $color-value == "medium" {
+      //
+      --color: var(--grey-10);
+      --background-color: var(--grey-5);
+      --background-color-hover: var(--grey-4);
+      --background-color-active: var(--grey-6);
+      //
+    } @else if $color-value == "dark" {
+      //
+      --color: var(--grey-0);
+      --background-color: var(--grey-9);
+      --background-color-hover: var(--grey-8);
+      --background-color-active: var(--grey-10);
+      //
+    }
+  } // All other colors use the same value scheme
+  @else if $color-value == "light" {
+    //
+    --color: var(--#{$hue}-10);
+    --background-color: var(--#{$hue}-1);
+    --background-color-hover: var(--#{$hue}-2);
+    --background-color-active: var(--#{$hue}-3);
+    //
+  } @else if $color-value == "medium" {
+    //
+    --color: var(--grey-10);
+    --background-color: var(--#{$hue}-3);
+    --background-color-hover: var(--#{$hue}-2);
+    --background-color-active: var(--#{$hue}-4);
+    //
+  } @else if $color-value == "dark" {
+    //
+    --color: var(--grey-0);
+    --background-color: var(--#{$hue}-9);
+    --background-color-hover: var(--#{$hue}-8);
+    --background-color-active: var(--#{$hue}-10);
+    //
+  }
+
+  @if $include-base {
+    align-items: center;
+    background-color: var(--background-color);
+    border-radius: $_height * 0.5;
+    border: 0;
+    color: var(--color);
+    display: inline-block;
+    font-size: font-size.$caption;
+    font-weight: font-weight.$default;
+    height: $_height;
+    line-height: $_height;
+    padding: 0 spacing.$sm;
+    text-decoration: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  @if $interactive {
+    cursor: pointer;
+    outline: solid 0 transparent;
+    outline-offset: 0;
+    transition-property: outline, outline-offset, background-color, color;
+    transition-duration: animation.$duration-fast;
+    transition-timing-function: animation.$timing-function-default;
+
+    &:hover {
+      background-color: var(--background-color-hover);
+    }
+
+    &:active {
+      background-color: var(--background-color-active);
+    }
+
+    &:focus:not(:active) {
+      background-color: var(--background-color);
+      outline: 2px solid forms.$color-focus;
+      outline-offset: 1px;
+    }
+  }
+}

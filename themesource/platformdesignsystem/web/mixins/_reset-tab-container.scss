@@ -1,0 +1,58 @@
+/// Reset a Tab Container widget instance to look like PDS.
+/// @param {Boolean} $reset-platform-ui to override platform.css -- check if you have it imported in your CSS. App newer than 4 years old? Likely not.
+/// @use place on a Tab Container widget.
+/// @tag tag-widget tag-tabs tag-pds-tabs
+
+@mixin reset-tab-container($reset-platform-ui) {
+  @if $reset-platform-ui {
+    .mx-tabcontainer-tabs {
+      margin-bottom: 0;
+      border-style: none;
+
+      li {
+        a {
+          font-weight: inherit;
+          padding: 0;
+          font-size: inherit;
+          color: inherit;
+          border-width: 0;
+          border-style: none;
+          border-color: transparent;
+
+          @media only screen and (max-width: 768px) {
+            padding: 0;
+          }
+          @media only screen and (max-width: 992px) {
+            padding: 0;
+          }
+
+          &:hover,
+          &:focus-visible {
+            color: inherit;
+            border: 0 none transparent;
+            background-color: transparent;
+          }
+        }
+
+        &.active > a,
+        &.active > a:hover,
+        &.active > a:focus-visible {
+          color: inherit;
+          border: 0 none transparent;
+          background-color: transparent;
+        }
+      }
+    }
+
+    .mx-tabcontainer-content {
+      clear: both;
+      border: none;
+      background-color: transparent;
+      padding: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0;
+      overflow: visible;
+    }
+  }
+}

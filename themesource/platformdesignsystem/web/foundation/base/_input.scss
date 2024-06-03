@@ -1,0 +1,14 @@
+@use "../../constants/spacing";
+@use "../../mixins/make-form-control" as *;
+@use "../../mixins/make-control-label" as *;
+
+:root {
+  .form-control {
+    @include make-form-control;
+    margin: 0 0 spacing.$md;
+  }
+
+  .control-label {
+    @include make-control-label;
+  }
+}

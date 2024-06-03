@@ -1,0 +1,25 @@
+@use "sass:meta";
+@use "sass:map";
+@use "sass:string";
+@use "sass:list";
+@use "generated/size";
+@forward "generated/size";
+
+// Load generated tokens as a map.
+$_tokens: meta.module-variables("size");
+
+// Remove the "x" from the key string.
+$_tokens-processed: ();
+@each $key, $value in $_tokens {
+  @if (string.index($key, "x") == 1) {
+    $new-key: string.slice($key, 2);
+    // Only change if the new key starts with number
+    @if list.index(("1", "2", "3", "4", "5", "6", "7", "8", "9", "0"), string.slice($new-key, 0, 1)) {
+      $key: $new-key;
+    }
+  }
+  $_tokens-processed: map.set($_tokens-processed, $key, $value);
+}
+
+/// A map of available generated tokens, with the "x" removed from key names.
+$map: $_tokens-processed; // ("720": 45rem, "640": 40rem, "560": 35rem, "480": 30rem, "400": 25rem, "320": 20rem, "240": 15rem, "192": 12rem, "160": 10rem, "128": 8rem, "96": 6rem, "80": 5rem, "64": 4rem, "48": 3rem, "40": 2.5rem, "32": 2rem, "24": 1.5rem, "20": 1.25rem, "16": 1rem)

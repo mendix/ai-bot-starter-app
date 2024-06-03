@@ -1,0 +1,45 @@
+/// Makes an element look like the pds-input-dropdown
+/// @tag tag-reset tag-pds-dropdown tag-folding tag-drop-out tag-context-menu
+
+@use "../constants/spacing";
+@use "../constants/forms";
+@use "reset-input" as *;
+@use "icon";
+
+@mixin make-dropdown {
+  @include reset-input;
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+
+  .control-label {
+    cursor: default;
+  }
+
+  &.form-group {
+    display: block;
+  }
+
+  .form-control {
+    appearance: none;
+    background-image: var(--iconDropdownArrow);
+    background-repeat: no-repeat;
+    background-position: right forms.$input-padding top 50%;
+    background-size: forms.$input-dropdown-icon-size auto;
+    padding-right: forms.$input-padding + forms.$input-dropdown-icon-size + spacing.$x8;
+    color: forms.$input-color-text;
+    text-overflow: ellipsis;
+
+    &:hover:not([disabled]) {
+      cursor: pointer;
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    > .caret {
+      display: none;
+    }
+  }
+}

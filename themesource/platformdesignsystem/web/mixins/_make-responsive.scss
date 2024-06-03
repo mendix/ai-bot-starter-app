@@ -1,0 +1,47 @@
+/// This can make any class responsive.
+/// @example
+/// .pds-display-block {
+///   @include mixins.make-responsive {
+///     display: block;
+///   }
+/// }
+/// @tag tag-mobile tag-screens tag-devices tag-small tag-monitor tag-tablet
+
+@use "../mixins/media-query";
+
+@mixin make-responsive {
+  $_root: &;
+
+  @content;
+
+  // The duplicate root class is used to add specificity to the media queries.
+  &\:xs#{$_root}\:xs {
+    @include media-query.for-phone-only {
+      @content;
+    }
+  }
+
+  &\:sm#{$_root}\:sm {
+    @include media-query.for-tablet-portrait-up {
+      @content;
+    }
+  }
+
+  &\:md#{$_root}\:md {
+    @include media-query.for-tablet-landscape-up {
+      @content;
+    }
+  }
+
+  &\:lg#{$_root}\:lg {
+    @include media-query.for-desktop-up {
+      @content;
+    }
+  }
+
+  &\:xl#{$_root}\:xl {
+    @include media-query.for-big-desktop-up {
+      @content;
+    }
+  }
+}

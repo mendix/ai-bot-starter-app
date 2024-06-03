@@ -1,0 +1,18 @@
+//@import "../../../atlas_core/web/core/helpers/slider-color-variant";
+.slider-ama {
+  .widget-slider {
+    margin-bottom: 0px;
+  }
+  .rc-slider-mark-text {
+    font-size: 0.875rem;
+  }
+  .rc-slider:not(.rc-slider-disabled) {
+    .rc-slider-track {
+      background-color: var(--colorPrimary);
+    }
+    .rc-slider-dot-active,
+    .rc-slider-handle:hover {
+      border-color: var(--colorPrimary);
+    }
+  }
+}

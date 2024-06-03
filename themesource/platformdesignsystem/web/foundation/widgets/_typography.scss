@@ -1,0 +1,51 @@
+@use "../../mixins";
+@use "../../constants/font";
+@use "../../constants/line-height";
+@use "../../constants/spacing";
+
+p {
+  line-height: line-height.$regular;
+  margin-bottom: spacing.$xs;
+}
+
+a,
+.mx-link {
+  @include mixins.make-link;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-display);
+  font-weight: font.$weight-thick;
+  margin-bottom: 0.5em;
+  line-height: line-height.$compact;
+}
+
+h1 {
+  font-family: font.$family-display;
+  font-size: font.$size-page-title-md;
+}
+
+h2 {
+  font-size: font.$size-heading-xl;
+}
+
+h3 {
+  font-size: font.$size-heading-lg;
+}
+
+h4 {
+  font-size: font.$size-heading-md;
+}
+
+h5 {
+  font-size: font.$size-heading-sm;
+}
+
+h6 {
+  font-size: font.$size-heading-xs;
+}

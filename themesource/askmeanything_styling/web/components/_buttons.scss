@@ -1,0 +1,31 @@
+.chat-input-wrapper .send-btn {
+  background: none;
+  &:hover {
+    background: var(--grey-4);
+  }
+}
+
+/* Fix for PDS button icons */
+#mxapp .pds-icon:where(:not(.pds-icon--after))::before,
+#mxapp .pds-icon--filled:where(:not(.pds-icon--after))::before,
+#mxapp .pds-icon--after::after {
+  font-family: var(--icon-font-family, "mx-icon") !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: var(--icon-size, 1.5rem);
+  color: var(--icon-color, inherit);
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: var(--icon-content);
+}
+
+#mxapp .mps-link-button--primary {
+  color: var(--background-button-fill-blue-default);
+  &:hover {
+    color: var(--background-button-fill-blue-hover);
+  }
+}

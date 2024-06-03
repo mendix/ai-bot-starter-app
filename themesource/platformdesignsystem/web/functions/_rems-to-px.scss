@@ -1,0 +1,23 @@
+/// Convert rem values to px.
+/// This is used as a shorthand for when you don't want to calculate the actual value in px.
+/// Pixels are not used in PDS because they don't always scale well when a user changes the browser's default font-size.
+/// @param {Number} $value (required) the rem value, either expressed as unitless or with rem units.
+/// @returns equivalent value in px
+/// @example width: rems-to-px(1rem); // returns 16px
+/// @tag tag-calculate-pixel tag-size tag-transform-pixels tag-use-rems tag-convert
+
+@use "sass:math";
+
+@function rems-to-px($value) {
+  $result: 0;
+
+  @if (unitless($value)) {
+    $result: $value * 16;
+  } @else if (unit($value) == "rem") {
+    $result: math.div($value, 1rem) * 16; // unitless
+  } @else {
+    @error "Value must be provided in rem or unitless.";
+  }
+
+  @return $result * 1px; // adds correct unit
+}

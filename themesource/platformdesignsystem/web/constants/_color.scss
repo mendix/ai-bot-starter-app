@@ -1,0 +1,54 @@
+@use "generated/theme-light";
+@use "generated/theme-dark";
+@use "sass:meta";
+@use "sass:map";
+@use "sass:list";
+@use "sass:string";
+
+// Global color constants
+$midnight: #0a1325;
+$brand-list: ("yellow", "violet", "red", "purple", "green", "blue");
+
+$_light: meta.module-variables("theme-light");
+$_dark: meta.module-variables("theme-dark");
+
+@function get-theme-as-map($theme) {
+  @return meta.module-variables("theme-#{$theme}");
+}
+
+@function get-value($theme: null, $name: null) {
+  // retrieve the color value from the given theme-as-map
+  $map: get-theme-as-map($theme);
+  @return map.get($map, $name);
+}
+
+@function _starts-with($string, $starts-with) {
+  @return string.index($string, $starts-with) == 1;
+}
+
+@function get-names($group: null, $filters: null) {
+  // returns a list of color names, helpful for utilities.
+  // optionally pass the name of a group (eg "blue", "border")
+  // $exclude: string or list of strings
+  $map: $_light; // assume default theme
+
+  @if $group {
+    @each $color, $_ in $map {
+      @if not _starts-with($color, $group) {
+        $map: map.remove($map, $color);
+      }
+    }
+  }
+
+  @if $filters {
+    @each $color, $_ in $map {
+      @each $filter in $filters {
+        @if string.index($color, $filter) {
+          $map: map.remove($map, $color);
+        }
+      }
+    }
+  }
+
+  @return map.keys($map);
+}

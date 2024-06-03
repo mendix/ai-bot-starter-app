@@ -1,0 +1,101 @@
+/// Style an input[type="radio"] element.
+/// Use within components to keep consistent radio styles.
+/// @see @mixin make-checkbox()
+/// @see .pds-input-radio
+/// @tag tag-radio tag-input tag-form
+
+@use "../constants/border-radius";
+@use "../constants/forms";
+@use "../constants/size";
+@use "../constants/spacing";
+@use "../constants/animation";
+
+$_size: size.$x16;
+$_hover-bleed: spacing.$sm;
+$_hover-size: $_size + $_hover-bleed * 2;
+
+@mixin make-radio {
+  // Base rules to define the hover area
+  appearance: none;
+  height: $_size;
+  width: $_size;
+  margin: 0;
+  position: relative;
+  padding: 0;
+  outline: none;
+  border: 0;
+  border-radius: 100%;
+  background: transparent;
+  cursor: pointer;
+  transition-property: outline, outline-offset;
+  transition-duration: animation.$duration-fast;
+  transition-timing-function: animation.$timing-function-default;
+
+  // The visual radio button
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: forms.$input-color-background;
+    border: 1px solid forms.$input-color-border;
+    width: $_size;
+    height: $_size;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 transparent;
+    transition-property: box-shadow, outline, outline-offset, background-color, border-color;
+    transition-duration: animation.$duration-fast;
+    transition-timing-function: animation.$timing-function-default;
+  }
+
+  // The dot within the radio button to indicate checked
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: $_size * 0.5;
+    width: $_size * 0.5;
+    border-radius: 50%;
+    background-color: forms.$color-background-selector-selected;
+    pointer-events: none;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform animation.$timing-function-default animation.$duration-fast;
+  }
+
+  &:hover::before {
+    border-color: forms.$color-border-selector-hover;
+  }
+
+  &:active::before {
+    border-color: forms.$color-border-selector-active;
+  }
+
+  &:checked {
+    &::before {
+      border-color: forms.$color-border-selector-selected;
+    }
+
+    &::after {
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  &:focus-visible:not(:active)::before {
+    outline: 2px solid forms.$color-focus;
+    outline-offset: 2px;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+
+    &:checked {
+      opacity: forms.$disabled-opacity;
+    }
+
+    &:not(:checked)::before {
+      background-color: forms.$input-color-background-readonly;
+      border-color: forms.$input-color-border-readonly;
+    }
+  }
+}

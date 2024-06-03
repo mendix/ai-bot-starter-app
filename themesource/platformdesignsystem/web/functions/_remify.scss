@@ -1,0 +1,32 @@
+/// @function remify
+/// - This function will parse complex property values and convert any number with px unit to rems. Inspired by https://github.com/pierreburel/sass-rem
+/// @param { number | list | * } $values... - any value or list of values, mixed or otherwise
+/// @example
+/// @use "functions";
+/// font-size: functions.remify(24px); // Simple
+/// padding: functions.remify(5px 10px); // Multiple values
+/// border-bottom: functions.remify(1px solid black); // Multiple mixed values
+/// box-shadow: functions.remify(0 0 2px #ccc, inset 0 0 5px #eee); // Comma-separated values
+/// @see mixins/remify
+
+@use "sass:list";
+@use "sass:meta";
+@use "sass:math";
+
+@function remify($values...) {
+  $result: ();
+  $separator: list.separator($values);
+  $baseline: 16px;
+
+  @each $value in $values {
+    @if meta.type-of($value) == "number" and math.unit($value) == "px" {
+      $result: list.append($result, math.div($value, $baseline) * 1rem, $separator);
+    } @else if meta.type-of($value) == "list" {
+      $result: list.append($result, remify($value...), $separator);
+    } @else {
+      $result: list.append($result, $value, $separator);
+    }
+  }
+
+  @return if(list.length($result) == 1, list.nth($result, 1), $result);
+}

@@ -1,0 +1,99 @@
+///
+/// This mixin created as a constructor so that widget styling may inherit icon button styles.
+/// @deprecated Use make-icon-button() instead and test results.
+/// @param {Boolean} $include-base [true] will output the base styles. BEM modifiers should pass false, since they already inherit base styles.
+/// @param {String} $type. One of "primary", "secondary", "danger" or "disabled".
+/// @example @include mixins.make-button-icon;
+/// @example @include mixins.make-button-icon(false, "primary");
+/// @tag tag-button tag-icon tag-actions tag-icon-on-button tag-include-icon
+
+@use "../constants/spacing";
+@use "../constants/forms";
+@use "../constants/animation";
+
+@mixin make-button-icon($include-base: true, $type: null) {
+  @if ($include-base) {
+    box-shadow: none; // Bootstrap override
+    background-color: transparent;
+    border: 0;
+    padding: spacing.$xs;
+    cursor: pointer;
+    transition: {
+      property: outline, outline-offset, background-color, color, border;
+      duration: animation.$duration-default;
+      timing-function: animation.$timing-function-default;
+    }
+
+    &,
+    &:focus {
+      outline: {
+        style: solid;
+        width: forms.$focus-border-width;
+        color: transparent;
+        offset: forms.$focus-border-width;
+      }
+    }
+
+    &:active {
+      box-shadow: none;
+      appearance: none;
+    }
+
+    &:focus-visible {
+      outline: {
+        color: forms.$color-focus;
+      }
+    }
+  }
+
+  @if ($type == "primary") {
+    &,
+    &:focus {
+      color: var(--text-button-text-blue-default);
+    }
+
+    &:hover {
+      color: var(--text-button-text-blue-hover);
+    }
+
+    &:active {
+      color: var(--text-button-text-blue-active);
+    }
+  } @else if ($type == "secondary") {
+    &,
+    &:focus {
+      color: var(--text-button-text-grey-default);
+    }
+
+    &:hover {
+      color: var(--text-button-text-grey-hover);
+    }
+
+    &:active {
+      color: var(--text-button-text-grey-active);
+    }
+  } @else if ($type == "danger") {
+    &,
+    &:focus {
+      color: var(--text-button-text-red-default);
+    }
+
+    &:hover {
+      color: var(--text-button-text-red-hover);
+    }
+
+    &:active {
+      color: var(--text-button-text-red-active);
+    }
+  } @else if ($type == "disabled") {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      opacity: forms.$disabled-opacity;
+      cursor: default;
+    }
+  } @else if ($type != null) {
+    @warn "Unknown type passed to make-button-icon: #{$type}";
+  }
+}

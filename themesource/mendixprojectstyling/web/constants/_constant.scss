@@ -1,0 +1,15 @@
+/// This is the place where all constants are stored that can be used over
+/// multiple files. An example could be a specific width you need to use
+/// more than once.
+/// It's allowed to store all constants in a single file or split them out.
+/// It's recommended to put the type of constants first so it's easier to
+/// scan lists of similar constants.
+
+/// @example $width-special: 30.5rem;
+///
+///          Use in other files as follows:
+///          @use "../constants/constants";
+///
+///          .mps-example {
+///            width: constants.$width-special;
+///          }

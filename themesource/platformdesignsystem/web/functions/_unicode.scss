@@ -1,0 +1,7 @@
+/// In generate-icons the escaping of some characters is reversed.
+/// This function makes sure the characters are compiled as escaped.
+/// @tag tag-utf8 tag-character tag-encoding
+
+@function unicode($str) {
+  @return unquote('"') + unquote(str-insert($str, "\\", 1)) + unquote('"');
+}

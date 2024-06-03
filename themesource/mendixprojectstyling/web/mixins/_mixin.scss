@@ -1,0 +1,19 @@
+/// Only add mixins to this file. Mixins can be called from all other files.
+/// A mixin returns SCSS styling so it's mostly used to not repeat yourself.
+/// It's allowed to split this file up into multiple mixin files.
+/// When possible use the constants, functions and mixins in PDS. They can be
+/// found in `platformdesignsystem/web/[constants/functions/mixins]`
+/// Ask the PDS team about more info.
+
+/// Example mixin:
+/// @mixin example($parameter) {
+///   width: $parameter * 2;
+/// }
+
+/// Call a mixin as follows in other files:
+/// @use "mixins/mixin";
+/// .example {
+///   mixin.example($parameter);
+/// }
+
+/// Mixins go here

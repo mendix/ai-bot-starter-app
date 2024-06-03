@@ -1,0 +1,16 @@
+/// Foundations are styles directly without putting any extra classes on widgets
+/// The benefit is that all widgets will automatically behave the same. The
+/// drawback is that it becomes more difficult to make adjustments. PDS uses the
+/// BEM system to style components in such a way that it's easy to make
+/// adjustments allowing for more flexibility.
+/// Because you cannot add extra classes on the widget you are often directly
+/// competing with Atlas UI CSS. Don't use !important to override other styling,
+/// This will cause issues when you want to make changes later.
+/// It's allowed to store all foundations in a single file or split them out.
+/// It's also important to load the file in _mps.scss after you have created it.
+/// When possible use the constants, functions and mixins in PDS. They can be
+/// found in `platformdesignsystem/web/[constants/functions/mixins]`
+
+/// @example .mx-progress {
+///            width: 100%;
+///          }

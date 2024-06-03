@@ -1,0 +1,43 @@
+@use "generated/font-size";
+
+// font family
+$family-regular: "noto-sans", sans-serif;
+$family-display: "Patron", $family-regular;
+$family-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+// font sizes
+$size-body: font-size.$x14;
+$size-body-sm: font-size.$x12;
+$size-body-lg: font-size.$x16;
+//
+$size-page-title-xl: font-size.$x56;
+$size-page-title-lg: font-size.$x40;
+$size-page-title-md: font-size.$x32;
+$size-page-title-sm: font-size.$x24;
+//
+$size-heading-xxl: font-size.$x24;
+$size-heading-xl: font-size.$x22;
+$size-heading-lg: font-size.$x20;
+$size-heading-md: font-size.$x18;
+$size-heading-sm: font-size.$x16;
+$size-heading-xs: font-size.$x14;
+//
+$size-caption: font-size.$x12;
+
+$sizes: (
+  56: font-size.$x56,
+  40: font-size.$x40,
+  32: font-size.$x32,
+  28: font-size.$x28,
+  24: font-size.$x24,
+  22: font-size.$x22,
+  20: font-size.$x20,
+  18: font-size.$x18,
+  16: font-size.$x16,
+  14: font-size.$x14,
+  12: font-size.$x12,
+);
+
+// font weight
+$weight-default: 400;
+$weight-thick: 600;

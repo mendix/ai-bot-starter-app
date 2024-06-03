@@ -1,0 +1,14 @@
+.chat-container-ama {
+  min-width: 600px;
+}
+
+//copied from SynthiaUI, as SynthiaUI is not a UI resources module and the 
+//compilation order cannot be set
+.chat-input-wrapper .form-group .form-control {
+  max-height: 400px !important;
+  overflow-y: auto !important;
+}
+
+.chat-input-wrapper .send-btn.mx-button {
+  right: 28px;
+}

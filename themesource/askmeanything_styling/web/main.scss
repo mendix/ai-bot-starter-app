@@ -1,0 +1,16 @@
+@import '../../../theme/web/custom-variables';
+
+@import 'abstracts/all';
+@import 'components/all';
+@import 'layouts/all';
+
+
+.region-topbar {
+    background-color: #264ae5 !important;
+}
+
+body {
+    background-color: white !important;
+}
+
+

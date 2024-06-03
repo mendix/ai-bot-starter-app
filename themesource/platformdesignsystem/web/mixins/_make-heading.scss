@@ -1,0 +1,37 @@
+/// Used to make an element a header text using Noto Sans.
+/// @see pds/constants/font-size for the available options.
+/// @see make-display for special display texts using Patron.
+/// @example @include mixins.make-heading(32);
+/// @tag tag-font-size tag-header tag-set-header-size tag-include-header tag-display-text tag-text tag-title tag-page-title
+
+@use "../constants/line-height";
+@use "../constants/font-weight";
+@use "make-text" as mixin;
+
+@mixin make-heading($size, $line-height: line-height.$compact, $margin-bottom: 0.5em, $font-smoothing: false) {
+  @include mixin.make-text($size, var(--text-display), font-weight.$thick, $font-smoothing, $line-height, $margin-bottom);
+}
+
+@mixin make-h1 {
+  @include make-heading(32, $margin-bottom: 1em);
+}
+
+@mixin make-h2 {
+  @include make-heading(24);
+}
+
+@mixin make-h3 {
+  @include make-heading(20);
+}
+
+@mixin make-h4 {
+  @include make-heading(18);
+}
+
+@mixin make-h5 {
+  @include make-heading(16);
+}
+
+@mixin make-h6 {
+  @include make-heading(14);
+}

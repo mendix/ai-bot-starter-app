@@ -1,0 +1,101 @@
+//
+// DISCLAIMER:
+// Do not change this file because it is core styling.
+// Customizing core files will make updating Atlas much more difficult in the future.
+// To customize any core styling, copy the part you want to customize to styles/web/sass/app/ so the core styling is overwritten.
+//
+
+/* ==========================================================================
+     Tab Container
+
+     Default Mendix Tab Container Widget. Tab containers are used to show information categorized into multiple tab pages.
+     This can be very useful if the amount of information that has to be displayed is larger than the amount of space on the screen
+  ========================================================================== */
+
+@use "../../constants/font-weight";
+@use "../../functions";
+
+:root {
+  .mx-tabcontainer {
+    .mx-tabcontainer-tabs {
+      overflow-x: auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      position: relative;
+      border-bottom: 1px solid var(--colorMirrorMidnight-10);
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+      scrollbar-width: none;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      > li {
+        font-size: functions.font-size(14);
+        font-weight: font-weight.$thick;
+        margin: 0.5rem 0 0;
+        padding: 0.25rem 0 0;
+        width: auto;
+        border: 0;
+        white-space: nowrap;
+        float: none;
+
+        a {
+          display: inline-block;
+          font-size: inherit;
+          font-weight: inherit;
+          background-color: var(--colorTransparent);
+          border: none;
+          color: var(--colorTextTab);
+          padding: 0.5rem 1rem 1rem;
+          border-bottom: 0.125rem solid var(--colorTransparent);
+          text-decoration: none;
+
+          &:hover {
+            color: var(--colorMirrorMidnight);
+          }
+
+          &:focus-visible {
+            outline: 1px dotted var(--colorPrimary);
+            outline-offset: -0.125rem;
+          }
+        }
+
+        &.active {
+          a {
+            border-bottom-color: var(--colorMirrorMidnight);
+            color: var(--colorTextPrimary);
+            font-weight: inherit;
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+
+        .mx-tabcontainer-indicator {
+          background: var(--colorDangerOnBackgroundLighter);
+          color: var(--colorDangerDarker);
+          font-size: functions.font-size(12);
+          top: 1rem;
+        }
+      }
+    }
+  }
+
+  // .mx-tabcontainer-badge {
+  //   margin-left: $spacing-small;
+  //   border-radius: $font-size-small;
+  //   background-color: $label-primary-bg;
+  //   color: $label-primary-color;
+  //   font-size: $font-size-small;
+  //   font-weight: $font-weight-bold;
+  //   line-height: 1;
+  //   padding: $spacing-small/2 $spacing-small;
+  // }
+}

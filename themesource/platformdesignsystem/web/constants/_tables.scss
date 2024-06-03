@@ -1,0 +1,20 @@
+// Variables associated with tables
+@use "spacing";
+@use "font-weight";
+@use "../functions";
+@use "../constants/color";
+
+// General
+$font-size-table: functions.font-size(14);
+$font-weight-table-header: font-weight.$thick;
+
+// Colors
+$color-table-border: var(--border-table-default);
+$color-table-header: var(--background-table-header-default);
+$color-table-body: var(--background-table-cell-default);
+$color-table-row-hover: var(--background-table-cell-hover);
+$color-table-row-selected: var(--background-table-cell-selected);
+
+// Spacing
+$padding-table-cell: spacing.$sm;
+$padding-table-cell-extra: spacing.$md;

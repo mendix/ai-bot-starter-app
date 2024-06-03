@@ -1,0 +1,31 @@
+/// Utilities are used to make small changes to widgets. The main drawback of
+/// utilities in Studio Pro is that it's only possible to add a class to the
+/// most outer element in HTML. However in Mendix a lot of widgets have multiple
+/// layers of HTML to create a single widget.
+/// Nevertheless utilities can be very useful to change sizing, position, color
+/// and more.
+/// Utilities only change a single css property. This is to make sure they are
+/// as reusable as possible. PDS has many utilities to choose from so make sure
+/// to check them out before creating a new one.
+/// All PDS components and utilities are prepended with `pds-`. All your classes
+/// will be prepended with `mps-`. This is done to mark them as something you
+/// wrote yourself. This is because Mendix has many places where CSS can come
+/// from like widgets and other modules.
+/// Utilities other than components to not use BEM.
+/// All files are also encapsulated with `#mxapp {}` to make sure your styling
+/// takes precendence over other styling.
+/// It's also important to load the file in _mps.scss after you have created it.
+/// When possible use the constants, functions and mixins in PDS. They can be
+/// found in `platformdesignsystem/web/[constants/functions/mixins]`
+
+/// @example #mxapp {
+///            .mps-color {
+///              &-blue {
+///                color: blue;
+///              }
+///
+///              &-red {
+///                color: red;
+///              }
+///            }
+///          }

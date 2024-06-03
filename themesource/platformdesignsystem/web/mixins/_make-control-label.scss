@@ -1,0 +1,25 @@
+/// Ensures consistent styling for control labels.
+/// Use this mixin on elements with class `.control-label` within custom styles for forms widgets.
+/// @example scss
+///  @use ".src/pds/mixins";
+///
+///  .mps-awesome-input {
+///    .control-label {
+///      @include mixins.make-control-label;
+///    }
+///  }
+/// @tag tag-forms tag-label
+
+@use "../constants/forms";
+
+@mixin make-control-label {
+  color: forms.$label-color;
+  font-size: forms.$label-font-size;
+  font-weight: forms.$label-font-weight;
+  margin-bottom: forms.$label-margin;
+  text-align: left;
+  padding: 0;
+  float: none;
+  display: block;
+  line-height: forms.$label-line-height;
+}
