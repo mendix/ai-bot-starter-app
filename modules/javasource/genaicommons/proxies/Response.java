@@ -70,6 +70,12 @@ public class Response implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 */
 	public static genaicommons.proxies.Response initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
+		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.AnthropicClaudeResponse", mendixObject.getType())) {
+			return amazonbedrockconnector.proxies.AnthropicClaudeResponse.initialize(context, mendixObject);
+		}
+		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.TitanTextResponse", mendixObject.getType())) {
+			return amazonbedrockconnector.proxies.TitanTextResponse.initialize(context, mendixObject);
+		}
 		return new genaicommons.proxies.Response(context, mendixObject);
 	}
 

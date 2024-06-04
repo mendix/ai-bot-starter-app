@@ -66,6 +66,9 @@ public class Connection implements com.mendix.systemwideinterfaces.core.IEntityP
 	 */
 	public static genaicommons.proxies.Connection initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
+		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.AmazonBedrockConnection", mendixObject.getType())) {
+			return amazonbedrockconnector.proxies.AmazonBedrockConnection.initialize(context, mendixObject);
+		}
 		if (com.mendix.core.Core.isSubClassOf("OpenAIConnector.OpenAIConnection", mendixObject.getType())) {
 			return openaiconnector.proxies.OpenAIConnection.initialize(context, mendixObject);
 		}

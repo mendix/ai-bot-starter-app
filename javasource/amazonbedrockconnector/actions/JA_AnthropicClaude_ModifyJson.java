@@ -21,12 +21,15 @@ import amazonbedrockconnector.proxies.ENUM_MessageType_AnthropicClaude;
 
 public class JA_AnthropicClaude_ModifyJson extends CustomJavaAction<java.lang.String>
 {
-	private java.lang.String AnthropicClaudeRequest_Json;
+	private final java.lang.String AnthropicClaudeRequest_Json;
 
-	public JA_AnthropicClaude_ModifyJson(IContext context, java.lang.String AnthropicClaudeRequest_Json)
+	public JA_AnthropicClaude_ModifyJson(
+		IContext context,
+		java.lang.String _anthropicClaudeRequest_Json
+	)
 	{
 		super(context);
-		this.AnthropicClaudeRequest_Json = AnthropicClaudeRequest_Json;
+		this.AnthropicClaudeRequest_Json = _anthropicClaudeRequest_Json;
 	}
 
 	@java.lang.Override
