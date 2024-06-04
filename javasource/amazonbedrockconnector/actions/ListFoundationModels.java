@@ -31,34 +31,27 @@ import software.amazon.awssdk.services.bedrock.BedrockClient;
 
 public class ListFoundationModels extends CustomJavaAction<IMendixObject>
 {
-	/** @deprecated use Credentials.getMendixObject() instead. */
-	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __Credentials;
-	private final awsauthentication.proxies.Credentials Credentials;
-	private final awsauthentication.proxies.ENUM_Region Region;
-	/** @deprecated use ListFoundationModelsRequest.getMendixObject() instead. */
-	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __ListFoundationModelsRequest;
-	private final amazonbedrockconnector.proxies.ListFoundationModelsRequest ListFoundationModelsRequest;
+	private IMendixObject __Credentials;
+	private awsauthentication.proxies.Credentials Credentials;
+	private awsauthentication.proxies.ENUM_Region Region;
+	private IMendixObject __ListFoundationModelsRequest;
+	private amazonbedrockconnector.proxies.ListFoundationModelsRequest ListFoundationModelsRequest;
 
-	public ListFoundationModels(
-		IContext context,
-		IMendixObject _credentials,
-		java.lang.String _region,
-		IMendixObject _listFoundationModelsRequest
-	)
+	public ListFoundationModels(IContext context, IMendixObject Credentials, java.lang.String Region, IMendixObject ListFoundationModelsRequest)
 	{
 		super(context);
-		this.__Credentials = _credentials;
-		this.Credentials = _credentials == null ? null : awsauthentication.proxies.Credentials.initialize(getContext(), _credentials);
-		this.Region = _region == null ? null : awsauthentication.proxies.ENUM_Region.valueOf(_region);
-		this.__ListFoundationModelsRequest = _listFoundationModelsRequest;
-		this.ListFoundationModelsRequest = _listFoundationModelsRequest == null ? null : amazonbedrockconnector.proxies.ListFoundationModelsRequest.initialize(getContext(), _listFoundationModelsRequest);
+		this.__Credentials = Credentials;
+		this.Region = Region == null ? null : awsauthentication.proxies.ENUM_Region.valueOf(Region);
+		this.__ListFoundationModelsRequest = ListFoundationModelsRequest;
 	}
 
 	@java.lang.Override
 	public IMendixObject executeAction() throws Exception
 	{
+		this.Credentials = this.__Credentials == null ? null : awsauthentication.proxies.Credentials.initialize(getContext(), __Credentials);
+
+		this.ListFoundationModelsRequest = this.__ListFoundationModelsRequest == null ? null : amazonbedrockconnector.proxies.ListFoundationModelsRequest.initialize(getContext(), __ListFoundationModelsRequest);
+
 		// BEGIN USER CODE
 		try {
 			// Validating JA input parameters
