@@ -12,15 +12,14 @@ package pdfextraction.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.core.Core;
+import java.io.InputStream;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.apache.pdfbox.text.PDFTextStripper;
-import java.io.InputStream;
-import java.lang.System.Logger;
 import pdfextraction.proxies.PDFContent;
-import system.proxies.FileDocument;
-import com.mendix.core.Core;
 import pdfextraction.impl.MxLogger;
+import system.proxies.FileDocument;
 
 public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 {
@@ -55,7 +54,7 @@ public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 			PDFTextStripper pdfTextStripper = new PDFTextStripper();
 			PDDocumentInformation pdfMetaData = pdfdocument.getDocumentInformation();
 			
-			//Populate PDF data
+			//Populate output object with PDF data
 			pdfContent.setContent(pdfTextStripper.getText(pdfdocument));
 			pdfContent.setAuthor(pdfMetaData.getAuthor());
 			pdfContent.setKeywords(pdfMetaData.getKeywords());
