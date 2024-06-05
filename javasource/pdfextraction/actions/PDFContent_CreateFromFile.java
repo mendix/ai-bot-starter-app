@@ -16,8 +16,11 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.apache.pdfbox.text.PDFTextStripper;
 import java.io.InputStream;
+import java.lang.System.Logger;
 import pdfextraction.proxies.PDFContent;
+import system.proxies.FileDocument;
 import com.mendix.core.Core;
+import pdfextraction.impl.MxLogger;
 
 public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 {
@@ -40,19 +43,31 @@ public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 	public IMendixObject executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		PDFContent pdfContent = new PDFContent(getContext());
+		if (!Document.getHasContents()) {
+			throw new Exception("File contents is required.");
+		}
+		if(!isPDFFile(Document)) {
+			throw new Exception("Only PDF files can be passed.");
+		}
 		try(InputStream inputStream = Core.getFileDocumentContent(getContext(), Document.getMendixObject())){
+			PDFContent pdfContent = new PDFContent(getContext());
 			PDDocument pdfdocument = PDDocument.load(inputStream);
 			PDFTextStripper pdfTextStripper = new PDFTextStripper();
-			pdfContent.setContent(pdfTextStripper.getText(pdfdocument));
 			PDDocumentInformation pdfMetaData = pdfdocument.getDocumentInformation();
+			
+			//Populate PDF data
+			pdfContent.setContent(pdfTextStripper.getText(pdfdocument));
 			pdfContent.setAuthor(pdfMetaData.getAuthor());
 			pdfContent.setKeywords(pdfMetaData.getKeywords());
 			pdfContent.setTitle(pdfMetaData.getTitle());
 			pdfContent.setSubject(pdfMetaData.getSubject());
 			pdfContent.setModificationDate(pdfMetaData.getModificationDate().getTime());
+			return pdfContent.getMendixObject();
 		}
-		return pdfContent.getMendixObject();
+		catch (Exception e) {
+			LOGGER.error(e.getMessage());
+			throw e;
+		}
 		// END USER CODE
 	}
 
@@ -67,5 +82,10 @@ public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 	}
 
 	// BEGIN EXTRA CODE
+		private static final MxLogger LOGGER = new MxLogger(PDFContent_CreateFromFile.class);
+		
+		private boolean isPDFFile(FileDocument document) {
+			return "pdf".equals(document.getName().substring(document.getName().lastIndexOf('.')+1));
+		}
 	// END EXTRA CODE
 }
