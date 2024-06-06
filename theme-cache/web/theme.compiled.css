@@ -2964,6 +2964,647 @@
   margin: 8px 0 0 0;
 }
 
+/* 
+    ==| Variables |=========================================================================================
+*/
+/* 
+    ==| Widget blocks |=====================================================================================
+    These blocks contains styles directly related to the widget's appearance and are mostly unique styles
+    needed to display the widget's UI correctly.
+*/
+.mxfeedback-lightbox {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000002;
+}
+.mxfeedback-lightbox__image {
+  margin: auto;
+  display: block;
+  max-width: 70%;
+}
+@media only screen and (min-width: 768px) {
+  .mxfeedback-lightbox__image {
+    max-width: calc(100% - 16px);
+  }
+}
+.mxfeedback-lightbox .mxfeedback-close-button__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.mxfeedback-start-button {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%) rotate(270deg);
+  transform-origin: bottom center;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px 4px 0 0;
+  background-color: #264ae5;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: -2px 0 4px 0 rgba(0, 0, 0, 0.3);
+  z-index: 999998;
+}
+.mxfeedback-start-button:focus, .mxfeedback-start-button:hover {
+  background-color: #1e3bb7;
+}
+
+.mxfeedback-annotation-canvas {
+  z-index: 1000003;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.mxfeedback-annotation-canvas__canvas {
+  position: fixed;
+  margin-top: 48px;
+}
+
+.mxfeedback-annotation-frame {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000004;
+}
+
+.mxfeedback-failed__message {
+  align-self: center;
+  margin: 8px;
+}
+.mxfeedback-failed__error-image {
+  margin-top: 30px;
+}
+
+.mxfeedback-result__result-image {
+  align-self: center;
+  width: auto;
+  max-width: 50%;
+}
+.mxfeedback-result .mxfeedback-dialog__body-text {
+  margin: auto;
+}
+.mxfeedback-result__result-image {
+  margin-top: 30px;
+}
+
+.mxfeedback-feedback-form__cancel-button {
+  border: 0;
+}
+
+/* 
+    ==| Generic blocks |====================================================================================
+    These blocks are generic blocks. These styles are styles that apply to the widget's entire UI and
+    outline the basic styles of the widget (in accordance with Atlas UI).
+*/
+.mxfeedback-dialog {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  width: 560px;
+  max-width: calc(100% - 40px);
+  max-height: calc(100% - 40px);
+  background-color: #fff;
+  border: 1px solid #ced0d3;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden auto;
+  z-index: 1000001;
+}
+.mxfeedback-dialog__title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 120%;
+  margin: 0 0 16px;
+  color: #0a1325;
+  align-self: center;
+}
+
+.mxfeedback-underlay {
+  inset: 0;
+  z-index: 1000001;
+}
+
+.mxfeedback-close-button {
+  right: 16px;
+  top: 12px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+}
+.mxfeedback-close-button__icon {
+  width: 12px;
+  height: 12px;
+  color: #0a1325;
+  stroke: #0a1325;
+}
+.mxfeedback-close-button--white > .mxfeedback-close-button__icon {
+  fill: #fff;
+}
+
+.mxfeedback-toolbar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px 32px;
+  background-color: #fff;
+  border: 1px solid #ced0d3;
+  border-radius: 4px;
+  font-size: 12px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1000004;
+}
+.mxfeedback-toolbar--gap-md {
+  gap: 16px;
+}
+.mxfeedback-toolbar--gap-lg {
+  gap: 32px;
+}
+
+.mxfeedback-tool-button {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.mxfeedback-tool-button--active {
+  color: #264ae5;
+}
+.mxfeedback-tool-button:focus-visible {
+  color: #1e3bb7;
+}
+.mxfeedback-tool-button__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mxfeedback-tool-button__icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+.mxfeedback-tool-button__label {
+  margin-top: 4px;
+  color: inherit;
+}
+.mxfeedback-tool-button__caret {
+  fill: #0a1325;
+  width: 8px;
+  height: 8px;
+}
+.mxfeedback-tool-button__dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.mxfeedback-tool-button__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #ced0d3;
+  border-radius: 4px;
+  width: 144px;
+  z-index: 1;
+}
+.mxfeedback-tool-button__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: calc(8px / 2);
+}
+.mxfeedback-tool-button__list--col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.mxfeedback-tool-button__color {
+  position: relative;
+  padding: 0;
+  border: none;
+  border-radius: 100%;
+  aspect-ratio: 1/1;
+}
+.mxfeedback-tool-button__color:focus {
+  outline: 2px solid #264ae5;
+  outline-offset: 2px;
+}
+.mxfeedback-tool-button__color--midnight {
+  background-color: #2f3646;
+}
+.mxfeedback-tool-button__color--grey {
+  background-color: #c1c3c8;
+}
+.mxfeedback-tool-button__color--green {
+  background-color: #4fd84f;
+}
+.mxfeedback-tool-button__color--blue {
+  background-color: #47a9ff;
+}
+.mxfeedback-tool-button__color--purple {
+  background-color: #845eff;
+}
+.mxfeedback-tool-button__color--magenta {
+  background-color: #ca49f8;
+}
+.mxfeedback-tool-button__color--red {
+  background-color: #fb4a4c;
+}
+.mxfeedback-tool-button__color--yellow {
+  background-color: #fcc73a;
+}
+.mxfeedback-tool-button__color svg {
+  width: 10px;
+  height: 10px;
+  stroke: #fff;
+}
+.mxfeedback-tool-button__thickness {
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  aspect-ratio: 4/3;
+}
+.mxfeedback-tool-button__thickness:hover {
+  background-color: #a9acb3;
+}
+.mxfeedback-tool-button__thickness:focus {
+  outline: 2px solid #264ae5;
+  outline-offset: 2px;
+}
+.mxfeedback-tool-button__thickness--selected {
+  background-color: #787d87;
+}
+.mxfeedback-tool-button__thickness::before {
+  content: "";
+  display: block;
+  background-color: #2f3646;
+  width: 100%;
+  transform: rotate(-45deg);
+}
+.mxfeedback-tool-button__thickness--one::before {
+  height: 1px;
+}
+.mxfeedback-tool-button__thickness--two::before {
+  height: 2px;
+}
+.mxfeedback-tool-button__thickness--three::before {
+  height: 3px;
+}
+.mxfeedback-tool-button__thickness--four::before {
+  height: 4px;
+}
+.mxfeedback-tool-button__thickness--five::before {
+  height: 5px;
+}
+.mxfeedback-tool-button__thickness--six::before {
+  height: 6px;
+}
+
+.mxfeedback-label-group {
+  display: flex;
+  align-items: center;
+  gap: calc(8px / 2);
+  margin-bottom: 4px;
+}
+.mxfeedback-label-group__label.control-label {
+  margin-bottom: 0;
+}
+
+.mxfeedback-button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.mxfeedback-button-group--screenshot-container {
+  flex-direction: row-reverse;
+}
+.mxfeedback-button-group--gap-md {
+  gap: 16px;
+}
+.mxfeedback-button-group--gap-lg {
+  gap: 32px;
+}
+.mxfeedback-button-group--justify-start {
+  justify-content: flex-start;
+}
+.mxfeedback-button-group--justify-center {
+  justify-content: center;
+}
+.mxfeedback-button-group--row-xs {
+  flex-direction: column;
+}
+@media only screen and (min-width: 768px) {
+  .mxfeedback-button-group--row-xs {
+    flex-direction: row;
+  }
+}
+
+.mxfeedback-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.mxfeedback-button svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.mxfeedback-screenshot-preview {
+  position: relative;
+  margin: 20px auto;
+  height: 192px;
+  cursor: pointer;
+}
+.mxfeedback-screenshot-preview__image {
+  display: block;
+  object-fit: contain;
+  height: 100%;
+  aspect-ratio: 16/9;
+  border: 1px solid #787d87;
+  border-radius: 4px;
+}
+.mxfeedback-screenshot-preview__overlay {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  opacity: 0;
+  transition: 0.3s ease;
+  background-color: #0a1325;
+  border: 1px solid #474e5c;
+  border-radius: 4px;
+}
+.mxfeedback-screenshot-preview__overlay:hover {
+  opacity: 0.5;
+}
+.mxfeedback-screenshot-preview__overlay:focus-visible {
+  opacity: 0.5;
+}
+.mxfeedback-screenshot-preview__preview-icon {
+  width: 20px;
+  height: 20px;
+  fill: #f8f8f8;
+}
+.mxfeedback-screenshot-preview__delete-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 20px;
+  height: 20px;
+  stroke: #474e5c;
+  fill: #f8f8f8;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.mxfeedback-tooltip {
+  display: flex;
+  position: relative;
+}
+.mxfeedback-tooltip__icon {
+  width: 16px;
+  height: 16px;
+}
+.mxfeedback-tooltip__icon:hover ~ .mxfeedback-tooltip__tip {
+  visibility: visible;
+}
+.mxfeedback-tooltip__tip {
+  visibility: hidden;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: calc(50% - 32px);
+  width: 240px;
+  max-width: calc(100vw - 32px);
+  padding: 6px 8px;
+  margin-bottom: 0;
+  border-radius: 2px;
+  background-color: #0a1325;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+  z-index: 1;
+  transition: visibility 100ms ease-in-out;
+}
+.mxfeedback-tooltip__tip::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 32px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background-color: inherit;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+  Take picture styles
+========================================================================== */
+.take-picture-wrapper {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  /* Should be higher than the the video. */
+  z-index: 111;
+}
+
+.take-picture-video-element {
+  position: absolute;
+  /* Should be higher than the z-index of '.layout-atlas .region-sidebar' so it sits on top of the page. */
+  z-index: 110;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.take-picture-action-control-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  /* should be higher than the video. */
+  z-index: 111;
+  margin-bottom: 74px;
+}
+
+.take-picture-action-switch-control-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  /* should be higher than the video. */
+  z-index: 111;
+  margin-bottom: 74px;
+}
+
+.take-picture-close-control-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  /* should be higher than the video. */
+  z-index: 111;
+}
+
+.take-picture-action-control {
+  background-color: transparent;
+  border-style: none;
+  padding: 0;
+}
+
+.take-picture-action-spacing {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.take-picture-switch-spacing {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.take-picture-spacing-div {
+  flex: 1;
+}
+
+.take-picture-action-control-inner {
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid black;
+  width: 58px;
+  height: 58px;
+}
+
+.take-picture-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 111;
+}
+
+.take-picture-save-button {
+  color: white;
+  background-color: #264ae5;
+  width: 100%;
+  border-radius: 4px;
+  height: 40px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  border-style: none;
+}
+
+.take-picture-switch-control {
+  background-color: transparent;
+  border-style: none;
+  padding: 0;
+  margin-right: 22.33px;
+}
+
+.take-picture-close-control {
+  margin: 30px 0 0 30px;
+  border-style: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+.take-picture-save-control {
+  margin: 30px 30px 0 0;
+  border-style: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+.take-picture-confirm-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  /* should be higher than the wrapper. */
+  z-index: 112;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.take-picture-image {
+  position: absolute;
+  /* Should be higher than the z-index of '.layout-atlas .region-sidebar' so it sits on top of the page. */
+  z-index: 110;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+/* Overwrite 'atlas_core/web/core/_legacy/_mxui.scss' for this particular widget because otherwise
+    iOS Safari will in certain cases put the top and/or bottom bar on top of the overlay of this widget. */
+.mx-scrollcontainer-wrapper:not(.mx-scrollcontainer-nested) {
+  -webkit-overflow-scrolling: auto;
+}
+
 /* ==========================================================================
    Alerts
 
@@ -3601,11 +4242,39 @@
   padding: 16px;
   top: 0;
   min-width: 0;
+  position: relative;
   /* Clickable column header (Sortable) */
   /* Column resizer when column is resizable */
   /* Content of the column header */
   /* Header text */
   /* Header filter */
+}
+.table .th.dragging {
+  opacity: 0.5;
+}
+.table .th.dragging.dragging-over-self {
+  opacity: 0.8;
+}
+.table .th.drop-after:after, .table .th.drop-before:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: rgba(10, 19, 37, 0.8);
+  z-index: 1;
+}
+.table .th.drop-before:after {
+  left: 0;
+}
+.table .th.drop-before:not(:first-child):after {
+  transform: translateX(-50%);
+}
+.table .th.drop-after:after {
+  right: 0;
+}
+.table .th.drop-after:not(:last-child):after {
+  transform: translateX(50%);
 }
 .table .th .clickable {
   cursor: pointer;
@@ -3631,13 +4300,6 @@
   flex-grow: 1;
   align-self: stretch;
   min-width: 0;
-  padding-left: 4px;
-  margin-left: -4px;
-  /* Styles while dragging another column */
-}
-.table .th .column-container.dragging {
-  border-left: 4px solid rgba(10, 19, 37, 0.8);
-  padding-left: 0;
 }
 .table .th .column-container:not(:has(.filter)) .column-header {
   height: 100%;
@@ -3757,7 +4419,7 @@
   border-top-width: 1px;
   border-top-style: solid;
 }
-.table .td:focus {
+.table .td:focus-visible {
   outline-width: 1px;
   outline-style: solid;
   outline-offset: -1px;
@@ -4179,9 +4841,6 @@ Space between the fields and the popup
   box-shadow: 0 2px 20px 1px rgba(5, 15, 129, 0.05), 0 2px 16px 0 rgba(33, 43, 54, 0.08);
   max-height: 40vh;
   z-index: 140;
-}
-.dropdown-content-section + .dropdown-content-section {
-  border-top: 1px solid #e7e7e9;
 }
 
 .dropdown-footer {
@@ -5002,10 +5661,6 @@ input[type=checkbox].three-state-checkbox + .control-label {
   border-width: 0;
 }
 
-.border-primary {
-  border: 1px solid #264ae5;
-}
-
 .hover-trigger .show-on-hover {
   visibility: hidden;
 }
@@ -5034,10 +5689,6 @@ input[type=checkbox].three-state-checkbox + .control-label {
   line-height: 1;
 }
 
-.chat--max-width {
-  max-width: 800px;
-}
-
 .accordion-chat-sources .widget-accordion-group {
   background: transparent;
 }
@@ -5046,8 +5697,9 @@ input[type=checkbox].three-state-checkbox + .control-label {
   background: transparent;
   padding: 0;
 }
-.accordion-chat-sources .widget-accordion-group .widget-accordion-group-header .widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:hover {
+.accordion-chat-sources .widget-accordion-group .widget-accordion-group-header .widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:hover, .accordion-chat-sources .widget-accordion-group .widget-accordion-group-header .widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:focus {
   color: #0a1325;
+  background: transparent;
 }
 .accordion-chat-sources .widget-accordion-group .widget-accordion-group-header .widget-accordion-group-header-button .widget-accordion-group-header-button-icon {
   align-self: left;
@@ -5059,15 +5711,14 @@ input[type=checkbox].three-state-checkbox + .control-label {
   padding-bottom: 0;
 }
 
-.chat-card-small.card {
-  margin-bottom: 8px;
-  padding: 8px;
+.chat-card--full-height {
+  height: 100%;
 }
 
 .chat-loading-wrapper {
   display: flex;
   justify-content: left;
-  padding-left: 2px;
+  padding: 8px;
 }
 .chat-loading-wrapper .loading-dot {
   border-radius: 100%;
@@ -5100,18 +5751,17 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .chat-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   width: 100%;
   height: 100%;
-  flex: 1 1 0%;
-  overflow-y: auto;
 }
 .chat-container .messages-container {
+  flex: 1 1 auto;
   overflow-y: auto;
   overflow-x: hidden;
-  flex: 1 1 0%;
-  display: flex;
-  flex-direction: column-reverse;
+}
+.chat-container--center {
+  max-width: 900px;
+  margin: 0 auto;
   height: 100%;
 }
 
@@ -5133,14 +5783,12 @@ input[type=checkbox].three-state-checkbox + .control-label {
 }
 .chat-input-wrapper .send-btn {
   position: absolute;
-  right: 24px;
-  margin: auto;
+  right: 15px;
+  bottom: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration-line: none;
-  color: #fff;
-  background-color: #264ae5;
   border-radius: 50%;
   width: 28px;
   height: 28px;
@@ -5148,7 +5796,45 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .chat-input-wrapper .send-btn .glyphicon {
   top: 0;
   font-size: 14px;
-  left: -1px;
+  left: -2px;
+}
+
+.chat-bubble-wrapper {
+  margin-top: 8px;
+}
+.chat-bubble-wrapper .chat-message-card {
+  background: #ecf7ec;
+  border-radius: 8px 8px 8px 0;
+  margin: 0 10% 0 0;
+  text-align: left;
+  padding: 8px;
+}
+.chat-bubble-wrapper--user .chat-message-card {
+  background: #e9edfc;
+  border-radius: 8px 8px 0 8px;
+  margin: 0 0 0 10%;
+}
+
+.chat-history-active {
+  border-left: 3px solid #264ae5;
+  font-weight: bold;
+}
+
+.chat-dataview--display-contents {
+  display: contents;
+}
+.chat-dataview--display-contents > div {
+  display: contents;
+}
+
+.layoutgrid--full-height {
+  height: 100%;
+}
+.layoutgrid--full-height .row {
+  height: 100%;
+}
+.layoutgrid--full-height .row > [class*=col] {
+  height: 100%;
 }
 
 .chat-listview-horizontal.mx-listview > ul {
@@ -5165,64 +5851,6 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .listview-hide-on-empty.mx-listview > ul > li.mx-listview-empty {
   display: none;
 }
-.listview-hide-on-empty.mx-listview > ul > li.mx-listview-empty * {
-  display: none;
-}
-
-.layoutgrid--full-height {
-  height: 100%;
-}
-.layoutgrid--full-height .row {
-  height: 100%;
-}
-.layoutgrid--full-height .row > [class*=col] {
-  height: 100%;
-}
-
-.chat-center {
-  max-width: 800px;
-  height: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.chat-center .mx-dataview {
-  display: contents;
-}
-.chat-center .mx-dataview .mx-dataview-content {
-  display: contents;
-}
-
-.chat-flex-end {
-  max-width: 800px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-.chat-flex-end .mx-dataview {
-  display: contents;
-}
-.chat-flex-end .mx-dataview .mx-dataview-content {
-  display: contents;
-}
-
-.history-sidebar {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 300px;
-  margin: 0 auto;
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: calc(100vh - 24px - 24px);
-}
-.history-sidebar .mx-listview {
-  height: 100%;
-  width: 100%;
-}
 
 .btn-chat-popup {
   position: fixed;
@@ -5231,6 +5859,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
   z-index: 10;
   width: 60px;
   height: 60px;
+  border-radius: 50%;
 }
 .btn-chat-popup .glyphicon {
   font-size: 24px;
@@ -5277,24 +5906,6 @@ input[type=checkbox].three-state-checkbox + .control-label {
   height: 100%;
 }
 
-.chat-message-card {
-  max-width: 75%;
-  border-radius: 8px;
-  margin-bottom: 4px;
-  padding: 8px 16px;
-}
-
-.chat-bubble-wrapper--user .chat-message-card {
-  background: #e9edfc;
-  border-radius: 8px 8px 0 8px;
-  text-align: right;
-}
-.chat-bubble-wrapper--assistant .chat-message-card {
-  background: #ecf7ec;
-  border-radius: 8px 8px 8px 0;
-  text-align: left;
-}
-
 .layout-chat-sidebar {
   right: 0 !important;
   top: 0 !important;
@@ -5325,6 +5936,10 @@ input[type=checkbox].three-state-checkbox + .control-label {
 }
 .layout-chat-sidebar .mx-window-content .mx-window-body .mx-placeholder {
   height: 100%;
+}
+
+.text-italic {
+  font-style: italic;
 }
 
 :root {

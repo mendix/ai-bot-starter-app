@@ -8,6 +8,7 @@
     z-index: 10;
     width: 60px;
     height: 60px;
+    border-radius: 50%;
     .glyphicon {
         font-size: 24px;
     }
@@ -56,25 +57,4 @@
     }
 }
 
-.chat-message-card {
-    max-width: 75%;
-    border-radius: 8px;
-    margin-bottom: $spacing-smaller;
-    padding: $spacing-small $spacing-medium;
-}
-.chat-bubble-wrapper {
-    &--user {
-        .chat-message-card {
-            background: $chat-bubble-user-background;
-            border-radius: 8px 8px 0 8px;
-            text-align: right;
-        }
-    }
-    &--assistant {
-        .chat-message-card {
-            background: $chat-bubble-assistant-background;
-            border-radius: 8px 8px 8px 0;
-            text-align: left;
-        }
-    }
-}
+
