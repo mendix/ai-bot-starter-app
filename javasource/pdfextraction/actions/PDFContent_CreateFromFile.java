@@ -21,6 +21,9 @@ import pdfextraction.proxies.PDFContent;
 import pdfextraction.impl.MxLogger;
 import system.proxies.FileDocument;
 
+/**
+ * Reads the content and meta data of a PDF file. The output object "PDFContent" contains that data.
+ */
 public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 {
 	/** @deprecated use Document.getMendixObject() instead. */
