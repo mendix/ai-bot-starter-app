@@ -76,9 +76,6 @@ public class Request implements com.mendix.systemwideinterfaces.core.IEntityProx
 		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.AnthropicClaudeMappingHelper", mendixObject.getType())) {
 			return amazonbedrockconnector.proxies.AnthropicClaudeMappingHelper.initialize(context, mendixObject);
 		}
-		if (com.mendix.core.Core.isSubClassOf("OpenAIConnector.OpenAIRequest", mendixObject.getType())) {
-			return openaiconnector.proxies.OpenAIRequest.initialize(context, mendixObject);
-		}
 		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.TitanImageRequest", mendixObject.getType())) {
 			return amazonbedrockconnector.proxies.TitanImageRequest.initialize(context, mendixObject);
 		}

@@ -5,7 +5,7 @@
 package genaicommons.proxies;
 
 /**
- * An optional collection of images that is part of a message.
+ * An optional collection of files that is part of a message.
  */
 public class FileCollection implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {

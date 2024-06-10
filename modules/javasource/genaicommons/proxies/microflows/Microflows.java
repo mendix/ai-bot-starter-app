@@ -16,6 +16,9 @@ public final class Microflows
 	private Microflows() {}
 
 	// These are the microflows for the GenAICommons module
+	/**
+	 * Microflow can be used to add a File to a FileCollection. The File Collection is an optional part of the input structure for the main operations.
+	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fileCollection_AddFileBuilder(
 		genaicommons.proxies.FileCollection _fileCollection,
 		java.lang.String _uRL,
@@ -33,6 +36,9 @@ public final class Microflows
 		return builder;
 	}
 
+	/**
+	 * Microflow can be used to add a File to a FileCollection. The File Collection is an optional part of the input structure for the main operations.
+	 */
 	public static void fileCollection_AddFile(
 		IContext context,
 		genaicommons.proxies.FileCollection _fileCollection,
@@ -51,6 +57,9 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	/**
+	 * Microflow can be used to create a File Collection and add the first File to it immediately. The File Collection is an optional part of the input for the main operations.
+	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fileCollection_CreateAndAddFileBuilder(
 		java.lang.String _uRL,
 		system.proxies.FileDocument _fileDocument,
@@ -66,6 +75,9 @@ public final class Microflows
 		return builder;
 	}
 
+	/**
+	 * Microflow can be used to create a File Collection and add the first File to it immediately. The File Collection is an optional part of the input for the main operations.
+	 */
 	public static genaicommons.proxies.FileCollection fileCollection_CreateAndAddFile(
 		IContext context,
 		java.lang.String _uRL,
@@ -122,6 +134,9 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	/**
+	 * Microflow can be used to add a message to the Request object. The calling of this operation should happen in the correct order so that the messages are sent chronologically.
+	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder request_AddMessageBuilder(
 		genaicommons.proxies.Request _request,
 		genaicommons.proxies.ENUM_MessageRole _eNUM_MessageRole,
@@ -137,6 +152,9 @@ public final class Microflows
 		return builder;
 	}
 
+	/**
+	 * Microflow can be used to add a message to the Request object. The calling of this operation should happen in the correct order so that the messages are sent chronologically.
+	 */
 	public static void request_AddMessage(
 		IContext context,
 		genaicommons.proxies.Request _request,
@@ -192,6 +210,9 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	/**
+	 * This microflow can be used to add an additional stop sequence to the request
+	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder request_AddStopSequenceBuilder(
 		genaicommons.proxies.Request _request,
 		java.lang.String _stopSequence
@@ -203,6 +224,9 @@ public final class Microflows
 		return builder;
 	}
 
+	/**
+	 * This microflow can be used to add an additional stop sequence to the request
+	 */
 	public static void request_AddStopSequence(
 		IContext context,
 		genaicommons.proxies.Request _request,
@@ -215,42 +239,69 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	/**
+	 * This microflow can be used to create a request. This is the main request object that contains the functional input for the model to generate a response
+	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder request_CreateBuilder(
 		java.lang.String _systemPrompt,
-		java.math.BigDecimal _temperature
+		java.math.BigDecimal _temperature,
+		java.lang.Long _maxTokens,
+		java.math.BigDecimal _topP
 	)
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Request_Create");
 		builder = builder.withParam("SystemPrompt", _systemPrompt);
 		builder = builder.withParam("Temperature", _temperature);
+		builder = builder.withParam("MaxTokens", _maxTokens);
+		builder = builder.withParam("TopP", _topP);
 		return builder;
 	}
 
+	/**
+	 * This microflow can be used to create a request. This is the main request object that contains the functional input for the model to generate a response
+	 */
 	public static genaicommons.proxies.Request request_Create(
 		IContext context,
 		java.lang.String _systemPrompt,
-		java.math.BigDecimal _temperature
+		java.math.BigDecimal _temperature,
+		java.lang.Long _maxTokens,
+		java.math.BigDecimal _topP
 	)
 	{
 		Object result = request_CreateBuilder(
 				_systemPrompt,
-				_temperature
+				_temperature,
+				_maxTokens,
+				_topP
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.Request.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder request_GetOrCreateBuilder(
+		genaicommons.proxies.Request _request
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Request_GetOrCreate");
+		builder = builder.withParam("Request", _request);
+		return builder;
+	}
+
+	public static genaicommons.proxies.Request request_GetOrCreate(
+		IContext context,
+		genaicommons.proxies.Request _request
+	)
+	{
+		Object result = request_GetOrCreateBuilder(
+				_request
 			)
 			.execute(context);
 		return result == null ? null : genaicommons.proxies.Request.initialize(context, (IMendixObject) result);
 	}
 	/**
-	 * ToolChoice controls which (if any) function is called by the model.
-	 * Inputs:
-	 * - Request: The request for which to set a tool choice.
-	 * - ENUM_ToolChoice: Determines the tool choice. See below for an explanation of the different values.
-	 * - Tool: only required if the ENUM_ToolChoice equals 'tool'.
+	 * Use this microflow to set the ToolChoice. This controls which (if any) function is called by the model.
+	 * If the ENUM_ToolChoice equals 'tool', the Tool input is required
 	 * 
-	 *  ENUM_ToolChoice:
-	 * - `none` means the model will not call a tool and instead generates a message.
-	 * - `auto` means the model can pick between generating a message or calling atool.
-	 * - `tool` means that the Tool passed as input will become the tool choice of the ToolCollection. This will force the model to call that particular tool.
-	 * - 'any' means that any function must be called. This may not be available for all providers and might change be changed to 'auto'.
+	 * 
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder request_SetToolChoiceBuilder(
 		genaicommons.proxies.Request _request,
@@ -266,17 +317,10 @@ public final class Microflows
 	}
 
 	/**
-	 * ToolChoice controls which (if any) function is called by the model.
-	 * Inputs:
-	 * - Request: The request for which to set a tool choice.
-	 * - ENUM_ToolChoice: Determines the tool choice. See below for an explanation of the different values.
-	 * - Tool: only required if the ENUM_ToolChoice equals 'tool'.
+	 * Use this microflow to set the ToolChoice. This controls which (if any) function is called by the model.
+	 * If the ENUM_ToolChoice equals 'tool', the Tool input is required
 	 * 
-	 *  ENUM_ToolChoice:
-	 * - `none` means the model will not call a tool and instead generates a message.
-	 * - `auto` means the model can pick between generating a message or calling atool.
-	 * - `tool` means that the Tool passed as input will become the tool choice of the ToolCollection. This will force the model to call that particular tool.
-	 * - 'any' means that any function must be called. This may not be available for all providers and might change be changed to 'auto'.
+	 * 
 	 */
 	public static void request_SetToolChoice(
 		IContext context,
@@ -292,6 +336,9 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	/**
+	 * This microflow can be used to get the assistant response text from the responsse structure returned from the main operation.
+	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder response_GetAssistantResponseStringBuilder(
 		genaicommons.proxies.Response _response
 	)
@@ -301,6 +348,9 @@ public final class Microflows
 		return builder;
 	}
 
+	/**
+	 * This microflow can be used to get the assistant response text from the responsse structure returned from the main operation.
+	 */
 	public static java.lang.String response_GetAssistantResponseString(
 		IContext context,
 		genaicommons.proxies.Response _response
@@ -312,6 +362,9 @@ public final class Microflows
 			.execute(context);
 		return (java.lang.String) result;
 	}
+	/**
+	 * This microflow can be used to retrieve the references for a given model response. These indicate what the model response was based on, according to the model logic.
+	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder response_GetReferencesBuilder(
 		genaicommons.proxies.Response _response
 	)
@@ -321,6 +374,9 @@ public final class Microflows
 		return builder;
 	}
 
+	/**
+	 * This microflow can be used to retrieve the references for a given model response. These indicate what the model response was based on, according to the model logic.
+	 */
 	public static java.util.List<genaicommons.proxies.Reference> response_GetReferences(
 		IContext context,
 		genaicommons.proxies.Response _response
