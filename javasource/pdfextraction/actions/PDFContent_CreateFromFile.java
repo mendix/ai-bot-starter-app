@@ -58,12 +58,13 @@ public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 			PDDocumentInformation pdfMetaData = pdfdocument.getDocumentInformation();
 			
 			//Populate output object with PDF data
-			pdfContent.setContent(pdfTextStripper.getText(pdfdocument));
+			pdfContent.setContent(pdfTextStripper.getText(pdfdocument));	
 			pdfContent.setAuthor(pdfMetaData.getAuthor());
 			pdfContent.setKeywords(pdfMetaData.getKeywords());
 			pdfContent.setTitle(pdfMetaData.getTitle());
 			pdfContent.setSubject(pdfMetaData.getSubject());
 			pdfContent.setModificationDate(pdfMetaData.getModificationDate().getTime());
+			pdfContent.setFileName(Document.getName());
 			return pdfContent.getMendixObject();
 		}
 		catch (Exception e) {
