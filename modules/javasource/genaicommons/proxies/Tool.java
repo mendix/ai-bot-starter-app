@@ -71,6 +71,9 @@ public class Tool implements com.mendix.systemwideinterfaces.core.IEntityProxy
 		if (com.mendix.core.Core.isSubClassOf("GenAICommons.Function", mendixObject.getType())) {
 			return genaicommons.proxies.Function.initialize(context, mendixObject);
 		}
+		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.KnowledgeBaseTool", mendixObject.getType())) {
+			return amazonbedrockconnector.proxies.KnowledgeBaseTool.initialize(context, mendixObject);
+		}
 		return new genaicommons.proxies.Tool(context, mendixObject);
 	}
 

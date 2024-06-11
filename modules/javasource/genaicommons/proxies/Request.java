@@ -73,14 +73,8 @@ public class Request implements com.mendix.systemwideinterfaces.core.IEntityProx
 	 */
 	public static genaicommons.proxies.Request initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.AnthropicClaudeMappingHelper", mendixObject.getType())) {
-			return amazonbedrockconnector.proxies.AnthropicClaudeMappingHelper.initialize(context, mendixObject);
-		}
 		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.TitanImageRequest", mendixObject.getType())) {
 			return amazonbedrockconnector.proxies.TitanImageRequest.initialize(context, mendixObject);
-		}
-		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.TitanTextRequest", mendixObject.getType())) {
-			return amazonbedrockconnector.proxies.TitanTextRequest.initialize(context, mendixObject);
 		}
 		return new genaicommons.proxies.Request(context, mendixObject);
 	}
