@@ -45,7 +45,7 @@ public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 	public IMendixObject executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		if (!Document.getHasContents()) {
+		if (Document == null || !Document.getHasContents()) {
 			throw new Exception("File contents is required.");
 		}
 		if(!isPDFFile(Document)) {
@@ -58,13 +58,21 @@ public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 			PDDocumentInformation pdfMetaData = pdfdocument.getDocumentInformation();
 			
 			//Populate output object with PDF data
-			pdfContent.setContent(pdfTextStripper.getText(pdfdocument));	
-			pdfContent.setAuthor(pdfMetaData.getAuthor());
-			pdfContent.setKeywords(pdfMetaData.getKeywords());
-			pdfContent.setTitle(pdfMetaData.getTitle());
-			pdfContent.setSubject(pdfMetaData.getSubject());
-			pdfContent.setModificationDate(pdfMetaData.getModificationDate().getTime());
+			if(pdfMetaData != null)	{
+				pdfContent.setAuthor(pdfMetaData.getAuthor());
+				pdfContent.setKeywords(pdfMetaData.getKeywords());
+				pdfContent.setTitle(pdfMetaData.getTitle());
+				pdfContent.setSubject(pdfMetaData.getSubject());
+				if (pdfMetaData.getModificationDate() != null)	{
+					pdfContent.setModificationDate(pdfMetaData.getModificationDate().getTime());
+				}
+			}
+			else {
+				throw new Exception("The PDF's meta data could not be extracted.");
+			}
+			pdfContent.setContent(pdfTextStripper.getText(pdfdocument));
 			pdfContent.setFileName(Document.getName());
+			
 			return pdfContent.getMendixObject();
 		}
 		catch (Exception e) {
@@ -88,7 +96,7 @@ public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 		private static final MxLogger LOGGER = new MxLogger(PDFContent_CreateFromFile.class);
 		
 		private boolean isPDFFile(FileDocument document) {
-			return "pdf".equals(document.getName().substring(document.getName().lastIndexOf('.')+1));
+			return document.getName() != null && document.getName().toLowerCase().endsWith(".pdf");
 		}
 	// END EXTRA CODE
 }
