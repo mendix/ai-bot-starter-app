@@ -5,8 +5,7 @@
 package genaicommons.proxies;
 
 /**
- * An optional collection of tools to be sent along with the Request.
- * Tool use / function calling might not be supported by all AI providers or models.
+ * This is an optional collection of tools to be sent along with the Request. Using Tool capabilities (e.g. function calling) might not be supported by all AI providers or models. This entity functions as a wrapper entity for files and has no direct attributes.
  */
 public class ToolCollection implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {

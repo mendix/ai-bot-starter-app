@@ -5,7 +5,7 @@
 package genaicommons.proxies;
 
 /**
- * An optional reference for a message.
+ * An optional reference for a response message. This can point to external documents that contain data on which the generated response was based.
  */
 public class Reference implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {

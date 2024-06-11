@@ -5,7 +5,7 @@
 package genaicommons.proxies;
 
 /**
- * An optional citation.
+ * An optional citation. This entity can be used to visualize the link between a part of the generated text and the actual text in the source on which the generated text was based.
  */
 public class Citation implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {

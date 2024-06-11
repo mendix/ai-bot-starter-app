@@ -5,7 +5,7 @@
 package genaicommons.proxies;
 
 /**
- * For many models StopSequence can be used to pass a list of character sequences (for example a word) in the request. The model will stop generating content when a word of that list would occur next.
+ * For many models, StopSequences can be used to pass a list of character sequences (for example a word) along with the request. The model will stop generating content when a word of that list would occur next.
  */
 public class StopSequence implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
