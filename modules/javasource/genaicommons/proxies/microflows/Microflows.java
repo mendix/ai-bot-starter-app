@@ -337,26 +337,26 @@ public final class Microflows
 			.execute(context);
 	}
 	/**
-	 * This microflow can be used to get the assistant response text from the responsse structure returned from the main operation.
+	 * This microflow can be used to get the model response text from the response structure returned from the main operation.
 	 */
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder response_GetAssistantResponseStringBuilder(
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder response_GetModelResponseStringBuilder(
 		genaicommons.proxies.Response _response
 	)
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Response_GetAssistantResponseString");
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Response_GetModelResponseString");
 		builder = builder.withParam("Response", _response);
 		return builder;
 	}
 
 	/**
-	 * This microflow can be used to get the assistant response text from the responsse structure returned from the main operation.
+	 * This microflow can be used to get the model response text from the response structure returned from the main operation.
 	 */
-	public static java.lang.String response_GetAssistantResponseString(
+	public static java.lang.String response_GetModelResponseString(
 		IContext context,
 		genaicommons.proxies.Response _response
 	)
 	{
-		Object result = response_GetAssistantResponseStringBuilder(
+		Object result = response_GetModelResponseStringBuilder(
 				_response
 			)
 			.execute(context);
