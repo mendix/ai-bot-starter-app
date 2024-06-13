@@ -43,7 +43,7 @@ public class AWSBuilderConfigurator<BuilderT extends AwsSyncClientBuilder<Builde
 	@SuppressWarnings("unused")
 	private static final MxLogger LOGGER = new MxLogger(AWSBuilderConfigurator.class);
 	
-	private static final String AWS_HEADER_VALUE = "Mendix-Authentication-3.0.2";
+	private static final String AWS_HEADER_VALUE = "Mendix-Authentication-3.0.0";
 	
 	private AbstractRequest abstractRequest;
 	private ENUM_Region region;
