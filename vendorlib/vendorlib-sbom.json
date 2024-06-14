@@ -83,108 +83,6 @@
       "bom-ref" : "pkg:maven/org.bouncycastle/bcutil-jdk18on@1.78.1?type=jar"
     },
     {
-      "group" : "software.amazon.awssdk",
-      "name" : "bedrockagent",
-      "version" : "2.26.1",
-      "description" : "The AWS Java SDK for Bedrock Agent module holds the client classes that are used for communicating with Bedrock Agent.",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "29d918cac1c997fec7d14318af0fa294"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "f909fc352bace62aa56b549aea1779c0230fae5f"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "2ca095770fb8de38e14bc9e5168a7bf59d7b3193ea21d8f9a7eceb2d9f2a41b3"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "e14d87e577ea7b5d35a41d1955485dfcce73b2e543b6599d8fe728918370379f35d287eefdc9e65b993e9414c8c7a24b7c836bf4e52b0da7ec3afb46ebb32350"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "3f3e05c8b94e6072feb195a5fb131b8497973a8b889b4c3b3256ce7021c1c2a2649b33c53e2c38050ec31217226b2c31"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "1a539f9fecdaefd6b876bbf32d2f9042a2f081a52ac980832e82543c2abe098d77ad583bda449a4fa3dd74c0345d9148"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "8f189f408a4cbe4a1643a8f7dfd776e73e0783b4893b3a35364144ba0b71fee1"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "88ffbed6793f6e942385a0e8b3b0dcb0a2026351e0986cb148f8cf30c3f66a81657b23d7d4ecb6a8d416e76fe9722a8d243bfd4ff17217466fead520ffa42775"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/software.amazon.awssdk/bedrockagent@2.26.1?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/software.amazon.awssdk/bedrockagent@2.26.1?type=jar"
-    },
-    {
-      "group" : "software.amazon.awssdk",
-      "name" : "bedrockruntime",
-      "version" : "2.26.1",
-      "description" : "The AWS Java SDK for Bedrock Runtime module holds the client classes that are used for communicating with Bedrock Runtime.",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "549de127a0d80e6f4883c0bd19a927ec"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "c40867793686db7af91af0ca2eaee9454f24d6d8"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "62dfaf32e125fe24f2b35df14cc244aabefde4fb49bb9ded7eec1d9dcb422981"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "ea7764212fe56aa97c148f282b6c0c037ca6a59ba52910de04beedfb5aa7fc653376229323e373ab7be6ecf27f0af3edc3dfc5950a9d03573166299066febb65"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "8eb46e5470cd7c7fe7f7245418d70e3502e2554b1564d0169c035d03dbbf618e1d8ea5ffba9132cd4e9d00b732863854"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "17b8213e99eabd5e34726342a1afbbd3b94b9bc98beeb065c02d73b7cbc322dc322af84408a28ff93a1ab81c36fd1565"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "ed66d08bea868dc55cebec3d798698d25cdb45060ea927aa85d4a140b01956f8"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "97fe86fb5d19dd0041e1d81c595f966b4b98473dc61764ed23349b82ed0c0fb2ec67b5191f39e4993aeefbb33184302fe185ba879752f231996380afe0374306"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/software.amazon.awssdk/bedrockruntime@2.26.1?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/software.amazon.awssdk/bedrockruntime@2.26.1?type=jar"
-    },
-    {
       "group" : "com.google.code.findbugs",
       "name" : "jsr305",
       "version" : "3.0.2",
@@ -292,158 +190,6 @@
       "modified" : false,
       "type" : "library",
       "bom-ref" : "pkg:maven/org.reactivestreams/reactive-streams@1.0.4?type=jar"
-    },
-    {
-      "group" : "io.netty",
-      "name" : "netty-transport-native-unix-common",
-      "version" : "4.1.108.Final",
-      "description" : "Static library which contains common unix utilities.",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "39165a3fe48e87fa93f3c8a668f42930"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "0df31f1cd96df8b2882b1e0faf4409b0bd704541"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "c3f324a6f526313e432235bf1a3a12e3db283e3b8669e02f26f569c421036bcb"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "2a7feeb9a3f5e39196e95d622a5d85feb106ad80ebe8a9bc5cd72628b52cd1e77d1fff9ede327fbc85234388263a1d82ed45bc72b2734a577cf0c09ffd8f9f3e"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "3e91c29b807bcd98c6c5390741ea3f0b45486a3e920735f411d27421f00140684c642740085c4bfce13385d5b09ea1f2"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "01f64ab4bf44a4f3324d734a06011b8ab261c7fe4c0b2355f5c44c861796b4077cf23f657edc50745cbd69699ad2c107"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "6127d572f35cd81bdacd9328d6184b8407ea4612c607d327bfa9cd4b782e00de"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "36f7dcd1a032141c0abf49d3961691ab25124a418113879ecc9bfb6711897c6f5bdc999fbfa499eecee38cb74f0ddcd998c9ba533708884a530128a6c159e1de"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/io.netty/netty-transport-native-unix-common@4.1.108.Final?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/io.netty/netty-transport-native-unix-common@4.1.108.Final?type=jar"
-    },
-    {
-      "group" : "software.amazon.awssdk",
-      "name" : "bedrockagentruntime",
-      "version" : "2.26.1",
-      "description" : "The AWS Java SDK for Bedrock Agent Runtime module holds the client classes that are used for communicating with Bedrock Agent Runtime.",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "693ac3fa6a5f4e4f23415b545f095e46"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "e01b118371bd7014bf2a2259d786f1ae4144d626"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "0a6285e8f098de64b2dfb5b1ca78cd5246d7b4ffc6bd473b8abcc989396897d2"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "9e98229d693689bfe6c0679c36dacab4a090801eb6edff75eb76e4d2f08b370669ca76f5b1984abce58da7ddcfa484af0a1a14aad46bee1bd4d7097dc19f1468"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "c243144675e0b7dc40442bd8bd8404bdb7feea67ceab61faea2629653263aea58313341d03c1bd7c9625aa61a9f7a5f0"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "f1ebf806ade9916f3f5c3fa0723242be72b615bfa8f1dde9c5fe223ee8cdaaf475b22591a467df5aeabe5da745146500"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "3be071242b190c179fa6a933dc3ed87aabde05e9710debf353fd64eb3a1075c1"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "35ae6dff225a2c7678cd269896b989c2f519ba8c822707b70d32e56d359d31ec70e4552558ab199bfa4a1129bc50fec8f4a7a2b9cb69f544a0b20cc7b8e7b287"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/software.amazon.awssdk/bedrockagentruntime@2.26.1?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/software.amazon.awssdk/bedrockagentruntime@2.26.1?type=jar"
-    },
-    {
-      "group" : "io.netty",
-      "name" : "netty-codec",
-      "version" : "4.1.108.Final",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "4ad00387b70092ed8c0a205e09daf5e9"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "c2ef6018eecde345fcddb96e31f651df16dca4c2"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "32c220dea93756fba28f9302481bc657738cc40d07440daa985a2ba21df226f1"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "11a05d39e1a24b5119785a315d578c8d999f486a517d23d06dd593484e2e04930619e59c8a67f57da5c29fa6420e4f8b21c3b330235e9889c15b67e2268f5d6b"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "5531c0d52f16ca1ccb09165aa374d011e43ece8f2665835528216888c5a069312f1742f7941896bf706f532f896b8a4a"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "55dcd798a6c0dc19e019bc2b61f5a6b60b484e71aef02925fd5629e5dce947bb8a601cc85ed61b427a81042fafd5e29e"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "a35db6867746260c3fe8a0cc0bb709cb713092239220f2872a99448d0b957ad7"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "f87f853d245bffdd895930dde5e16e722b8b8959942e836e990dce6a3c28a64ee0e5eca4725d9ba233ee0a0925c7bc5c4baa82226eb6f850214d14da1db2b0ca"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/io.netty/netty-codec@4.1.108.Final?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/io.netty/netty-codec@4.1.108.Final?type=jar"
     },
     {
       "group" : "com.google.errorprone",
@@ -852,56 +598,6 @@
       "bom-ref" : "pkg:maven/com.google.guava/listenablefuture@9999.0-empty-to-avoid-conflict-with-guava?type=jar"
     },
     {
-      "group" : "io.netty",
-      "name" : "netty-common",
-      "version" : "4.1.108.Final",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "50fb16ab1857af783d10d1467f2bb9f2"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "30617b39cc6f850ca3807459fe726fbcd63989f2"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "8e3649fc6bab84a88ad47af82e38f9c36ab3725de478632c8a59e4bd74d16e08"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "3a439d3698e43e47ff07a4507f1333e49f42993e7ecd349955fa6943d55a017715cccb33c5faa5404b2f8590377b15b0717acd5d4c151c801ef011eff0e2ed7a"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "67ec301687623c6e3d1150596c8c8de7229e55fecbe2335779ced987995307a07739d048ccc59f1f600b57e3327e4778"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "1b9f0fe0e4c5ef991889a39a034f72d8b2a6d0d5dbe920b78c6685985433c7784e0026e2c582022801792b4b604a17b7"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "c581fdc50bb690693a0f50f182a77c4a75479e4ecccccb4bd7099ed905f4d75e"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "05bf4fc4c1c5b6895a89c799323c620c4089a7fb6559728c75c3b9b7a51e8b280af28b29069a622a1e527162ea31aabadd51b108daa49fee3a40c99cd63d3707"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/io.netty/netty-common@4.1.108.Final?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/io.netty/netty-common@4.1.108.Final?type=jar"
-    },
-    {
       "group" : "org.checkerframework",
       "name" : "checker-qual",
       "version" : "3.33.0",
@@ -957,56 +653,6 @@
       ],
       "type" : "library",
       "bom-ref" : "pkg:maven/org.checkerframework/checker-qual@3.33.0?type=jar"
-    },
-    {
-      "group" : "software.amazon.awssdk",
-      "name" : "netty-nio-client",
-      "version" : "2.26.1",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "0599312c35ab598b49a545f9326e59b7"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "92797cfc006c4497eaa2c4bb7a10f4b29b000705"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "c49f203b7ad3ddaded2eebcfc8ad678676bc3632bc5f5bdbd0d5783235f85752"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "8dbf32c28296f891f3d1c7b4af746174ddbb8fa126791fe4f2b484cf5769e72556f5c7c0ccc4ed9e6366b548c2f33946486ce1d8c31679436221ac331f593628"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "5231246bfa12560ddc70ac2f9746ae91c162925729dff3e35d1572f564ef07045c9c8963a878cb1dc30d41b7d5fe004d"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "1893e8314e48faaf2c6cb9aca8cabd0ef8308ec1265c0c23fc55b99b8f21330df1e324280a56a402d4ce06373b37809c"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "cab7ca267b6cfdddac72382a9dcd63c840de5a1a082846fb17f5c5ec367aa67f"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "48d76409e7db9b5f44f0b93f8801f34e68915180c4e04905d1d17b69f3fca253029b9e5d0877dd37fc4c60c5f39a24afbe155e1c03ee09adb9ff90622f2b25f6"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/software.amazon.awssdk/netty-nio-client@2.26.1?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/software.amazon.awssdk/netty-nio-client@2.26.1?type=jar"
     },
     {
       "group" : "org.apache.commons",
@@ -1130,57 +776,6 @@
       ],
       "type" : "library",
       "bom-ref" : "pkg:maven/org.bouncycastle/bcpkix-jdk18on@1.78.1?type=jar"
-    },
-    {
-      "group" : "software.amazon.awssdk",
-      "name" : "bedrock",
-      "version" : "2.26.1",
-      "description" : "The AWS Java SDK for Bedrock module holds the client classes that are used for communicating with Bedrock.",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "169148899d16d371e0d5510b98da8aed"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "69777e3aa4953b3ecd81de3112730f5bc0e51499"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "db5db6b07a17bc465a9a80bd432bb73306efcd7f2247bb21d26166566e6b9dac"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "f752f7a2ed3bf25bb7f6d1ac730c849818127a291f066c47b1210fd814d83afe4dfa3035435e2b8030cdf0ac7901647eca6b7ec587d05fd1ceaf3a9a72480620"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "b4291fef2d51ad4285c48338592e4674004d9dce182d45af9184ce8e7cbc8a9559f610f68fa78424cc857af85be88826"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "6291daa3a3866d0699ed32e7f22c989a957b1a627ad1e99be92496a0a2d4ee9620562a4917226910d2fe4113f3631606"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "88158e4c8afd509c5031e23c8c87ac69f0c7d969e2b2c34c7be1745e18aee8d2"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "93f9eeda99bc75941b06fc616ff049f1d62f3566036cc52e5899e6d53a2a554b6b86d3c824f6fbe1dd49264a3a6ce62e6c087e0410f04ef64ada6e7df02077fd"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/software.amazon.awssdk/bedrock@2.26.1?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/software.amazon.awssdk/bedrock@2.26.1?type=jar"
     },
     {
       "group" : "software.amazon.awssdk",
@@ -1435,63 +1030,6 @@
       "bom-ref" : "pkg:maven/software.amazon.awssdk/endpoints-spi@2.26.1?type=jar"
     },
     {
-      "group" : "com.fasterxml.jackson.core",
-      "name" : "jackson-databind",
-      "version" : "2.17.1",
-      "description" : "General data-binding functionality for Jackson: works on core streaming API",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "f0a1c37dc7d937f14e183d84f15c0f83"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "0524dcbcccdde7d45a679dfc333e4763feb09079"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "b6ca2f7d5b1ab245cec5495ec339773d2d90554c48592590673fb18f4400a948"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "ca3fa3b21047c8762b5b806f82de712a353f30880af00297fce1f4fec90471435a25d93aa0925961a34f4fa18e0d973f4611d5cb2c53d3d0b28f00ac1b9b6462"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "e6d921331272972f4c6cd1f72b5dd4c0ede8f0eb4f3da0ae1cb7ee12ed64ceb6d7693a8f52601bc8df0ad8b3fa7cb45c"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "c21aee49a0131f017692f0749a4988759da20a791d327b2e33c2f6277aed192d082868369d6fbceb541d5483c6dbe399"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "e656bb7d5f0df07c47dcba4658b18843e4b3a4a12ca3b521a7e8607b48795d80"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "b833061dcb9c159a5063ccb554051818c7969fd2967160aaa9e7f3c45981a3a43e8053bfc2997b83774a950837425f9410f6f9b9a6eb37b7d5f8608081726fe1"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.17.1?type=jar",
-      "modified" : false,
-      "externalReferences" : [
-        {
-          "type" : "vcs",
-          "url" : "https://github.com/FasterXML/jackson-databind"
-        }
-      ],
-      "type" : "library",
-      "bom-ref" : "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.17.1?type=jar"
-    },
-    {
       "group" : "com.google.guava",
       "name" : "failureaccess",
       "version" : "1.0.1",
@@ -1693,63 +1231,6 @@
       "modified" : false,
       "type" : "library",
       "bom-ref" : "pkg:maven/org.apache.pdfbox/pdfbox@2.0.30?type=jar"
-    },
-    {
-      "group" : "com.fasterxml.jackson.core",
-      "name" : "jackson-core",
-      "version" : "2.17.1",
-      "description" : "Core Jackson processing abstractions (aka Streaming API), implementation for JSON",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "9363584821290882417f1c3ceab784df"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "5e52a11644cd59a28ef79f02bddc2cc3bab45edb"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "ddb26c8a1f1a84535e8213c48b35b253370434e3287b3cf15777856fc4e58ce6"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "5ea2d50e0807082e01574df591567022f98a8366efae1ac9dd7085c3fb8508ea1cc39bf578bbd5d6e109e9116370062a96d1703e2d501b6c5884f54c3be4f171"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "1009a8e6db52c3de411d70380ee2b8f8b569e2beba5145fd788f8783bc866fb14cee757a5e0bcf51fc3e1692bd024f29"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "9d81565f61a363c89e87f11e3645fd747cd065b60d01607ecc8cef2ca8a9dab6540a77cc1d2587808824ab72782457e4"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "a30bb87fe658889b753394eff933ebcfc646656cc7ab99c13d3e6aae13681d14"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "e95c5a29de2ab54909272363503130b3e57e7ac01e98223b1d7c00cb16f38ca64ef4a2834e419482b11b08bea1b7fe16a7d5fc42a43a2f5c060227343b36a7a2"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.17.1?type=jar",
-      "modified" : false,
-      "externalReferences" : [
-        {
-          "type" : "vcs",
-          "url" : "https://github.com/FasterXML/jackson-core"
-        }
-      ],
-      "type" : "library",
-      "bom-ref" : "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.17.1?type=jar"
     },
     {
       "group" : "software.amazon.awssdk",
@@ -1972,106 +1453,6 @@
       "bom-ref" : "pkg:maven/com.googlecode.owasp-java-html-sanitizer/owasp-java-html-sanitizer@20211018.2?type=jar"
     },
     {
-      "group" : "io.netty",
-      "name" : "netty-codec-http",
-      "version" : "4.1.108.Final",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "d74c3e5b21b6579122ea3ec3a5cbbc9d"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "dd44733e94f3f6237c896f2bbe9927c1eba48543"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "2bdb276d40c2293014638a7e065bea977b574fb6a978e1197f514f2e13b695a6"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "dc1dafb15216bd79c13602a768e539c4d4a3c0d023a02dc8b2170da266a8f5ddfba5556346fb5bd559f16c5115ef69d156b32a1843589b59f54b1351e755a4c2"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "2abf3f54fed5aa328a6019ff36d26e6851f7a742e78395d7f1919deb2712fbbdf97438c57ef0995f4422c76a1453289a"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "44b64592e74d5a93d85541de2e139ad54b49a2b2e89105b11d76f39389e96f30573455385991a97ebe54dfca7de38196"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "7387eb29f0d3b44b607ff9f05961933bbd55d881be3ab8a60b202fd5ba630c8d"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "7df35d0f0dc46d474223a9fcecb28f799ae44c84c9f9868718f825be4431f64f30aa57aadaad6e9bddc647f8ca357fd4efe29cf5c5f9cd9da248da53f19931f7"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/io.netty/netty-codec-http@4.1.108.Final?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/io.netty/netty-codec-http@4.1.108.Final?type=jar"
-    },
-    {
-      "group" : "io.netty",
-      "name" : "netty-buffer",
-      "version" : "4.1.108.Final",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "355652dfc11e1f6a48a8337159d278a6"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "2a9d06026ed251705e6ab52fa6ebe5f4f15aab7a"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "348e3ff64c7129ca661bc09d4bdda09c824474cfd1f5918368bdc56f5ee17f79"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "1109b94bd133d9769fc7fbe7cc8a733c19bc76020d89b7a5bf578b188125e051bebe2aad86e61555558f1d713ec5ec23882698f6e30842f9c4526ce9e81a79f8"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "b778400fa93a4ab4e6926b691603fb31bd988234aee4d9ce06003ba632e11cba7b683ad1867355324a5de2ac1fd1a96a"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "e1a6fa553fd9f83e1d82f0d6fd119caea5ed6e44d7974fce614ccd1b68a79d2a765b8be3a15523eb7b64330830e63520"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "a36c963156757b42e2a57170e590bef6ffdc111c93f74984ac1acd19db698e03"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "0ab1e5a1a62a121866a3a3ffc0b4a4e260dac56861dd6463209278441720e8644ff7c9b002ee3fdef295b9bf70ada06baff6ee7c1cf2d9ab4bae0e8a35661f4d"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/io.netty/netty-buffer@4.1.108.Final?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/io.netty/netty-buffer@4.1.108.Final?type=jar"
-    },
-    {
       "group" : "com.google.j2objc",
       "name" : "j2objc-annotations",
       "version" : "2.8",
@@ -2174,56 +1555,6 @@
       "bom-ref" : "pkg:maven/software.amazon.awssdk/profiles@2.26.1?type=jar"
     },
     {
-      "group" : "io.netty",
-      "name" : "netty-transport",
-      "version" : "4.1.108.Final",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "2652cb32f2ea1ca005263f208c313049"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "1fd80f714c85ca685a80f32e0a4e8fd3b866e310"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "fef2ec66fe01aa89734db40f292676719da3985786512fc31a9efe1ca4d2e0ff"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "b108bcdc5c1fcdc5c99cc28048be08500fa4bba0071885bfed4e66686304fe87b96a2e1e4e7af016275816e5db3c2a9e20fd33ffa0724c706e5bd8d60324aeb5"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "b2d911fb6cf8c5e3add90d8b9d854d695f1aef29ec220b0b19fd1a16c8c8ccd3db4b22d7665472fa41972751c562158c"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "6691118eacbdb6df8897c48bb1e4d73d1fa1a3cea023c92aab351d8acc861da794aba89cf4d1e20a8bebce7e8c468c1a"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "cc049a1d2c275a92be3b03f59c6a75d40754c1062baa8257d9e0d057d191d40b"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "487c3dd744349c4856b835a60466e37fc267947bc39bb3e1401848b5861bb978a8a2e388724d2075b46a3f81fc6dc17ea33c11f6f60839590f0f7f4326286dfb"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/io.netty/netty-transport@4.1.108.Final?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/io.netty/netty-transport@4.1.108.Final?type=jar"
-    },
-    {
       "group" : "org.bouncycastle",
       "name" : "bcprov-jdk18on",
       "version" : "1.78.1",
@@ -2284,63 +1615,6 @@
       ],
       "type" : "library",
       "bom-ref" : "pkg:maven/org.bouncycastle/bcprov-jdk18on@1.78.1?type=jar"
-    },
-    {
-      "group" : "com.fasterxml.jackson.core",
-      "name" : "jackson-annotations",
-      "version" : "2.17.1",
-      "description" : "Core annotations used for value types, used by Jackson data binding package.",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "dbeffa5994a6234489a205fd7f33d9b9"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "fca7ef6192c9ad05d07bc50da991bf937a84af3a"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "fccad82e13172c0e4384db71577219c9b8631c0820f4b18daaa57016fb661c76"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "d3edb04cffb0a7c3349c7dc1dcd154ff0a16686155b13e5e674adedbb07d6eaca156a5b0bec2857496dec8c3669dae7d04b3debce6b324ffcfdb278ea0fcc0fe"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "df95479d6e84ea028ee42d491336d0fb69100dcbeb2b828fd1794c272c33bb16e4a7dfffee82bff09fc4119ba4669a5d"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "a84cb1dda50488ac552cfcb372ca0f313f39577100b208209b337c22a0bb0a5c6185b78ed38a998991ddb01234bb3346"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "2ed3dfad7ad53ac0b835fb4c2b1fa8bff1b68d3be86c9a93b67ffe369305ad29"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "79213b46cb73f63e4839b2840e418c8648acb39c3c27a87c075eda08cfc342354c73a45ee7a303eb8234c914a60d152180cb29eabad71e2b4f7d44140b3059a7"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.17.1?type=jar",
-      "modified" : false,
-      "externalReferences" : [
-        {
-          "type" : "vcs",
-          "url" : "https://github.com/FasterXML/jackson-annotations"
-        }
-      ],
-      "type" : "library",
-      "bom-ref" : "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.17.1?type=jar"
     },
     {
       "group" : "software.amazon.awssdk",
@@ -2495,56 +1769,6 @@
       "bom-ref" : "pkg:maven/software.amazon.awssdk/aws-core@2.26.1?type=jar"
     },
     {
-      "group" : "io.netty",
-      "name" : "netty-handler",
-      "version" : "4.1.108.Final",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "780fc1969abc323037049a5a7fd58c78"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "d186a0be320e6a139c42d9b018596ef9d4a0b4ca"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "55b2458011527d94abc868086afd039cd00cc3a547e7322569e0fb4f906d9d80"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "f8b09fe3dda3519b4dd8408b7a5db48d33065be42b3446caf899f3fc83a7d20217daf6f836b6bfd6472e6cfbbf0dd51a477d9817da21a7b71fca16e3c6014d7e"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "0cbf795d67bf4ed65e82a78c2e10df61363d7af56da8e4a08e5c02f1cb6489aed8598b48e82fd001e0f85410dd7dbf0b"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "f0de0449b542aa678780a17c095bbc517a61726011139ac232c8a41c6466795efd9093d5201956fbcd7dd9e4feba9b6d"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "dfe0562142e0d46b7a62977f8302e132188258a9e48d8b8c66844fb3f8bf0a7f"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "aeffe7d2c983dc65b0dfb5550a3b865f22b05988f7c0e50580a50043171cd751cce03bf6f40f7fc200a4ac01581c8da6679c390455ca5249da9ea12e12b46e8c"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/io.netty/netty-handler@4.1.108.Final?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/io.netty/netty-handler@4.1.108.Final?type=jar"
-    },
-    {
       "group" : "org.apache.commons",
       "name" : "commons-text",
       "version" : "1.10.0",
@@ -2661,56 +1885,6 @@
       ],
       "type" : "library",
       "bom-ref" : "pkg:maven/software.amazon.eventstream/eventstream@1.0.1?type=jar"
-    },
-    {
-      "group" : "io.netty",
-      "name" : "netty-resolver",
-      "version" : "4.1.108.Final",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "988d8f9f9f6590bf22098fda11165367"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "f3085568e45c2ca74118118f792d0d55968aeb13"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "55279fdcf6c0e1819b6561cc70b0eb2de1b1cf1ef5635fc46334d7e06faa9dd9"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "5a52108fc438401382ee03796a9b52ec4a764fb4287c0551382882c21ebc71e323ec2c6334111e0ba95bd15b25cc580a86c905aa83b98996201863f5585c97aa"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "9a0924810438f9d9e4b2ee40036a221cd3de1f5a80f428faf85d11b8b2468f44b0e7691ee57e87e748eb8493b086e83e"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "7234a6e6918233050584eba8a14c0cac31067b1d1251d75d312d9b4a79cf0ec6f2fd3cf25c10378411d8cb45db7fd354"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "3d77cac18f65ee4131357dfaef088ebf4844f1b5785db8a5ca293b93bdec1fa5"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "42e6171e804bac66d0e41233782a6ff4aaa936ef4f21129346e79bd19aa0a9f1008c1b8d5dac7d6fdb55e3c92b05a5d02734d131ce5d5ed04097e97f05ffcf32"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/io.netty/netty-resolver@4.1.108.Final?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/io.netty/netty-resolver@4.1.108.Final?type=jar"
     },
     {
       "group" : "software.amazon.awssdk",
@@ -2865,56 +2039,6 @@
       "bom-ref" : "pkg:maven/org.apache.httpcomponents/httpclient@4.5.13?type=jar"
     },
     {
-      "group" : "io.netty",
-      "name" : "netty-transport-classes-epoll",
-      "version" : "4.1.108.Final",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "90a7721c164b17eec6f3e20b89148764"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "baf7b939ef71b25713cacbe47bef8caf80ce99c6"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "5959715036c1dfc1b5a41a6b8518762f43b99c9f6f45e5c80543550cb4773c88"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "2be5de86ee9ab31d91ac0ebc1c44470724f9d9df26d63171b5e6c051503f1c7c5f8cf523e3def8214f3337fc4c160b217328f8e821edcf23926934592c350512"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "96ab43911155ded0050bcb155c7410610a4cfac36d22fc3ca768235f5b29027ad6993342564984a9a63a194f2d814ab8"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "64b3981beb41f720f061bc5484c5b7994efd9a69dfbcf079a6087ecbbeab6d756576c424306b844b4c1facd0c536d527"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "b85d02e566ab54b2c9cc95a32a2f2b67560e816595f1f1c67eddac29b51801fb"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "cefc03c7a52148a9c6af02ccf9fb42238f822776a1e0f4d91b0f80bafea7f93b35e8911ed3194591f48ae2d85ff2f326f4cfc29adc675a396b08fa197395063c"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/io.netty/netty-transport-classes-epoll@4.1.108.Final?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/io.netty/netty-transport-classes-epoll@4.1.108.Final?type=jar"
-    },
-    {
       "group" : "software.amazon.awssdk",
       "name" : "third-party-jackson-core",
       "version" : "2.26.1",
@@ -3025,56 +2149,6 @@
       ],
       "type" : "library",
       "bom-ref" : "pkg:maven/commons-codec/commons-codec@1.17.0?type=jar"
-    },
-    {
-      "group" : "io.netty",
-      "name" : "netty-codec-http2",
-      "version" : "4.1.108.Final",
-      "hashes" : [
-        {
-          "alg" : "MD5",
-          "content" : "6e50613f3bc2becb33d300dcc566babb"
-        },
-        {
-          "alg" : "SHA-1",
-          "content" : "ed90430e545529a2df7c1db6c94568ea00867a61"
-        },
-        {
-          "alg" : "SHA-256",
-          "content" : "a813e1810f7c1959b90fc7f221e03ce15e66005ee56e29cd0d68312b9679c772"
-        },
-        {
-          "alg" : "SHA-512",
-          "content" : "a81b9673e4204011931b266f0f3af130501b1bae81c6cd086be45d093361dd925b164de2d7c9658d7c7626eb1a3a546afac316b023d83fb7b1bb6a55a88cfafb"
-        },
-        {
-          "alg" : "SHA-384",
-          "content" : "93488d84f96f7d4dcbe67119b099bd0266fc0fed2cb3ed34cfe7006121ba76b1654bc61d30b1577e62244b8eebbcc486"
-        },
-        {
-          "alg" : "SHA3-384",
-          "content" : "9f28bddcf071e196c8f36d97c7ab8c0f67764d5bad8f3f30447823182f87da0fc0c2ec67fd88f71f7be02e1737fa98b0"
-        },
-        {
-          "alg" : "SHA3-256",
-          "content" : "8e5a4999a0c2ff388c89831aea0394d6e1172c0989678255158d95879fa598db"
-        },
-        {
-          "alg" : "SHA3-512",
-          "content" : "5bbf4aa3d3660602dbf002d453df08c1b40f8c8eb2e81521337bb58849b7f3f7afac7d8f524baf29c6e40261acd06ae791b3c3cf5690dd163fb2ceb79bc2b766"
-        }
-      ],
-      "licenses" : [
-        {
-          "license" : {
-            "id" : "Apache-2.0"
-          }
-        }
-      ],
-      "purl" : "pkg:maven/io.netty/netty-codec-http2@4.1.108.Final?type=jar",
-      "modified" : false,
-      "type" : "library",
-      "bom-ref" : "pkg:maven/io.netty/netty-codec-http2@4.1.108.Final?type=jar"
     },
     {
       "group" : "software.amazon.awssdk",
@@ -3556,14 +2630,6 @@
   ],
   "dependencies" : [
     {
-      "ref" : "pkg:maven/io.netty/netty-transport-native-unix-common@4.1.108.Final?type=jar",
-      "dependsOn" : [
-        "pkg:maven/io.netty/netty-transport@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-buffer@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-common@4.1.108.Final?type=jar"
-      ]
-    },
-    {
       "ref" : "pkg:maven/org.apache.pdfbox/pdfbox@2.0.30?type=jar",
       "dependsOn" : [
         "pkg:maven/org.apache.pdfbox/fontbox@2.0.30?type=jar",
@@ -3588,29 +2654,6 @@
     {
       "ref" : "pkg:maven/org.slf4j/slf4j-api@1.7.30?type=jar",
       "dependsOn" : [ ]
-    },
-    {
-      "ref" : "pkg:maven/software.amazon.awssdk/bedrockruntime@2.26.1?type=jar",
-      "dependsOn" : [
-        "pkg:maven/software.amazon.awssdk/apache-client@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/aws-json-protocol@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/aws-core@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/auth@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/regions@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/protocol-core@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/sdk-core@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-auth-aws@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-auth@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-auth-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/netty-nio-client@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-client-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/metrics-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/identity-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/json-utils@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/utils@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/endpoints-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/annotations@2.26.1?type=jar"
-      ]
     },
     {
       "ref" : "pkg:maven/software.amazon.awssdk/http-auth-aws@2.26.1?type=jar",
@@ -3672,26 +2715,6 @@
       "dependsOn" : [ ]
     },
     {
-      "ref" : "pkg:maven/software.amazon.awssdk/netty-nio-client@2.26.1?type=jar",
-      "dependsOn" : [
-        "pkg:maven/software.amazon.awssdk/http-client-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/metrics-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/utils@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/annotations@2.26.1?type=jar",
-        "pkg:maven/org.reactivestreams/reactive-streams@1.0.4?type=jar",
-        "pkg:maven/org.slf4j/slf4j-api@1.7.30?type=jar",
-        "pkg:maven/io.netty/netty-codec-http2@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-codec-http@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-handler@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-codec@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-transport-classes-epoll@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-transport@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-buffer@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-resolver@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-common@4.1.108.Final?type=jar"
-      ]
-    },
-    {
       "ref" : "pkg:maven/org.checkerframework/checker-qual@3.33.0?type=jar",
       "dependsOn" : [ ]
     },
@@ -3746,20 +2769,8 @@
       "dependsOn" : [ ]
     },
     {
-      "ref" : "pkg:maven/io.netty/netty-transport-classes-epoll@4.1.108.Final?type=jar",
-      "dependsOn" : [
-        "pkg:maven/io.netty/netty-transport-native-unix-common@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-transport@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-buffer@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-common@4.1.108.Final?type=jar"
-      ]
-    },
-    {
       "ref" : "pkg:maven/com.mendix/temp@1.0.0?type=jar",
       "dependsOn" : [
-        "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.17.1?type=jar",
-        "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.17.1?type=jar",
-        "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.17.1?type=jar",
         "pkg:maven/com.google.guava/guava@32.0.1-jre?type=jar",
         "pkg:maven/com.googlecode.owasp-java-html-sanitizer/owasp-java-html-sanitizer@20211018.2?type=jar",
         "pkg:maven/commons-codec/commons-codec@1.17.0?type=jar",
@@ -3774,27 +2785,12 @@
         "pkg:maven/software.amazon.awssdk/auth@2.26.1?type=jar",
         "pkg:maven/software.amazon.awssdk/aws-json-protocol@2.26.1?type=jar",
         "pkg:maven/software.amazon.awssdk/aws-query-protocol@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/bedrock@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/bedrockagent@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/bedrockagentruntime@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/bedrockruntime@2.26.1?type=jar",
         "pkg:maven/software.amazon.awssdk/url-connection-client@2.26.1?type=jar"
       ]
     },
     {
       "ref" : "pkg:maven/com.google.guava/listenablefuture@9999.0-empty-to-avoid-conflict-with-guava?type=jar",
       "dependsOn" : [ ]
-    },
-    {
-      "ref" : "pkg:maven/io.netty/netty-codec-http2@4.1.108.Final?type=jar",
-      "dependsOn" : [
-        "pkg:maven/io.netty/netty-codec-http@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-handler@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-codec@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-transport@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-buffer@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-common@4.1.108.Final?type=jar"
-      ]
     },
     {
       "ref" : "pkg:maven/software.amazon.awssdk/utils@2.26.1?type=jar",
@@ -3805,63 +2801,11 @@
       ]
     },
     {
-      "ref" : "pkg:maven/software.amazon.awssdk/bedrock@2.26.1?type=jar",
-      "dependsOn" : [
-        "pkg:maven/software.amazon.awssdk/apache-client@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/aws-json-protocol@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/aws-core@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/auth@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/regions@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/protocol-core@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/sdk-core@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-auth-aws@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-auth@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-auth-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/netty-nio-client@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-client-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/metrics-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/identity-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/json-utils@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/utils@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/endpoints-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/annotations@2.26.1?type=jar"
-      ]
-    },
-    {
-      "ref" : "pkg:maven/io.netty/netty-handler@4.1.108.Final?type=jar",
-      "dependsOn" : [
-        "pkg:maven/io.netty/netty-codec@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-transport-native-unix-common@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-transport@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-buffer@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-resolver@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-common@4.1.108.Final?type=jar"
-      ]
-    },
-    {
-      "ref" : "pkg:maven/io.netty/netty-common@4.1.108.Final?type=jar",
-      "dependsOn" : [ ]
-    },
-    {
-      "ref" : "pkg:maven/io.netty/netty-resolver@4.1.108.Final?type=jar",
-      "dependsOn" : [
-        "pkg:maven/io.netty/netty-common@4.1.108.Final?type=jar"
-      ]
-    },
-    {
       "ref" : "pkg:maven/software.amazon.awssdk/retries@2.26.1?type=jar",
       "dependsOn" : [
         "pkg:maven/software.amazon.awssdk/retries-spi@2.26.1?type=jar",
         "pkg:maven/software.amazon.awssdk/utils@2.26.1?type=jar",
         "pkg:maven/software.amazon.awssdk/annotations@2.26.1?type=jar"
-      ]
-    },
-    {
-      "ref" : "pkg:maven/io.netty/netty-transport@4.1.108.Final?type=jar",
-      "dependsOn" : [
-        "pkg:maven/io.netty/netty-buffer@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-resolver@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-common@4.1.108.Final?type=jar"
       ]
     },
     {
@@ -3888,16 +2832,6 @@
       ]
     },
     {
-      "ref" : "pkg:maven/io.netty/netty-codec-http@4.1.108.Final?type=jar",
-      "dependsOn" : [
-        "pkg:maven/io.netty/netty-handler@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-codec@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-transport@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-buffer@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-common@4.1.108.Final?type=jar"
-      ]
-    },
-    {
       "ref" : "pkg:maven/com.google.guava/guava@32.0.1-jre?type=jar",
       "dependsOn" : [
         "pkg:maven/com.google.guava/failureaccess@1.0.1?type=jar",
@@ -3909,38 +2843,8 @@
       ]
     },
     {
-      "ref" : "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.17.1?type=jar",
-      "dependsOn" : [
-        "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.17.1?type=jar",
-        "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.17.1?type=jar"
-      ]
-    },
-    {
       "ref" : "pkg:maven/software.amazon.awssdk/endpoints-spi@2.26.1?type=jar",
       "dependsOn" : [
-        "pkg:maven/software.amazon.awssdk/annotations@2.26.1?type=jar"
-      ]
-    },
-    {
-      "ref" : "pkg:maven/software.amazon.awssdk/bedrockagent@2.26.1?type=jar",
-      "dependsOn" : [
-        "pkg:maven/software.amazon.awssdk/apache-client@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/aws-json-protocol@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/aws-core@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/auth@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/regions@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/protocol-core@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/sdk-core@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-auth-aws@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-auth@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-auth-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/netty-nio-client@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-client-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/metrics-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/identity-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/json-utils@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/utils@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/endpoints-spi@2.26.1?type=jar",
         "pkg:maven/software.amazon.awssdk/annotations@2.26.1?type=jar"
       ]
     },
@@ -3953,16 +2857,6 @@
         "pkg:maven/software.amazon.awssdk/utils@2.26.1?type=jar",
         "pkg:maven/software.amazon.awssdk/annotations@2.26.1?type=jar",
         "pkg:maven/org.slf4j/slf4j-api@1.7.30?type=jar"
-      ]
-    },
-    {
-      "ref" : "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.17.1?type=jar",
-      "dependsOn" : [ ]
-    },
-    {
-      "ref" : "pkg:maven/io.netty/netty-buffer@4.1.108.Final?type=jar",
-      "dependsOn" : [
-        "pkg:maven/io.netty/netty-common@4.1.108.Final?type=jar"
       ]
     },
     {
@@ -4011,14 +2905,6 @@
       ]
     },
     {
-      "ref" : "pkg:maven/io.netty/netty-codec@4.1.108.Final?type=jar",
-      "dependsOn" : [
-        "pkg:maven/io.netty/netty-transport@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-buffer@4.1.108.Final?type=jar",
-        "pkg:maven/io.netty/netty-common@4.1.108.Final?type=jar"
-      ]
-    },
-    {
       "ref" : "pkg:maven/software.amazon.awssdk/aws-query-protocol@2.26.1?type=jar",
       "dependsOn" : [
         "pkg:maven/software.amazon.awssdk/aws-core@2.26.1?type=jar",
@@ -4048,29 +2934,6 @@
         "pkg:maven/software.amazon.awssdk/utils@2.26.1?type=jar",
         "pkg:maven/software.amazon.awssdk/annotations@2.26.1?type=jar",
         "pkg:maven/org.apache.httpcomponents/httpcore@4.4.13?type=jar"
-      ]
-    },
-    {
-      "ref" : "pkg:maven/software.amazon.awssdk/bedrockagentruntime@2.26.1?type=jar",
-      "dependsOn" : [
-        "pkg:maven/software.amazon.awssdk/apache-client@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/aws-json-protocol@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/aws-core@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/auth@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/regions@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/protocol-core@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/sdk-core@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-auth-aws@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-auth@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-auth-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/netty-nio-client@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/http-client-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/metrics-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/identity-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/json-utils@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/utils@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/endpoints-spi@2.26.1?type=jar",
-        "pkg:maven/software.amazon.awssdk/annotations@2.26.1?type=jar"
       ]
     },
     {
@@ -4123,10 +2986,6 @@
     },
     {
       "ref" : "pkg:maven/software.amazon.awssdk/third-party-jackson-core@2.26.1?type=jar",
-      "dependsOn" : [ ]
-    },
-    {
-      "ref" : "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.17.1?type=jar",
       "dependsOn" : [ ]
     },
     {
