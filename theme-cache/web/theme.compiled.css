@@ -27962,4 +27962,8 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   margin-right: 16px;
 }
 
+.layout-atlas .region-topbar .navbar-brand .mx-navbar-subitem a {
+  font-size: unset;
+}
+
 /*# sourceMappingURL=theme.compiled.css.map */

@@ -1,1 +1,6 @@
 @import "custom-variables";
+
+//fix for atlas topbar submenu item font size 
+.layout-atlas .region-topbar .navbar-brand .mx-navbar-subitem a{
+    font-size: unset;
+}

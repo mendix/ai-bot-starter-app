@@ -54,7 +54,7 @@ public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 		try(InputStream inputStream = Core.getFileDocumentContent(getContext(), Document.getMendixObject())){
 			PDFContent pdfContent = new PDFContent(getContext());
 			PDDocument pdfdocument = PDDocument.load(inputStream);
-			PDFTextStripper pdfTextStripper = new PDFTextStripper();
+
 			PDDocumentInformation pdfMetaData = pdfdocument.getDocumentInformation();
 			
 			//Populate output object with PDF data
@@ -63,13 +63,12 @@ public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 				pdfContent.setKeywords(pdfMetaData.getKeywords());
 				pdfContent.setTitle(pdfMetaData.getTitle());
 				pdfContent.setSubject(pdfMetaData.getSubject());
-				if (pdfMetaData.getModificationDate() != null)	{
-					pdfContent.setModificationDate(pdfMetaData.getModificationDate().getTime());
-				}
+				pdfContent.setModificationDate(pdfMetaData.getModificationDate() == null ? null : pdfMetaData.getModificationDate().getTime());
 			}
 			else {
 				throw new Exception("The PDF's meta data could not be extracted.");
 			}
+			PDFTextStripper pdfTextStripper = new PDFTextStripper();
 			pdfContent.setContent(pdfTextStripper.getText(pdfdocument));
 			pdfContent.setFileName(Document.getName());
 			
