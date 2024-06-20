@@ -468,4 +468,28 @@ public final class Microflows
 			.execute(context);
 		return result == null ? null : genaicommons.proxies.ToolCall.initialize(context, (IMendixObject) result);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder toolCall_ProcessAndExecuteFunctionBuilder(
+		genaicommons.proxies.ToolCall _toolCall,
+		java.util.List<genaicommons.proxies.Tool> _toolList
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ToolCall_ProcessAndExecuteFunction");
+		builder = builder.withParam("ToolCall", _toolCall);
+		builder = builder.withParam("ToolList", _toolList);
+		return builder;
+	}
+
+	public static java.lang.String toolCall_ProcessAndExecuteFunction(
+		IContext context,
+		genaicommons.proxies.ToolCall _toolCall,
+		java.util.List<genaicommons.proxies.Tool> _toolList
+	)
+	{
+		Object result = toolCall_ProcessAndExecuteFunctionBuilder(
+				_toolCall,
+				_toolList
+			)
+			.execute(context);
+		return (java.lang.String) result;
+	}
 }
