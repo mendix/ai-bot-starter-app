@@ -27962,6 +27962,10 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   margin-right: 16px;
 }
 
+.layout-atlas .region-topbar .navbar-brand .mx-navbar-subitem a {
+  font-size: unset;
+}
+
 .gallery-hide-paging .widget-gallery-footer {
   display: none;
 }
@@ -27977,12 +27981,8 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   background-color: #f5f6f6;
 }
 
-.initialuserprompt-margin-top {
-  margin-top: 25%;
-}
-
-.layout-atlas .region-topbar .navbar-brand .mx-navbar-subitem a {
-  font-size: unset;
+.margin-top--20percent {
+  margin-top: 20%;
 }
 
 /*# sourceMappingURL=theme.compiled.css.map */
