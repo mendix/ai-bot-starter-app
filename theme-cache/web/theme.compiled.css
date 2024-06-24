@@ -27966,4 +27966,23 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   font-size: unset;
 }
 
+.gallery-hide-paging .widget-gallery-footer {
+  display: none;
+}
+
+.card-initialuserprompt.card {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #e7e7e9;
+  height: 100px;
+  position: relative;
+}
+.card-initialuserprompt.card:hover {
+  background-color: #f5f6f6;
+}
+
+.margin-top--20percent {
+  margin-top: 20%;
+}
+
 /*# sourceMappingURL=theme.compiled.css.map */
