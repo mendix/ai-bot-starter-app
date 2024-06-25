@@ -299,9 +299,11 @@ public final class Microflows
 	}
 	/**
 	 * Use this microflow to set the ToolChoice. This controls which (if any) function is called by the model.
-	 * If the ENUM_ToolChoice equals 'tool', the Tool input is required
-	 * 
-	 * 
+	 * If the ENUM_ToolChoice equals 'tool', the Tool input is required.
+	 * - none means the model will not call a function and instead generates a text response.
+	 * - auto means the model can pick between generating a message or calling a function.
+	 * - tool means that a particular tool needs to be called, which is the one specified over association ToolCollection_ToolChoice.
+	 * - any means that any function will be called. Not available for all providers and might be changed to auto.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder request_SetToolChoiceBuilder(
 		genaicommons.proxies.Request _request,
@@ -318,9 +320,11 @@ public final class Microflows
 
 	/**
 	 * Use this microflow to set the ToolChoice. This controls which (if any) function is called by the model.
-	 * If the ENUM_ToolChoice equals 'tool', the Tool input is required
-	 * 
-	 * 
+	 * If the ENUM_ToolChoice equals 'tool', the Tool input is required.
+	 * - none means the model will not call a function and instead generates a text response.
+	 * - auto means the model can pick between generating a message or calling a function.
+	 * - tool means that a particular tool needs to be called, which is the one specified over association ToolCollection_ToolChoice.
+	 * - any means that any function will be called. Not available for all providers and might be changed to auto.
 	 */
 	public static void request_SetToolChoice(
 		IContext context,
