@@ -51,13 +51,13 @@ public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 		if(!isPDFFile(Document)) {
 			throw new Exception("Only PDF files can be passed.");
 		}
-		try(InputStream inputStream = Core.getFileDocumentContent(getContext(), Document.getMendixObject())){
-			PDFContent pdfContent = new PDFContent(getContext());
-			PDDocument pdfdocument = PDDocument.load(inputStream);
-
+		try(InputStream inputStream = Core.getFileDocumentContent(getContext(), Document.getMendixObject());
+			PDDocument pdfdocument = PDDocument.load(inputStream);){
+			
 			PDDocumentInformation pdfMetaData = pdfdocument.getDocumentInformation();
 			
 			//Populate output object with PDF data
+			PDFContent pdfContent = new PDFContent(getContext());
 			if(pdfMetaData != null)	{
 				pdfContent.setAuthor(pdfMetaData.getAuthor());
 				pdfContent.setKeywords(pdfMetaData.getKeywords());
