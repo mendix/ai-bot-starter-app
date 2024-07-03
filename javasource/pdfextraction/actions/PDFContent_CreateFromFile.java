@@ -13,6 +13,7 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.core.Core;
+import java.io.IOException;
 import java.io.InputStream;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
@@ -45,36 +46,21 @@ public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 	public IMendixObject executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		if (Document == null || !Document.getHasContents()) {
-			throw new Exception("File contents is required.");
-		}
-		if(!isPDFFile(Document)) {
-			throw new Exception("Only PDF files can be passed.");
-		}
-		try(InputStream inputStream = Core.getFileDocumentContent(getContext(), Document.getMendixObject());
-			PDDocument pdfdocument = PDDocument.load(inputStream);){
-			
-			PDDocumentInformation pdfMetaData = pdfdocument.getDocumentInformation();
-			
-			//Populate output object with PDF data
-			PDFContent pdfContent = new PDFContent(getContext());
-			if(pdfMetaData != null)	{
-				pdfContent.setAuthor(pdfMetaData.getAuthor());
-				pdfContent.setKeywords(pdfMetaData.getKeywords());
-				pdfContent.setTitle(pdfMetaData.getTitle());
-				pdfContent.setSubject(pdfMetaData.getSubject());
-				pdfContent.setModificationDate(pdfMetaData.getModificationDate() == null ? null : pdfMetaData.getModificationDate().getTime());
+		try {
+			if (Document == null || !Document.getHasContents()) {
+				throw new IllegalArgumentException("File contents are required.");
 			}
-			else {
-				throw new Exception("The PDF's meta data could not be extracted.");
-			}
-			PDFTextStripper pdfTextStripper = new PDFTextStripper();
-			pdfContent.setContent(pdfTextStripper.getText(pdfdocument));
-			pdfContent.setFileName(Document.getName());
 			
-			return pdfContent.getMendixObject();
-		}
-		catch (Exception e) {
+			if(!isPDFFile(Document)) {
+				throw new IllegalArgumentException("Only PDF files can be passed.");
+			}
+			
+			try(InputStream inputStream = Core.getFileDocumentContent(getContext(), Document.getMendixObject());
+					PDDocument pdfdocument = PDDocument.load(inputStream);){
+				return extractPDFContent(pdfdocument).getMendixObject();
+			}
+			
+		} catch (Exception e) {
 			LOGGER.error(e.getMessage());
 			throw e;
 		}
@@ -96,6 +82,26 @@ public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
 		
 		private boolean isPDFFile(FileDocument document) {
 			return document.getName() != null && document.getName().toLowerCase().endsWith(".pdf");
+		}
+		
+		private PDFContent extractPDFContent(PDDocument pdfdocument) throws IOException  {
+			PDDocumentInformation pdfMetaData = pdfdocument.getDocumentInformation();
+			
+			//Populate output object with PDF data
+			PDFContent pdfContent = new PDFContent(getContext());
+			if(pdfMetaData != null)	{
+				pdfContent.setAuthor(pdfMetaData.getAuthor());
+				pdfContent.setKeywords(pdfMetaData.getKeywords());
+				pdfContent.setTitle(pdfMetaData.getTitle());
+				pdfContent.setSubject(pdfMetaData.getSubject());
+				pdfContent.setModificationDate(pdfMetaData.getModificationDate() == null ? null : pdfMetaData.getModificationDate().getTime());
+			}
+			
+			PDFTextStripper pdfTextStripper = new PDFTextStripper();
+			pdfContent.setContent(pdfTextStripper.getText(pdfdocument));
+			pdfContent.setFileName(Document.getName());
+			
+			return pdfContent;
 		}
 	// END EXTRA CODE
 }
