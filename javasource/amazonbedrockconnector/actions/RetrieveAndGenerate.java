@@ -36,30 +36,38 @@ import software.amazon.awssdk.services.bedrockagentruntime.model.RetrieveAndGene
 
 public class RetrieveAndGenerate extends CustomJavaAction<IMendixObject>
 {
-	private IMendixObject __Credentials;
-	private awsauthentication.proxies.Credentials Credentials;
-	private IMendixObject __RetrieveAndGenerateRequest;
-	private amazonbedrockconnector.proxies.RetrieveAndGenerateRequest_Extension RetrieveAndGenerateRequest;
-	private IMendixObject __AmazonBedrockConnection;
-	private amazonbedrockconnector.proxies.AmazonBedrockConnection AmazonBedrockConnection;
+	/** @deprecated use Credentials.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __Credentials;
+	private final awsauthentication.proxies.Credentials Credentials;
+	/** @deprecated use RetrieveAndGenerateRequest.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __RetrieveAndGenerateRequest;
+	private final amazonbedrockconnector.proxies.RetrieveAndGenerateRequest_Extension RetrieveAndGenerateRequest;
+	/** @deprecated use AmazonBedrockConnection.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __AmazonBedrockConnection;
+	private final amazonbedrockconnector.proxies.AmazonBedrockConnection AmazonBedrockConnection;
 
-	public RetrieveAndGenerate(IContext context, IMendixObject Credentials, IMendixObject RetrieveAndGenerateRequest, IMendixObject AmazonBedrockConnection)
+	public RetrieveAndGenerate(
+		IContext context,
+		IMendixObject _credentials,
+		IMendixObject _retrieveAndGenerateRequest,
+		IMendixObject _amazonBedrockConnection
+	)
 	{
 		super(context);
-		this.__Credentials = Credentials;
-		this.__RetrieveAndGenerateRequest = RetrieveAndGenerateRequest;
-		this.__AmazonBedrockConnection = AmazonBedrockConnection;
+		this.__Credentials = _credentials;
+		this.Credentials = _credentials == null ? null : awsauthentication.proxies.Credentials.initialize(getContext(), _credentials);
+		this.__RetrieveAndGenerateRequest = _retrieveAndGenerateRequest;
+		this.RetrieveAndGenerateRequest = _retrieveAndGenerateRequest == null ? null : amazonbedrockconnector.proxies.RetrieveAndGenerateRequest_Extension.initialize(getContext(), _retrieveAndGenerateRequest);
+		this.__AmazonBedrockConnection = _amazonBedrockConnection;
+		this.AmazonBedrockConnection = _amazonBedrockConnection == null ? null : amazonbedrockconnector.proxies.AmazonBedrockConnection.initialize(getContext(), _amazonBedrockConnection);
 	}
 
 	@java.lang.Override
 	public IMendixObject executeAction() throws Exception
 	{
-		this.Credentials = this.__Credentials == null ? null : awsauthentication.proxies.Credentials.initialize(getContext(), __Credentials);
-
-		this.RetrieveAndGenerateRequest = this.__RetrieveAndGenerateRequest == null ? null : amazonbedrockconnector.proxies.RetrieveAndGenerateRequest_Extension.initialize(getContext(), __RetrieveAndGenerateRequest);
-
-		this.AmazonBedrockConnection = this.__AmazonBedrockConnection == null ? null : amazonbedrockconnector.proxies.AmazonBedrockConnection.initialize(getContext(), __AmazonBedrockConnection);
-
 		// BEGIN USER CODE
 		try {
 			requireNonNull(Credentials, "AWS Credentials are required");

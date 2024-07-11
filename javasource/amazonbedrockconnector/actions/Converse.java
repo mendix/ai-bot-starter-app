@@ -10,7 +10,6 @@
 package amazonbedrockconnector.actions;
 
 import static java.util.Objects.requireNonNull;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -22,9 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
 import org.apache.commons.io.IOUtils;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -34,7 +31,6 @@ import com.mendix.core.CoreException;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
-
 import amazonbedrockconnector.genaicommons_impl.FunctionMappingImpl;
 import amazonbedrockconnector.genaicommons_impl.MessageImpl;
 import amazonbedrockconnector.impl.AmazonBedrockClient;
@@ -78,30 +74,38 @@ import software.amazon.awssdk.services.bedrockruntime.model.ToolUseBlock;
 
 public class Converse extends CustomJavaAction<IMendixObject>
 {
-	private IMendixObject __Credentials;
-	private awsauthentication.proxies.Credentials Credentials;
-	private IMendixObject __ConverseRequest;
-	private amazonbedrockconnector.proxies.ChatCompletionsRequest_Extension ConverseRequest;
-	private IMendixObject __AmazonBedrockConnection;
-	private amazonbedrockconnector.proxies.AmazonBedrockConnection AmazonBedrockConnection;
+	/** @deprecated use Credentials.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __Credentials;
+	private final awsauthentication.proxies.Credentials Credentials;
+	/** @deprecated use ConverseRequest.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __ConverseRequest;
+	private final amazonbedrockconnector.proxies.ChatCompletionsRequest_Extension ConverseRequest;
+	/** @deprecated use AmazonBedrockConnection.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __AmazonBedrockConnection;
+	private final amazonbedrockconnector.proxies.AmazonBedrockConnection AmazonBedrockConnection;
 
-	public Converse(IContext context, IMendixObject Credentials, IMendixObject ConverseRequest, IMendixObject AmazonBedrockConnection)
+	public Converse(
+		IContext context,
+		IMendixObject _credentials,
+		IMendixObject _converseRequest,
+		IMendixObject _amazonBedrockConnection
+	)
 	{
 		super(context);
-		this.__Credentials = Credentials;
-		this.__ConverseRequest = ConverseRequest;
-		this.__AmazonBedrockConnection = AmazonBedrockConnection;
+		this.__Credentials = _credentials;
+		this.Credentials = _credentials == null ? null : awsauthentication.proxies.Credentials.initialize(getContext(), _credentials);
+		this.__ConverseRequest = _converseRequest;
+		this.ConverseRequest = _converseRequest == null ? null : amazonbedrockconnector.proxies.ChatCompletionsRequest_Extension.initialize(getContext(), _converseRequest);
+		this.__AmazonBedrockConnection = _amazonBedrockConnection;
+		this.AmazonBedrockConnection = _amazonBedrockConnection == null ? null : amazonbedrockconnector.proxies.AmazonBedrockConnection.initialize(getContext(), _amazonBedrockConnection);
 	}
 
 	@java.lang.Override
 	public IMendixObject executeAction() throws Exception
 	{
-		this.Credentials = this.__Credentials == null ? null : awsauthentication.proxies.Credentials.initialize(getContext(), __Credentials);
-
-		this.ConverseRequest = this.__ConverseRequest == null ? null : amazonbedrockconnector.proxies.ChatCompletionsRequest_Extension.initialize(getContext(), __ConverseRequest);
-
-		this.AmazonBedrockConnection = this.__AmazonBedrockConnection == null ? null : amazonbedrockconnector.proxies.AmazonBedrockConnection.initialize(getContext(), __AmazonBedrockConnection);
-
 		// BEGIN USER CODE
 		try {
 			requireNonNull(this.Credentials, "A Credentials object is required");
