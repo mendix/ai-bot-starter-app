@@ -122,7 +122,7 @@ public class FileContent implements com.mendix.systemwideinterfaces.core.IEntity
 	 * Get value of ContentType
 	 * @param contenttype
 	 */
-	public final genaicommons.proxies.ENUM_FileContentType getContentType()
+	public final genaicommons.proxies.ENUM_ContentType getContentType()
 	{
 		return getContentType(getContext());
 	}
@@ -131,20 +131,20 @@ public class FileContent implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @param context
 	 * @return value of ContentType
 	 */
-	public final genaicommons.proxies.ENUM_FileContentType getContentType(com.mendix.systemwideinterfaces.core.IContext context)
+	public final genaicommons.proxies.ENUM_ContentType getContentType(com.mendix.systemwideinterfaces.core.IContext context)
 	{
 		Object obj = getMendixObject().getValue(context, MemberNames.ContentType.toString());
 		if (obj == null) {
 			return null;
 		}
-		return genaicommons.proxies.ENUM_FileContentType.valueOf((java.lang.String) obj);
+		return genaicommons.proxies.ENUM_ContentType.valueOf((java.lang.String) obj);
 	}
 
 	/**
 	 * Set value of ContentType
 	 * @param contenttype
 	 */
-	public final void setContentType(genaicommons.proxies.ENUM_FileContentType contenttype)
+	public final void setContentType(genaicommons.proxies.ENUM_ContentType contenttype)
 	{
 		setContentType(getContext(), contenttype);
 	}
@@ -154,7 +154,7 @@ public class FileContent implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @param context
 	 * @param contenttype
 	 */
-	public final void setContentType(com.mendix.systemwideinterfaces.core.IContext context, genaicommons.proxies.ENUM_FileContentType contenttype)
+	public final void setContentType(com.mendix.systemwideinterfaces.core.IContext context, genaicommons.proxies.ENUM_ContentType contenttype)
 	{
 		if (contenttype != null) {
 			getMendixObject().setValue(context, MemberNames.ContentType.toString(), contenttype.toString());

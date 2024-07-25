@@ -5,7 +5,7 @@
 package genaicommons.proxies;
 
 /**
- * A text generation request object.
+ * A chat completions request object.
  */
 public class Request implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
@@ -73,9 +73,6 @@ public class Request implements com.mendix.systemwideinterfaces.core.IEntityProx
 	 */
 	public static genaicommons.proxies.Request initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.TitanImageRequest", mendixObject.getType())) {
-			return amazonbedrockconnector.proxies.TitanImageRequest.initialize(context, mendixObject);
-		}
 		return new genaicommons.proxies.Request(context, mendixObject);
 	}
 
