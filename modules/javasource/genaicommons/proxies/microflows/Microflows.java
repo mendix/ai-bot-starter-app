@@ -17,6 +17,264 @@ public final class Microflows
 
 	// These are the microflows for the GenAICommons module
 	/**
+	 * Create a chunk with only the input text populated.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chunk_CreateBuilder(
+		java.lang.String _inputText
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Chunk_Create");
+		builder = builder.withParam("InputText", _inputText);
+		return builder;
+	}
+
+	/**
+	 * Create a chunk with only the input text populated.
+	 */
+	public static genaicommons.proxies.Chunk chunk_Create(
+		IContext context,
+		java.lang.String _inputText
+	)
+	{
+		Object result = chunk_CreateBuilder(
+				_inputText
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.Chunk.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Find a Chunk within a ChunkCollection by the index.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chunk_FindByIndexBuilder(
+		genaicommons.proxies.ChunkCollection _chunkCollection,
+		java.lang.Long _index
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Chunk_FindByIndex");
+		builder = builder.withParam("ChunkCollection", _chunkCollection);
+		builder = builder.withParam("Index", _index);
+		return builder;
+	}
+
+	/**
+	 * Find a Chunk within a ChunkCollection by the index.
+	 */
+	public static genaicommons.proxies.Chunk chunk_FindByIndex(
+		IContext context,
+		genaicommons.proxies.ChunkCollection _chunkCollection,
+		java.lang.Long _index
+	)
+	{
+		Object result = chunk_FindByIndexBuilder(
+				_chunkCollection,
+				_index
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.Chunk.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Returns the Chunk itself. Might be useful for import mappings.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chunk_GetSelfBuilder(
+		genaicommons.proxies.Chunk _chunk
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Chunk_GetSelf");
+		builder = builder.withParam("Chunk", _chunk);
+		return builder;
+	}
+
+	/**
+	 * Returns the Chunk itself. Might be useful for import mappings.
+	 */
+	public static genaicommons.proxies.Chunk chunk_GetSelf(
+		IContext context,
+		genaicommons.proxies.Chunk _chunk
+	)
+	{
+		Object result = chunk_GetSelfBuilder(
+				_chunk
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.Chunk.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Adds a new Chunk to the ChunkCollection.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chunkCollection_AddChunkBuilder(
+		java.lang.String _inputText,
+		genaicommons.proxies.ChunkCollection _chunkCollection
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ChunkCollection_AddChunk");
+		builder = builder.withParam("InputText", _inputText);
+		builder = builder.withParam("ChunkCollection", _chunkCollection);
+		return builder;
+	}
+
+	/**
+	 * Adds a new Chunk to the ChunkCollection.
+	 */
+	public static genaicommons.proxies.Chunk chunkCollection_AddChunk(
+		IContext context,
+		java.lang.String _inputText,
+		genaicommons.proxies.ChunkCollection _chunkCollection
+	)
+	{
+		Object result = chunkCollection_AddChunkBuilder(
+				_inputText,
+				_chunkCollection
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.Chunk.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Creates a new ChunkCollection and returns it.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chunkCollection_CreateBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ChunkCollection_Create");
+		return builder;
+	}
+
+	/**
+	 * Creates a new ChunkCollection and returns it.
+	 */
+	public static genaicommons.proxies.ChunkCollection chunkCollection_Create(IContext context)
+	{
+		Object result = chunkCollection_CreateBuilder().execute(context);
+		return result == null ? null : genaicommons.proxies.ChunkCollection.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Casts a list of Chunks (via ChunkCollection) to KnowledgeBaseChunk objects which are returned in a list.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chunkCollection_GetKnowledgeBaseChunkListBuilder(
+		genaicommons.proxies.ChunkCollection _chunkCollection
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ChunkCollection_GetKnowledgeBaseChunkList");
+		builder = builder.withParam("ChunkCollection", _chunkCollection);
+		return builder;
+	}
+
+	/**
+	 * Casts a list of Chunks (via ChunkCollection) to KnowledgeBaseChunk objects which are returned in a list.
+	 */
+	public static java.util.List<genaicommons.proxies.KnowledgeBaseChunk> chunkCollection_GetKnowledgeBaseChunkList(
+		IContext context,
+		genaicommons.proxies.ChunkCollection _chunkCollection
+	)
+	{
+		Object result = chunkCollection_GetKnowledgeBaseChunkListBuilder(
+				_chunkCollection
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> genaicommons.proxies.KnowledgeBaseChunk.initialize(context, obj));
+	}
+	/**
+	 * Returns the ChunkCollection itself. Might be useful for import mappings.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chunkCollection_GetSelfBuilder(
+		genaicommons.proxies.ChunkCollection _chunkCollection
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ChunkCollection_GetSelf");
+		builder = builder.withParam("ChunkCollection", _chunkCollection);
+		return builder;
+	}
+
+	/**
+	 * Returns the ChunkCollection itself. Might be useful for import mappings.
+	 */
+	public static genaicommons.proxies.ChunkCollection chunkCollection_GetSelf(
+		IContext context,
+		genaicommons.proxies.ChunkCollection _chunkCollection
+	)
+	{
+		Object result = chunkCollection_GetSelfBuilder(
+				_chunkCollection
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.ChunkCollection.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Loops over all Chunks in the CHunkCollection and sets the index attribute.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chunkCollection_SetIndexOnChunksBuilder(
+		genaicommons.proxies.ChunkCollection _chunkCollection
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ChunkCollection_SetIndexOnChunks");
+		builder = builder.withParam("ChunkCollection", _chunkCollection);
+		return builder;
+	}
+
+	/**
+	 * Loops over all Chunks in the CHunkCollection and sets the index attribute.
+	 */
+	public static void chunkCollection_SetIndexOnChunks(
+		IContext context,
+		genaicommons.proxies.ChunkCollection _chunkCollection
+	)
+	{
+		chunkCollection_SetIndexOnChunksBuilder(
+				_chunkCollection
+			)
+			.execute(context);
+	}
+	/**
+	 * Creates new EmbeddingsOptions.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder embeddingsOptions_CreateBuilder(
+		java.lang.Long _dimensions
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.EmbeddingsOptions_Create");
+		builder = builder.withParam("Dimensions", _dimensions);
+		return builder;
+	}
+
+	/**
+	 * Creates new EmbeddingsOptions.
+	 */
+	public static genaicommons.proxies.EmbeddingsOptions embeddingsOptions_Create(
+		IContext context,
+		java.lang.Long _dimensions
+	)
+	{
+		Object result = embeddingsOptions_CreateBuilder(
+				_dimensions
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.EmbeddingsOptions.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Gets the First Vector from the Response.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder embeddingsResponse_GetFirstVectorBuilder(
+		genaicommons.proxies.EmbeddingsResponse _embeddingsResponse
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.EmbeddingsResponse_GetFirstVector");
+		builder = builder.withParam("EmbeddingsResponse", _embeddingsResponse);
+		return builder;
+	}
+
+	/**
+	 * Gets the First Vector from the Response.
+	 */
+	public static java.lang.String embeddingsResponse_GetFirstVector(
+		IContext context,
+		genaicommons.proxies.EmbeddingsResponse _embeddingsResponse
+	)
+	{
+		Object result = embeddingsResponse_GetFirstVectorBuilder(
+				_embeddingsResponse
+			)
+			.execute(context);
+		return (java.lang.String) result;
+	}
+	/**
 	 * Microflow can be used to add a File to a FileCollection. The File Collection is an optional part of the input structure for the main operations.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fileCollection_AddFileBuilder(
@@ -95,6 +353,78 @@ public final class Microflows
 			.execute(context);
 		return result == null ? null : genaicommons.proxies.FileCollection.initialize(context, (IMendixObject) result);
 	}
+	/**
+	 * Creates a FileCollection for a given Message (if none already exists).
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fileCollection_GetCreateBuilder(
+		genaicommons.proxies.Message _message
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.FileCollection_GetCreate");
+		builder = builder.withParam("Message", _message);
+		return builder;
+	}
+
+	/**
+	 * Creates a FileCollection for a given Message (if none already exists).
+	 */
+	public static genaicommons.proxies.FileCollection fileCollection_GetCreate(
+		IContext context,
+		genaicommons.proxies.Message _message
+	)
+	{
+		Object result = fileCollection_GetCreateBuilder(
+				_message
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.FileCollection.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Creates a new FileContent with the given input. This will be added to an existing FileCollection of the given Message or a new FileCollection will be created.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fileContent_Create_AddToMessageBuilder(
+		java.lang.String _mediaType,
+		java.lang.String _textContent,
+		genaicommons.proxies.ENUM_ContentType _eNUM_FileContentType,
+		genaicommons.proxies.ENUM_FileType _eNUM_FileType,
+		java.lang.String _fileContent,
+		genaicommons.proxies.Message _message
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.FileContent_Create_AddToMessage");
+		builder = builder.withParam("MediaType", _mediaType);
+		builder = builder.withParam("TextContent", _textContent);
+		builder = builder.withParam("ENUM_FileContentType", _eNUM_FileContentType == null ? null : _eNUM_FileContentType.name());
+		builder = builder.withParam("ENUM_FileType", _eNUM_FileType == null ? null : _eNUM_FileType.name());
+		builder = builder.withParam("FileContent", _fileContent);
+		builder = builder.withParam("Message", _message);
+		return builder;
+	}
+
+	/**
+	 * Creates a new FileContent with the given input. This will be added to an existing FileCollection of the given Message or a new FileCollection will be created.
+	 */
+	public static genaicommons.proxies.FileContent fileContent_Create_AddToMessage(
+		IContext context,
+		java.lang.String _mediaType,
+		java.lang.String _textContent,
+		genaicommons.proxies.ENUM_ContentType _eNUM_FileContentType,
+		genaicommons.proxies.ENUM_FileType _eNUM_FileType,
+		java.lang.String _fileContent,
+		genaicommons.proxies.Message _message
+	)
+	{
+		Object result = fileContent_Create_AddToMessageBuilder(
+				_mediaType,
+				_textContent,
+				_eNUM_FileContentType,
+				_eNUM_FileType,
+				_fileContent,
+				_message
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.FileContent.initialize(context, (IMendixObject) result);
+	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fileContent_SetAttributesBuilder(
 		genaicommons.proxies.FileContent _fileContent,
 		genaicommons.proxies.FileCollection _fileCollection,
@@ -133,6 +463,331 @@ public final class Microflows
 				_textContent
 			)
 			.execute(context);
+	}
+	/**
+	 * Can be used to convert FileContent to a given image (based on the ContentType from base64 or an URL). If the file name is empty, the name will be set to "image". The extension will be extracted from the MediaType of the FileContent. Fallback is "png".
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder image_ConvertToFile_SingleBuilder(
+		system.proxies.Image _imageToUse,
+		genaicommons.proxies.FileContent _fileContent
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Image_ConvertToFile_Single");
+		builder = builder.withParam("ImageToUse", _imageToUse);
+		builder = builder.withParam("FileContent", _fileContent);
+		return builder;
+	}
+
+	/**
+	 * Can be used to convert FileContent to a given image (based on the ContentType from base64 or an URL). If the file name is empty, the name will be set to "image". The extension will be extracted from the MediaType of the FileContent. Fallback is "png".
+	 */
+	public static void image_ConvertToFile_Single(
+		IContext context,
+		system.proxies.Image _imageToUse,
+		genaicommons.proxies.FileContent _fileContent
+	)
+	{
+		image_ConvertToFile_SingleBuilder(
+				_imageToUse,
+				_fileContent
+			)
+			.execute(context);
+	}
+	/**
+	 * This microflow can be used to create an ImageOptions object to be used in image generation operations.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder imageOptions_CreateBuilder(
+		java.lang.Long _height,
+		java.lang.Long _width,
+		java.lang.Long _numberOfImages
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ImageOptions_Create");
+		builder = builder.withParam("Height", _height);
+		builder = builder.withParam("Width", _width);
+		builder = builder.withParam("NumberOfImages", _numberOfImages);
+		return builder;
+	}
+
+	/**
+	 * This microflow can be used to create an ImageOptions object to be used in image generation operations.
+	 */
+	public static genaicommons.proxies.ImageOptions imageOptions_Create(
+		IContext context,
+		java.lang.Long _height,
+		java.lang.Long _width,
+		java.lang.Long _numberOfImages
+	)
+	{
+		Object result = imageOptions_CreateBuilder(
+				_height,
+				_width,
+				_numberOfImages
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.ImageOptions.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Get or creates an ImageOptions object. Can be used to set default settings for ImageOptions if none was passed.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder imageOptions_GetCreateBuilder(
+		genaicommons.proxies.ImageOptions _imageOptions,
+		java.lang.Long _height,
+		java.lang.Long _width,
+		java.lang.Long _numberOfImages
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ImageOptions_GetCreate");
+		builder = builder.withParam("ImageOptions", _imageOptions);
+		builder = builder.withParam("Height", _height);
+		builder = builder.withParam("Width", _width);
+		builder = builder.withParam("NumberOfImages", _numberOfImages);
+		return builder;
+	}
+
+	/**
+	 * Get or creates an ImageOptions object. Can be used to set default settings for ImageOptions if none was passed.
+	 */
+	public static genaicommons.proxies.ImageOptions imageOptions_GetCreate(
+		IContext context,
+		genaicommons.proxies.ImageOptions _imageOptions,
+		java.lang.Long _height,
+		java.lang.Long _width,
+		java.lang.Long _numberOfImages
+	)
+	{
+		Object result = imageOptions_GetCreateBuilder(
+				_imageOptions,
+				_height,
+				_width,
+				_numberOfImages
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.ImageOptions.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Adds a Message to the Response (if none already exists).
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder message_GetCreate_ResponseBuilder(
+		genaicommons.proxies.Response _response,
+		genaicommons.proxies.ENUM_MessageType _eNUM_MessageType,
+		genaicommons.proxies.ENUM_MessageRole _eNUM_MessageRole
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Message_GetCreate_Response");
+		builder = builder.withParam("Response", _response);
+		builder = builder.withParam("ENUM_MessageType", _eNUM_MessageType == null ? null : _eNUM_MessageType.name());
+		builder = builder.withParam("ENUM_MessageRole", _eNUM_MessageRole == null ? null : _eNUM_MessageRole.name());
+		return builder;
+	}
+
+	/**
+	 * Adds a Message to the Response (if none already exists).
+	 */
+	public static genaicommons.proxies.Message message_GetCreate_Response(
+		IContext context,
+		genaicommons.proxies.Response _response,
+		genaicommons.proxies.ENUM_MessageType _eNUM_MessageType,
+		genaicommons.proxies.ENUM_MessageRole _eNUM_MessageRole
+	)
+	{
+		Object result = message_GetCreate_ResponseBuilder(
+				_response,
+				_eNUM_MessageType,
+				_eNUM_MessageRole
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.Message.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Creates a Metadata object with the given Value and Key.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder metadata_CreateBuilder(
+		java.lang.String _key,
+		java.lang.String _value
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Metadata_Create");
+		builder = builder.withParam("Key", _key);
+		builder = builder.withParam("Value", _value);
+		return builder;
+	}
+
+	/**
+	 * Creates a Metadata object with the given Value and Key.
+	 */
+	public static genaicommons.proxies.Metadata metadata_Create(
+		IContext context,
+		java.lang.String _key,
+		java.lang.String _value
+	)
+	{
+		Object result = metadata_CreateBuilder(
+				_key,
+				_value
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.Metadata.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Gets a Metadata object in a given list (identified by Key and Value). If none was found, it will be created with the parameters and added to the list. The (found or created) Metadata object is returned.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder metadata_GetCreateBuilder(
+		java.util.List<genaicommons.proxies.Metadata> _metadataList,
+		java.lang.String _key,
+		java.lang.String _value
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Metadata_GetCreate");
+		builder = builder.withParam("MetadataList", _metadataList);
+		builder = builder.withParam("Key", _key);
+		builder = builder.withParam("Value", _value);
+		return builder;
+	}
+
+	/**
+	 * Gets a Metadata object in a given list (identified by Key and Value). If none was found, it will be created with the parameters and added to the list. The (found or created) Metadata object is returned.
+	 */
+	public static genaicommons.proxies.Metadata metadata_GetCreate(
+		IContext context,
+		java.util.List<genaicommons.proxies.Metadata> _metadataList,
+		java.lang.String _key,
+		java.lang.String _value
+	)
+	{
+		Object result = metadata_GetCreateBuilder(
+				_metadataList,
+				_key,
+				_value
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.Metadata.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * This will get or create a MetadataCollection for a given KnowledgeBaseChunk. Additionally, it will get or create a Metadata object for the MetadataList and add it to the MetadataCollection.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder metadata_GetCreate_AddToKnowledgeBaseChunkBuilder(
+		genaicommons.proxies.KnowledgeBaseChunk _knowledgeBaseChunk,
+		java.lang.String _key,
+		java.lang.String _value,
+		java.util.List<genaicommons.proxies.Metadata> _metadataList
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Metadata_GetCreate_AddToKnowledgeBaseChunk");
+		builder = builder.withParam("KnowledgeBaseChunk", _knowledgeBaseChunk);
+		builder = builder.withParam("Key", _key);
+		builder = builder.withParam("Value", _value);
+		builder = builder.withParam("MetadataList", _metadataList);
+		return builder;
+	}
+
+	/**
+	 * This will get or create a MetadataCollection for a given KnowledgeBaseChunk. Additionally, it will get or create a Metadata object for the MetadataList and add it to the MetadataCollection.
+	 */
+	public static void metadata_GetCreate_AddToKnowledgeBaseChunk(
+		IContext context,
+		genaicommons.proxies.KnowledgeBaseChunk _knowledgeBaseChunk,
+		java.lang.String _key,
+		java.lang.String _value,
+		java.util.List<genaicommons.proxies.Metadata> _metadataList
+	)
+	{
+		metadata_GetCreate_AddToKnowledgeBaseChunkBuilder(
+				_knowledgeBaseChunk,
+				_key,
+				_value,
+				_metadataList
+			)
+			.execute(context);
+	}
+	/**
+	 * Adds a new Metadata object to a given MetadataCollection. Use MetadataCollection_CreateAndAddMetadata to first create the collection.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder metadataCollection_AddMetadataBuilder(
+		java.lang.String _key,
+		java.lang.String _value,
+		genaicommons.proxies.MetadataCollection _metadataCollection
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.MetadataCollection_AddMetadata");
+		builder = builder.withParam("Key", _key);
+		builder = builder.withParam("Value", _value);
+		builder = builder.withParam("MetadataCollection", _metadataCollection);
+		return builder;
+	}
+
+	/**
+	 * Adds a new Metadata object to a given MetadataCollection. Use MetadataCollection_CreateAndAddMetadata to first create the collection.
+	 */
+	public static void metadataCollection_AddMetadata(
+		IContext context,
+		java.lang.String _key,
+		java.lang.String _value,
+		genaicommons.proxies.MetadataCollection _metadataCollection
+	)
+	{
+		metadataCollection_AddMetadataBuilder(
+				_key,
+				_value,
+				_metadataCollection
+			)
+			.execute(context);
+	}
+	/**
+	 * Creates a new MetadataCollection and adds a new Metadata. The MetadataCollection will be returned. To add additional Metadata, use MetadataCollection_AddMetadata.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder metadataCollection_CreateAndAddMetadataBuilder(
+		java.lang.String _key,
+		java.lang.String _value
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.MetadataCollection_CreateAndAddMetadata");
+		builder = builder.withParam("Key", _key);
+		builder = builder.withParam("Value", _value);
+		return builder;
+	}
+
+	/**
+	 * Creates a new MetadataCollection and adds a new Metadata. The MetadataCollection will be returned. To add additional Metadata, use MetadataCollection_AddMetadata.
+	 */
+	public static genaicommons.proxies.MetadataCollection metadataCollection_CreateAndAddMetadata(
+		IContext context,
+		java.lang.String _key,
+		java.lang.String _value
+	)
+	{
+		Object result = metadataCollection_CreateAndAddMetadataBuilder(
+				_key,
+				_value
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.MetadataCollection.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * This will get or create a MetadataCollection for a given KnowledgeBaseChunk. 
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder metadataCollection_GetCreateBuilder(
+		genaicommons.proxies.KnowledgeBaseChunk _knowledgeBaseChunk
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.MetadataCollection_GetCreate");
+		builder = builder.withParam("KnowledgeBaseChunk", _knowledgeBaseChunk);
+		return builder;
+	}
+
+	/**
+	 * This will get or create a MetadataCollection for a given KnowledgeBaseChunk. 
+	 */
+	public static genaicommons.proxies.MetadataCollection metadataCollection_GetCreate(
+		IContext context,
+		genaicommons.proxies.KnowledgeBaseChunk _knowledgeBaseChunk
+	)
+	{
+		Object result = metadataCollection_GetCreateBuilder(
+				_knowledgeBaseChunk
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.MetadataCollection.initialize(context, (IMendixObject) result);
 	}
 	/**
 	 * Microflow can be used to add a message to the Request object. The calling of this operation should happen in the correct order so that the messages are sent chronologically.
@@ -277,21 +932,21 @@ public final class Microflows
 			.execute(context);
 		return result == null ? null : genaicommons.proxies.Request.initialize(context, (IMendixObject) result);
 	}
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder request_GetOrCreateBuilder(
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder request_GetCreateBuilder(
 		genaicommons.proxies.Request _request
 	)
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Request_GetOrCreate");
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Request_GetCreate");
 		builder = builder.withParam("Request", _request);
 		return builder;
 	}
 
-	public static genaicommons.proxies.Request request_GetOrCreate(
+	public static genaicommons.proxies.Request request_GetCreate(
 		IContext context,
 		genaicommons.proxies.Request _request
 	)
 	{
-		Object result = request_GetOrCreateBuilder(
+		Object result = request_GetCreateBuilder(
 				_request
 			)
 			.execute(context);
@@ -339,6 +994,36 @@ public final class Microflows
 				_eNUM_ToolChoice
 			)
 			.execute(context);
+	}
+	/**
+	 * Creates a FileContent for a Response. This creates a message (if none exists), a FileCollection for the Message (if none exists) and adds a new FileContent to the FileCollection.
+	 * 
+	 * Usually to be used in an Import Mapping where the attribute FileContent is set during the import (FileContent will not be set in this operation). Apply post-processing to the FileContent after calling this microflow (for example to set the ContentType).
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder response_CreateFileContentBuilder(
+		genaicommons.proxies.Response _response
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Response_CreateFileContent");
+		builder = builder.withParam("Response", _response);
+		return builder;
+	}
+
+	/**
+	 * Creates a FileContent for a Response. This creates a message (if none exists), a FileCollection for the Message (if none exists) and adds a new FileContent to the FileCollection.
+	 * 
+	 * Usually to be used in an Import Mapping where the attribute FileContent is set during the import (FileContent will not be set in this operation). Apply post-processing to the FileContent after calling this microflow (for example to set the ContentType).
+	 */
+	public static genaicommons.proxies.FileContent response_CreateFileContent(
+		IContext context,
+		genaicommons.proxies.Response _response
+	)
+	{
+		Object result = response_CreateFileContentBuilder(
+				_response
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.FileContent.initialize(context, (IMendixObject) result);
 	}
 	/**
 	 * This microflow can be used to get the model response text from the response structure returned from the main operation.
