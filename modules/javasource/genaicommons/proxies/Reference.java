@@ -70,6 +70,9 @@ public class Reference implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 */
 	public static genaicommons.proxies.Reference initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
+		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.RetrievalResult", mendixObject.getType())) {
+			return amazonbedrockconnector.proxies.RetrievalResult.initialize(context, mendixObject);
+		}
 		return new genaicommons.proxies.Reference(context, mendixObject);
 	}
 

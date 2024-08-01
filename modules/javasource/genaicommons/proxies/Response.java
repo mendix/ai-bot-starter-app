@@ -76,6 +76,9 @@ public class Response implements com.mendix.systemwideinterfaces.core.IEntityPro
 		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.RetrieveAndGenerateResponse", mendixObject.getType())) {
 			return amazonbedrockconnector.proxies.RetrieveAndGenerateResponse.initialize(context, mendixObject);
 		}
+		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.RetrieveResponse", mendixObject.getType())) {
+			return amazonbedrockconnector.proxies.RetrieveResponse.initialize(context, mendixObject);
+		}
 		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.TitanImageResponse", mendixObject.getType())) {
 			return amazonbedrockconnector.proxies.TitanImageResponse.initialize(context, mendixObject);
 		}
