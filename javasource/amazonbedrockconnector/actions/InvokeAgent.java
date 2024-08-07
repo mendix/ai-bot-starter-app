@@ -91,40 +91,31 @@ import software.amazon.awssdk.services.bedrockagentruntime.model.TracePart;
  */
 public class InvokeAgent extends CustomJavaAction<java.lang.Void>
 {
-	/** @deprecated use InvokeAgentRequest.getMendixObject() instead. */
-	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __InvokeAgentRequest;
-	private final amazonbedrockconnector.proxies.InvokeAgentRequest InvokeAgentRequest;
-	private final awsauthentication.proxies.ENUM_Region ENUM_Region;
-	/** @deprecated use Credentials.getMendixObject() instead. */
-	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __Credentials;
-	private final awsauthentication.proxies.Credentials Credentials;
-	private final java.lang.String ResponseHandlerMicroflow;
-	private final java.lang.String ErrorHandlerMicroflow;
+	private IMendixObject __InvokeAgentRequest;
+	private amazonbedrockconnector.proxies.InvokeAgentRequest InvokeAgentRequest;
+	private awsauthentication.proxies.ENUM_Region ENUM_Region;
+	private IMendixObject __Credentials;
+	private awsauthentication.proxies.Credentials Credentials;
+	private java.lang.String ResponseHandlerMicroflow;
+	private java.lang.String ErrorHandlerMicroflow;
 
-	public InvokeAgent(
-		IContext context,
-		IMendixObject _invokeAgentRequest,
-		java.lang.String _eNUM_Region,
-		IMendixObject _credentials,
-		java.lang.String _responseHandlerMicroflow,
-		java.lang.String _errorHandlerMicroflow
-	)
+	public InvokeAgent(IContext context, IMendixObject InvokeAgentRequest, java.lang.String ENUM_Region, IMendixObject Credentials, java.lang.String ResponseHandlerMicroflow, java.lang.String ErrorHandlerMicroflow)
 	{
 		super(context);
-		this.__InvokeAgentRequest = _invokeAgentRequest;
-		this.InvokeAgentRequest = _invokeAgentRequest == null ? null : amazonbedrockconnector.proxies.InvokeAgentRequest.initialize(getContext(), _invokeAgentRequest);
-		this.ENUM_Region = _eNUM_Region == null ? null : awsauthentication.proxies.ENUM_Region.valueOf(_eNUM_Region);
-		this.__Credentials = _credentials;
-		this.Credentials = _credentials == null ? null : awsauthentication.proxies.Credentials.initialize(getContext(), _credentials);
-		this.ResponseHandlerMicroflow = _responseHandlerMicroflow;
-		this.ErrorHandlerMicroflow = _errorHandlerMicroflow;
+		this.__InvokeAgentRequest = InvokeAgentRequest;
+		this.ENUM_Region = ENUM_Region == null ? null : awsauthentication.proxies.ENUM_Region.valueOf(ENUM_Region);
+		this.__Credentials = Credentials;
+		this.ResponseHandlerMicroflow = ResponseHandlerMicroflow;
+		this.ErrorHandlerMicroflow = ErrorHandlerMicroflow;
 	}
 
 	@java.lang.Override
 	public java.lang.Void executeAction() throws Exception
 	{
+		this.InvokeAgentRequest = this.__InvokeAgentRequest == null ? null : amazonbedrockconnector.proxies.InvokeAgentRequest.initialize(getContext(), __InvokeAgentRequest);
+
+		this.Credentials = this.__Credentials == null ? null : awsauthentication.proxies.Credentials.initialize(getContext(), __Credentials);
+
 		// BEGIN USER CODE
 		try {
 			requireNonNull(InvokeAgentRequest, "InvokeAgentRequest is required.");
