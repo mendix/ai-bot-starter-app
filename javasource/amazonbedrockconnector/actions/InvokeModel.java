@@ -20,34 +20,27 @@ import software.amazon.awssdk.services.bedrockruntime.BedrockRuntimeClient;
 
 public class InvokeModel extends CustomJavaAction<IMendixObject>
 {
-	/** @deprecated use Credentials.getMendixObject() instead. */
-	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __Credentials;
-	private final awsauthentication.proxies.Credentials Credentials;
-	private final awsauthentication.proxies.ENUM_Region Region;
-	/** @deprecated use InvokeModelRequest.getMendixObject() instead. */
-	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __InvokeModelRequest;
-	private final amazonbedrockconnector.proxies.InvokeModelRequest InvokeModelRequest;
+	private IMendixObject __Credentials;
+	private awsauthentication.proxies.Credentials Credentials;
+	private awsauthentication.proxies.ENUM_Region Region;
+	private IMendixObject __InvokeModelRequest;
+	private amazonbedrockconnector.proxies.InvokeModelRequest InvokeModelRequest;
 
-	public InvokeModel(
-		IContext context,
-		IMendixObject _credentials,
-		java.lang.String _region,
-		IMendixObject _invokeModelRequest
-	)
+	public InvokeModel(IContext context, IMendixObject Credentials, java.lang.String Region, IMendixObject InvokeModelRequest)
 	{
 		super(context);
-		this.__Credentials = _credentials;
-		this.Credentials = _credentials == null ? null : awsauthentication.proxies.Credentials.initialize(getContext(), _credentials);
-		this.Region = _region == null ? null : awsauthentication.proxies.ENUM_Region.valueOf(_region);
-		this.__InvokeModelRequest = _invokeModelRequest;
-		this.InvokeModelRequest = _invokeModelRequest == null ? null : amazonbedrockconnector.proxies.InvokeModelRequest.initialize(getContext(), _invokeModelRequest);
+		this.__Credentials = Credentials;
+		this.Region = Region == null ? null : awsauthentication.proxies.ENUM_Region.valueOf(Region);
+		this.__InvokeModelRequest = InvokeModelRequest;
 	}
 
 	@java.lang.Override
 	public IMendixObject executeAction() throws Exception
 	{
+		this.Credentials = this.__Credentials == null ? null : awsauthentication.proxies.Credentials.initialize(getContext(), __Credentials);
+
+		this.InvokeModelRequest = this.__InvokeModelRequest == null ? null : amazonbedrockconnector.proxies.InvokeModelRequest.initialize(getContext(), __InvokeModelRequest);
+
 		// BEGIN USER CODE
 		try {
 			// Validating JA input parameters

@@ -75,38 +75,30 @@ import software.amazon.awssdk.services.bedrockruntime.model.ToolUseBlock;
 
 public class Converse extends CustomJavaAction<IMendixObject>
 {
-	/** @deprecated use Credentials.getMendixObject() instead. */
-	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __Credentials;
-	private final awsauthentication.proxies.Credentials Credentials;
-	/** @deprecated use ConverseRequest.getMendixObject() instead. */
-	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __ConverseRequest;
-	private final amazonbedrockconnector.proxies.ChatCompletionsRequest_Extension ConverseRequest;
-	/** @deprecated use AmazonBedrockConnection.getMendixObject() instead. */
-	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __AmazonBedrockConnection;
-	private final amazonbedrockconnector.proxies.AmazonBedrockConnection AmazonBedrockConnection;
+	private IMendixObject __Credentials;
+	private awsauthentication.proxies.Credentials Credentials;
+	private IMendixObject __ConverseRequest;
+	private amazonbedrockconnector.proxies.ChatCompletionsRequest_Extension ConverseRequest;
+	private IMendixObject __AmazonBedrockConnection;
+	private amazonbedrockconnector.proxies.AmazonBedrockConnection AmazonBedrockConnection;
 
-	public Converse(
-		IContext context,
-		IMendixObject _credentials,
-		IMendixObject _converseRequest,
-		IMendixObject _amazonBedrockConnection
-	)
+	public Converse(IContext context, IMendixObject Credentials, IMendixObject ConverseRequest, IMendixObject AmazonBedrockConnection)
 	{
 		super(context);
-		this.__Credentials = _credentials;
-		this.Credentials = _credentials == null ? null : awsauthentication.proxies.Credentials.initialize(getContext(), _credentials);
-		this.__ConverseRequest = _converseRequest;
-		this.ConverseRequest = _converseRequest == null ? null : amazonbedrockconnector.proxies.ChatCompletionsRequest_Extension.initialize(getContext(), _converseRequest);
-		this.__AmazonBedrockConnection = _amazonBedrockConnection;
-		this.AmazonBedrockConnection = _amazonBedrockConnection == null ? null : amazonbedrockconnector.proxies.AmazonBedrockConnection.initialize(getContext(), _amazonBedrockConnection);
+		this.__Credentials = Credentials;
+		this.__ConverseRequest = ConverseRequest;
+		this.__AmazonBedrockConnection = AmazonBedrockConnection;
 	}
 
 	@java.lang.Override
 	public IMendixObject executeAction() throws Exception
 	{
+		this.Credentials = this.__Credentials == null ? null : awsauthentication.proxies.Credentials.initialize(getContext(), __Credentials);
+
+		this.ConverseRequest = this.__ConverseRequest == null ? null : amazonbedrockconnector.proxies.ChatCompletionsRequest_Extension.initialize(getContext(), __ConverseRequest);
+
+		this.AmazonBedrockConnection = this.__AmazonBedrockConnection == null ? null : amazonbedrockconnector.proxies.AmazonBedrockConnection.initialize(getContext(), __AmazonBedrockConnection);
+
 		// BEGIN USER CODE
 		try {
 			requireNonNull(this.Credentials, "A Credentials object is required");
