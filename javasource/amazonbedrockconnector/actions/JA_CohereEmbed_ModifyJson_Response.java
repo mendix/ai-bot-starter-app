@@ -21,12 +21,15 @@ import amazonbedrockconnector.impl.MxLogger;
 
 public class JA_CohereEmbed_ModifyJson_Response extends CustomJavaAction<java.lang.String>
 {
-	private java.lang.String ResponseBody_ToBeModified;
+	private final java.lang.String ResponseBody_ToBeModified;
 
-	public JA_CohereEmbed_ModifyJson_Response(IContext context, java.lang.String ResponseBody_ToBeModified)
+	public JA_CohereEmbed_ModifyJson_Response(
+		IContext context,
+		java.lang.String _responseBody_ToBeModified
+	)
 	{
 		super(context);
-		this.ResponseBody_ToBeModified = ResponseBody_ToBeModified;
+		this.ResponseBody_ToBeModified = _responseBody_ToBeModified;
 	}
 
 	@java.lang.Override
@@ -54,6 +57,7 @@ public class JA_CohereEmbed_ModifyJson_Response extends CustomJavaAction<java.la
 				// Create output JSON object
 				outputNode = mapper.createObjectNode();
 				outputNode.set("id", inputNode.get("id"));
+				outputNode.set("request_tokens", inputNode.get("request_tokens"));
 				outputNode.set("response_type", inputNode.get("response_type"));
 
 				// Create the embeddings array for the output

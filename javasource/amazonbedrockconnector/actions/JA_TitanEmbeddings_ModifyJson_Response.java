@@ -21,12 +21,15 @@ import amazonbedrockconnector.impl.MxLogger;
 
 public class JA_TitanEmbeddings_ModifyJson_Response extends CustomJavaAction<java.lang.String>
 {
-	private java.lang.String ResponseBody_ToBeModified;
+	private final java.lang.String ResponseBody_ToBeModified;
 
-	public JA_TitanEmbeddings_ModifyJson_Response(IContext context, java.lang.String ResponseBody_ToBeModified)
+	public JA_TitanEmbeddings_ModifyJson_Response(
+		IContext context,
+		java.lang.String _responseBody_ToBeModified
+	)
 	{
 		super(context);
-		this.ResponseBody_ToBeModified = ResponseBody_ToBeModified;
+		this.ResponseBody_ToBeModified = _responseBody_ToBeModified;
 	}
 
 	@java.lang.Override
