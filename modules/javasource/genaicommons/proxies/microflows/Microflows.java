@@ -383,7 +383,7 @@ public final class Microflows
 	 * Creates a new FileContent with the given input. This will be added to an existing FileCollection of the given Message or a new FileCollection will be created.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fileContent_Create_AddToMessageBuilder(
-		java.lang.String _mediaType,
+		java.lang.String _fileExtension,
 		java.lang.String _textContent,
 		genaicommons.proxies.ENUM_ContentType _eNUM_FileContentType,
 		genaicommons.proxies.ENUM_FileType _eNUM_FileType,
@@ -392,7 +392,7 @@ public final class Microflows
 	)
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.FileContent_Create_AddToMessage");
-		builder = builder.withParam("MediaType", _mediaType);
+		builder = builder.withParam("FileExtension", _fileExtension);
 		builder = builder.withParam("TextContent", _textContent);
 		builder = builder.withParam("ENUM_FileContentType", _eNUM_FileContentType == null ? null : _eNUM_FileContentType.name());
 		builder = builder.withParam("ENUM_FileType", _eNUM_FileType == null ? null : _eNUM_FileType.name());
@@ -406,7 +406,7 @@ public final class Microflows
 	 */
 	public static genaicommons.proxies.FileContent fileContent_Create_AddToMessage(
 		IContext context,
-		java.lang.String _mediaType,
+		java.lang.String _fileExtension,
 		java.lang.String _textContent,
 		genaicommons.proxies.ENUM_ContentType _eNUM_FileContentType,
 		genaicommons.proxies.ENUM_FileType _eNUM_FileType,
@@ -415,7 +415,7 @@ public final class Microflows
 	)
 	{
 		Object result = fileContent_Create_AddToMessageBuilder(
-				_mediaType,
+				_fileExtension,
 				_textContent,
 				_eNUM_FileContentType,
 				_eNUM_FileType,
@@ -425,6 +425,9 @@ public final class Microflows
 			.execute(context);
 		return result == null ? null : genaicommons.proxies.FileContent.initialize(context, (IMendixObject) result);
 	}
+	/**
+	 * Either a FileDocument or an URL needs to be provided. All available attributes are set an the FileContent is added to the FileCollection.
+	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fileContent_SetAttributesBuilder(
 		genaicommons.proxies.FileContent _fileContent,
 		genaicommons.proxies.FileCollection _fileCollection,
@@ -444,6 +447,9 @@ public final class Microflows
 		return builder;
 	}
 
+	/**
+	 * Either a FileDocument or an URL needs to be provided. All available attributes are set an the FileContent is added to the FileCollection.
+	 */
 	public static void fileContent_SetAttributes(
 		IContext context,
 		genaicommons.proxies.FileContent _fileContent,
@@ -465,7 +471,7 @@ public final class Microflows
 			.execute(context);
 	}
 	/**
-	 * Can be used to convert FileContent to a given image (based on the ContentType from base64 or an URL). If the file name is empty, the name will be set to "image". The extension will be extracted from the MediaType of the FileContent. Fallback is "png".
+	 * Can be used to convert FileContent to a given image (based on the ContentType from base64 or an URL). If the file name is empty, the name will be set to "image.png". If the FileContent contains a FileExtension, this will be used instead.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder image_ConvertToFile_SingleBuilder(
 		system.proxies.Image _imageToUse,
@@ -479,7 +485,7 @@ public final class Microflows
 	}
 
 	/**
-	 * Can be used to convert FileContent to a given image (based on the ContentType from base64 or an URL). If the file name is empty, the name will be set to "image". The extension will be extracted from the MediaType of the FileContent. Fallback is "png".
+	 * Can be used to convert FileContent to a given image (based on the ContentType from base64 or an URL). If the file name is empty, the name will be set to "image.png". If the FileContent contains a FileExtension, this will be used instead.
 	 */
 	public static void image_ConvertToFile_Single(
 		IContext context,

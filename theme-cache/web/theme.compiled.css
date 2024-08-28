@@ -5359,6 +5359,43 @@ input[type=checkbox].three-state-checkbox + .control-label {
   font-weight: bold;
 }
 
+.conversationstarter.card {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #e7e7e9;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.conversationstarter.card:hover {
+  background-color: #f5f6f6;
+}
+.conversationstarter.card .mx-link {
+  color: #264ae5;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.conversationstarter-container--vertical {
+  margin-top: 20%;
+}
+
+.conversationstarter-container--horizontal {
+  margin-top: 20%;
+}
+.conversationstarter-container--horizontal .mx-layoutgrid {
+  height: 100%;
+}
+.conversationstarter-container--horizontal .mx-layoutgrid > .row .col > .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.conversationstarter-container--horizontal .conversationstarter-arrow {
+  display: none;
+}
+
 .chat-dataview--display-contents {
   display: contents;
 }

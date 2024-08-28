@@ -27,7 +27,7 @@ public class FileContent implements com.mendix.systemwideinterfaces.core.IEntity
 		ContentType("ContentType"),
 		FileType("FileType"),
 		TextContent("TextContent"),
-		MediaType("MediaType");
+		FileExtension("FileExtension");
 
 		private final java.lang.String metaName;
 
@@ -245,39 +245,39 @@ public class FileContent implements com.mendix.systemwideinterfaces.core.IEntity
 	}
 
 	/**
-	 * @return value of MediaType
+	 * @return value of FileExtension
 	 */
-	public final java.lang.String getMediaType()
+	public final java.lang.String getFileExtension()
 	{
-		return getMediaType(getContext());
+		return getFileExtension(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of MediaType
+	 * @return value of FileExtension
 	 */
-	public final java.lang.String getMediaType(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.String getFileExtension(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.MediaType.toString());
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.FileExtension.toString());
 	}
 
 	/**
-	 * Set value of MediaType
-	 * @param mediatype
+	 * Set value of FileExtension
+	 * @param fileextension
 	 */
-	public final void setMediaType(java.lang.String mediatype)
+	public final void setFileExtension(java.lang.String fileextension)
 	{
-		setMediaType(getContext(), mediatype);
+		setFileExtension(getContext(), fileextension);
 	}
 
 	/**
-	 * Set value of MediaType
+	 * Set value of FileExtension
 	 * @param context
-	 * @param mediatype
+	 * @param fileextension
 	 */
-	public final void setMediaType(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String mediatype)
+	public final void setFileExtension(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String fileextension)
 	{
-		getMendixObject().setValue(context, MemberNames.MediaType.toString(), mediatype);
+		getMendixObject().setValue(context, MemberNames.FileExtension.toString(), fileextension);
 	}
 
 	@java.lang.Override

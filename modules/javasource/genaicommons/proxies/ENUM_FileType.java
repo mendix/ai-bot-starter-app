@@ -6,7 +6,8 @@ package genaicommons.proxies;
 
 public enum ENUM_FileType
 {
-	image(new java.lang.String[][] { new java.lang.String[] { "en_US", "Image" } });
+	image(new java.lang.String[][] { new java.lang.String[] { "en_US", "Image" } }),
+	document(new java.lang.String[][] { new java.lang.String[] { "en_US", "Document" } });
 
 	private final java.util.Map<java.lang.String, java.lang.String> captions;
 
