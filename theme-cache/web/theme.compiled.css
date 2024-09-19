@@ -5392,6 +5392,16 @@ input[type=checkbox].three-state-checkbox + .control-label {
   display: flex;
   flex-direction: column;
 }
+.conversationstarter-container--horizontal .conversationstarter.card {
+  height: 100%;
+}
+.conversationstarter-container--horizontal .conversationstarter.card div {
+  display: flex;
+  flex-direction: column;
+}
+.conversationstarter-container--horizontal .widget-gallery-item-button {
+  height: 100%;
+}
 .conversationstarter-container--horizontal .conversationstarter-arrow {
   display: none;
 }
@@ -28039,21 +28049,6 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 
 .gallery-hide-paging .widget-gallery-footer {
   display: none;
-}
-
-.card-initialuserprompt.card {
-  margin-bottom: 8px;
-  padding: 8px;
-  border: 1px solid #e7e7e9;
-  height: 100px;
-  position: relative;
-}
-.card-initialuserprompt.card:hover {
-  background-color: #f5f6f6;
-}
-
-.margin-top--20percent {
-  margin-top: 20%;
 }
 
 /*# sourceMappingURL=theme.compiled.css.map */
