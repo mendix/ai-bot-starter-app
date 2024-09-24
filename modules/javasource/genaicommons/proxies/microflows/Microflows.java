@@ -17,6 +17,42 @@ public final class Microflows
 
 	// These are the microflows for the GenAICommons module
 	/**
+	 * Can be used to trigger the scheduled event ScE_Usage_Cleanup logic manually.
+	 * This is a cleanup of Usage data (token monitor). This microflow is used in the ScE with the same name. This can be toggled on/off in the Mendix Cloud portal per environment. It runs daily at 12:00AM UTC.
+	 * See constant @ConversationalUI.Usage_CleanUpAfterDays for more information.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Usage_Cleanup_TriggerScEBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ACT_Usage_Cleanup_TriggerScE");
+		return builder;
+	}
+
+	/**
+	 * Can be used to trigger the scheduled event ScE_Usage_Cleanup logic manually.
+	 * This is a cleanup of Usage data (token monitor). This microflow is used in the ScE with the same name. This can be toggled on/off in the Mendix Cloud portal per environment. It runs daily at 12:00AM UTC.
+	 * See constant @ConversationalUI.Usage_CleanUpAfterDays for more information.
+	 */
+	public static void aCT_Usage_Cleanup_TriggerScE(IContext context)
+	{
+		aCT_Usage_Cleanup_TriggerScEBuilder().execute(context);
+	}
+	/**
+	 * Can be used to trigger the cleanup logic for all Usage records until the current moment manually.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Usage_CleanupAllBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ACT_Usage_CleanupAll");
+		return builder;
+	}
+
+	/**
+	 * Can be used to trigger the cleanup logic for all Usage records until the current moment manually.
+	 */
+	public static void aCT_Usage_CleanupAll(IContext context)
+	{
+		aCT_Usage_CleanupAllBuilder().execute(context);
+	}
+	/**
 	 * Create a chunk with only the input text populated.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chunk_CreateBuilder(
@@ -1186,5 +1222,101 @@ public final class Microflows
 			)
 			.execute(context);
 		return (java.lang.String) result;
+	}
+	/**
+	 * Use this microflow to create and store the Usage object based on the EmbeddingsReponse in the Embeddings Operations that follow the principles of GenAI Commons.
+	 * 
+	 * The Deploymentidentifier string must be constructed in a custom way for the connector, so that end-users can distinguish between applicable deployments/models.
+	 * 
+	 * The EmbeddingsResponse must have the following fields populated:
+	 * -DurationMilliseconds: the duration of the technical part of the call to the LLM provider (excluding pre/post processing)
+	 * -InputTokens: the number of input tokens
+	 * -TotalTokens: the number of total tokens, for embeddings operations this is typically identical to the input since output token usage is not applicable.
+	 * 
+	 * 
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder usage_Create_EmbeddingsBuilder(
+		genaicommons.proxies.EmbeddingsResponse _embeddingsResponse,
+		java.lang.String _deploymentIdentifier
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Usage_Create_Embeddings");
+		builder = builder.withParam("EmbeddingsResponse", _embeddingsResponse);
+		builder = builder.withParam("DeploymentIdentifier", _deploymentIdentifier);
+		return builder;
+	}
+
+	/**
+	 * Use this microflow to create and store the Usage object based on the EmbeddingsReponse in the Embeddings Operations that follow the principles of GenAI Commons.
+	 * 
+	 * The Deploymentidentifier string must be constructed in a custom way for the connector, so that end-users can distinguish between applicable deployments/models.
+	 * 
+	 * The EmbeddingsResponse must have the following fields populated:
+	 * -DurationMilliseconds: the duration of the technical part of the call to the LLM provider (excluding pre/post processing)
+	 * -InputTokens: the number of input tokens
+	 * -TotalTokens: the number of total tokens, for embeddings operations this is typically identical to the input since output token usage is not applicable.
+	 * 
+	 * 
+	 */
+	public static void usage_Create_Embeddings(
+		IContext context,
+		genaicommons.proxies.EmbeddingsResponse _embeddingsResponse,
+		java.lang.String _deploymentIdentifier
+	)
+	{
+		usage_Create_EmbeddingsBuilder(
+				_embeddingsResponse,
+				_deploymentIdentifier
+			)
+			.execute(context);
+	}
+	/**
+	 * Use this microflow to create and store the Usage object based on the Reponse object in the chat completions operations that follow the principles of GenAI Commons.
+	 * 
+	 * The Deploymentidentifier string must be constructed in a custom way for the connector, so that end-users can distinguish between LLM provider/architecture and applicable deployments/models.
+	 * 
+	 * The Response must have the following fields populated:
+	 * -DurationMilliseconds: the duration of the technical part of the call to the LLM provider (excluding pre/post processing).
+	 * -InputTokens: the number of input tokens.
+	 * -OutputTokens: the number of output tokens.
+	 * -TotalTokens: the number of total tokens (typically input + output).
+	 * 
+	 * 
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder usage_Create_TextAndFilesBuilder(
+		genaicommons.proxies.Response _response,
+		java.lang.String _deploymentIdentifier
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Usage_Create_TextAndFiles");
+		builder = builder.withParam("Response", _response);
+		builder = builder.withParam("DeploymentIdentifier", _deploymentIdentifier);
+		return builder;
+	}
+
+	/**
+	 * Use this microflow to create and store the Usage object based on the Reponse object in the chat completions operations that follow the principles of GenAI Commons.
+	 * 
+	 * The Deploymentidentifier string must be constructed in a custom way for the connector, so that end-users can distinguish between LLM provider/architecture and applicable deployments/models.
+	 * 
+	 * The Response must have the following fields populated:
+	 * -DurationMilliseconds: the duration of the technical part of the call to the LLM provider (excluding pre/post processing).
+	 * -InputTokens: the number of input tokens.
+	 * -OutputTokens: the number of output tokens.
+	 * -TotalTokens: the number of total tokens (typically input + output).
+	 * 
+	 * 
+	 */
+	public static void usage_Create_TextAndFiles(
+		IContext context,
+		genaicommons.proxies.Response _response,
+		java.lang.String _deploymentIdentifier
+	)
+	{
+		usage_Create_TextAndFilesBuilder(
+				_response,
+				_deploymentIdentifier
+			)
+			.execute(context);
 	}
 }
