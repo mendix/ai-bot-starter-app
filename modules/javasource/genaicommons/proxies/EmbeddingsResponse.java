@@ -26,6 +26,7 @@ public class EmbeddingsResponse implements com.mendix.systemwideinterfaces.core.
 	{
 		PromptTokens("PromptTokens"),
 		TotalTokens("TotalTokens"),
+		DurationMilliseconds("DurationMilliseconds"),
 		EmbeddingsResponse_ChunkCollection("GenAICommons.EmbeddingsResponse_ChunkCollection");
 
 		private final java.lang.String metaName;
@@ -151,6 +152,42 @@ public class EmbeddingsResponse implements com.mendix.systemwideinterfaces.core.
 	public final void setTotalTokens(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer totaltokens)
 	{
 		getMendixObject().setValue(context, MemberNames.TotalTokens.toString(), totaltokens);
+	}
+
+	/**
+	 * @return value of DurationMilliseconds
+	 */
+	public final java.lang.Integer getDurationMilliseconds()
+	{
+		return getDurationMilliseconds(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of DurationMilliseconds
+	 */
+	public final java.lang.Integer getDurationMilliseconds(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.DurationMilliseconds.toString());
+	}
+
+	/**
+	 * Set value of DurationMilliseconds
+	 * @param durationmilliseconds
+	 */
+	public final void setDurationMilliseconds(java.lang.Integer durationmilliseconds)
+	{
+		setDurationMilliseconds(getContext(), durationmilliseconds);
+	}
+
+	/**
+	 * Set value of DurationMilliseconds
+	 * @param context
+	 * @param durationmilliseconds
+	 */
+	public final void setDurationMilliseconds(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer durationmilliseconds)
+	{
+		getMendixObject().setValue(context, MemberNames.DurationMilliseconds.toString(), durationmilliseconds);
 	}
 
 	/**

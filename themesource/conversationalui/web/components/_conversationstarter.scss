@@ -33,7 +33,7 @@
     .mx-layoutgrid {
         height: 100%;
         &>.row {
-            .col>.card{
+            .col>.card {
                 height: 100%;
                 display: flex;
                 flex-direction: column;
@@ -50,11 +50,11 @@
         }
     }
 
-    .widget-gallery-item-button{
+    .widget-gallery-item-button {
         height: 100%;
     }
 
     .conversationstarter-arrow {
         display: none;
     }
-}  
+} 
