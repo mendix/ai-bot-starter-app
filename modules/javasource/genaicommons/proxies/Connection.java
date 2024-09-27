@@ -72,6 +72,9 @@ public class Connection implements com.mendix.systemwideinterfaces.core.IEntityP
 		if (com.mendix.core.Core.isSubClassOf("OpenAIConnector.OpenAIConnection", mendixObject.getType())) {
 			return openaiconnector.proxies.OpenAIConnection.initialize(context, mendixObject);
 		}
+		if (com.mendix.core.Core.isSubClassOf("SynthiaConnector.SynthiaConnection", mendixObject.getType())) {
+			return synthiaconnector.proxies.SynthiaConnection.initialize(context, mendixObject);
+		}
 		return new genaicommons.proxies.Connection(context, mendixObject);
 	}
 
