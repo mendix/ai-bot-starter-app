@@ -1272,6 +1272,7 @@ public final class Microflows
 	}
 	/**
 	 * Use this microflow to create and store the Usage object based on the Reponse object in the chat completions operations that follow the principles of GenAI Commons.
+	 * If you're using the Request_Process java action in your connector, you should not add this microflow again. The java action already takes care of storing token usage metrics.
 	 * 
 	 * The Deploymentidentifier string must be constructed in a custom way for the connector, so that end-users can distinguish between LLM provider/architecture and applicable deployments/models.
 	 * 
@@ -1280,8 +1281,6 @@ public final class Microflows
 	 * -InputTokens: the number of input tokens.
 	 * -OutputTokens: the number of output tokens.
 	 * -TotalTokens: the number of total tokens (typically input + output).
-	 * 
-	 * 
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder usage_Create_TextAndFilesBuilder(
 		genaicommons.proxies.Response _response,
@@ -1296,6 +1295,7 @@ public final class Microflows
 
 	/**
 	 * Use this microflow to create and store the Usage object based on the Reponse object in the chat completions operations that follow the principles of GenAI Commons.
+	 * If you're using the Request_Process java action in your connector, you should not add this microflow again. The java action already takes care of storing token usage metrics.
 	 * 
 	 * The Deploymentidentifier string must be constructed in a custom way for the connector, so that end-users can distinguish between LLM provider/architecture and applicable deployments/models.
 	 * 
@@ -1304,8 +1304,6 @@ public final class Microflows
 	 * -InputTokens: the number of input tokens.
 	 * -OutputTokens: the number of output tokens.
 	 * -TotalTokens: the number of total tokens (typically input + output).
-	 * 
-	 * 
 	 */
 	public static void usage_Create_TextAndFiles(
 		IContext context,

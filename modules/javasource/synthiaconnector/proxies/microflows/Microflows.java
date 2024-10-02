@@ -366,6 +366,36 @@ public final class Microflows
 		return (boolean) result;
 	}
 	/**
+	 * Use this operation to get all knowledge bases that belong to a Knowledge Base Configuration. A list of type "KnowledgeBase" is returned.
+	 * 
+	 * The Connection entity passed must be of type SynthiaConnection and a Knowledgebase Configuration associated with the connection details to the knowledge base service.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder knowledgeBase_GetListBuilder(
+		genaicommons.proxies.Connection _connection
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("SynthiaConnector.KnowledgeBase_GetList");
+		builder = builder.withParam("Connection", _connection);
+		return builder;
+	}
+
+	/**
+	 * Use this operation to get all knowledge bases that belong to a Knowledge Base Configuration. A list of type "KnowledgeBase" is returned.
+	 * 
+	 * The Connection entity passed must be of type SynthiaConnection and a Knowledgebase Configuration associated with the connection details to the knowledge base service.
+	 */
+	public static java.util.List<synthiaconnector.proxies.KnowledgeBase> knowledgeBase_GetList(
+		IContext context,
+		genaicommons.proxies.Connection _connection
+	)
+	{
+		Object result = knowledgeBase_GetListBuilder(
+				_connection
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> synthiaconnector.proxies.KnowledgeBase.initialize(context, obj));
+	}
+	/**
 	 * Use this operation to retrieve chunks from the knowledge base. The retrieval is based on similarity with respect to the input string (Content) provided.  This operation returns a list of KnowledgeBaseChunk. The returned list is sorted on vector similarity which is handled internally.
 	 * Additional filtering can be done by specifying the optional input parameters:
 	 * -MinimumSimilarity (in the range 0-1.0): acts as a cut-off: chunks are not retrieved if they have a similarity below this value.
