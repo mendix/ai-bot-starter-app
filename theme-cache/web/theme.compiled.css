@@ -27582,13 +27582,14 @@ input[type=checkbox].three-state-checkbox + .control-label {
 
 .accordion-chat-sources .widget-accordion-group {
   background: transparent;
+  border-bottom: none;
 }
 .accordion-chat-sources .widget-accordion-group .widget-accordion-group-header .widget-accordion-group-header-button {
   display: inline-flex;
   background: transparent;
   padding: 0;
 }
-.accordion-chat-sources .widget-accordion-group .widget-accordion-group-header .widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:hover, .accordion-chat-sources .widget-accordion-group .widget-accordion-group-header .widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:focus {
+.accordion-chat-sources .widget-accordion-group .widget-accordion-group-header .widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:hover, .accordion-chat-sources .widget-accordion-group .widget-accordion-group-header .widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:focus, .accordion-chat-sources .widget-accordion-group .widget-accordion-group-header .widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:active {
   color: #0a1325;
   background: transparent;
 }
@@ -27599,6 +27600,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
 }
 .accordion-chat-sources .widget-accordion-group .widget-accordion-group-content-wrapper .widget-accordion-group-content {
   padding-left: 0;
+  padding-right: 0;
   padding-bottom: 0;
 }
 
@@ -27674,7 +27676,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
   height: 100%;
 }
 .chat-container .messages-container {
-  flex: 1 1 auto;
+  flex: 1 1 0;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -27686,6 +27688,10 @@ input[type=checkbox].three-state-checkbox + .control-label {
 
 .chat-input-wrapper {
   position: relative;
+  display: flex !important;
+  align-items: center !important;
+  flex-flow: row !important;
+  justify-content: center !important;
 }
 .chat-input-wrapper .form-group {
   width: 100%;
@@ -27697,10 +27703,19 @@ input[type=checkbox].three-state-checkbox + .control-label {
   max-height: 400px;
   overflow: auto;
 }
+.chat-input-wrapper .has-error:before {
+  display: none;
+}
 .chat-input-wrapper .has-error .alert {
   display: none !important;
 }
-.chat-input-wrapper .send-btn {
+.chat-input-wrapper .send-btn-container {
+  display: flex !important;
+  align-items: center !important;
+  flex-flow: row !important;
+  justify-content: flex-end !important;
+}
+.chat-input-wrapper .send-btn-container .send-btn {
   position: absolute;
   right: 15px;
   bottom: 15px;
@@ -27711,22 +27726,30 @@ input[type=checkbox].three-state-checkbox + .control-label {
   border-radius: 50%;
   width: 28px;
   height: 28px;
+  padding: 0px;
 }
-.chat-input-wrapper .send-btn .glyphicon {
+.chat-input-wrapper .send-btn-container .send-btn .glyphicon {
   top: 0;
   font-size: 14px;
   left: -2px;
+  margin: 0px;
 }
 
 .chat-bubble-wrapper {
   margin-top: 8px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
 }
 .chat-bubble-wrapper .chat-message-card {
   background: #d8f0d8;
   border-radius: 8px 8px 8px 0;
   margin: 0 10% 0 0;
-  text-align: left;
   padding: 8px;
+}
+.chat-bubble-wrapper--user {
+  align-items: flex-end;
 }
 .chat-bubble-wrapper--user .chat-message-card {
   background: #d4dbfa;
@@ -27741,6 +27764,10 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .chat-history-active {
   border-left: 3px solid #264ae5;
   font-weight: bold;
+}
+
+.user-input-instructions {
+  font-style: italic;
 }
 
 .chart-input.widget-chart .fills .js-fill,
@@ -27869,12 +27896,57 @@ input[type=checkbox].three-state-checkbox + .control-label {
   height: 100%;
 }
 
+.chat-listview-stylingless.mx-listview ul > li, .chat-listview-stylingless.mx-listview ol > li {
+  cursor: default;
+  border: none;
+  background-color: transparent;
+  border-bottom: none;
+}
+.chat-listview-stylingless.mx-listview ul > li:hover, .chat-listview-stylingless.mx-listview ul > li:focus, .chat-listview-stylingless.mx-listview ul > li:active, .chat-listview-stylingless.mx-listview ol > li:hover, .chat-listview-stylingless.mx-listview ol > li:focus, .chat-listview-stylingless.mx-listview ol > li:active {
+  background-color: transparent;
+}
+.chat-listview-stylingless.mx-listview ul > li.selected, .chat-listview-stylingless.mx-listview ol > li.selected {
+  background-color: transparent !important;
+}
+.chat-listview-stylingless.mx-listview ul > li.selected:hover, .chat-listview-stylingless.mx-listview ul > li.selected:focus, .chat-listview-stylingless.mx-listview ul > li.selected:active, .chat-listview-stylingless.mx-listview ol > li.selected:hover, .chat-listview-stylingless.mx-listview ol > li.selected:focus, .chat-listview-stylingless.mx-listview ol > li.selected:active {
+  background-color: transparent !important;
+}
+.chat-listview-stylingless.mx-listview ul > li:first-child, .chat-listview-stylingless.mx-listview ol > li:first-child {
+  border-top: none;
+}
+.chat-listview-stylingless.mx-listview ul > li:last-child, .chat-listview-stylingless.mx-listview ol > li:last-child {
+  border-bottom: none;
+}
+.chat-listview-stylingless.mx-listview ul > li:nth-child(2n+1), .chat-listview-stylingless.mx-listview ol > li:nth-child(2n+1) {
+  background-color: transparent;
+}
+.chat-listview-stylingless.mx-listview ol > li {
+  padding: 0px;
+}
+.chat-listview-stylingless.mx-listview ul > li {
+  padding: 8px;
+}
+
 .chat-listview-horizontal.mx-listview > ul {
   display: contents;
   margin-bottom: none;
 }
 .chat-listview-horizontal.mx-listview > ul > li {
   display: inline-block;
+  padding: 4px;
+}
+.chat-listview-horizontal.mx-listview > ul > li .mx-dataview-content > button {
+  display: -webkit-box;
+  word-break: break-word;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  text-wrap: wrap;
+  padding: 5px 10px;
+  line-height: 2;
 }
 .chat-listview-horizontal.mx-listview > ul > li:hover {
   background-color: transparent;
@@ -27892,6 +27964,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  padding: 0px;
 }
 .btn-chat-popup .glyphicon {
   font-size: 24px;
@@ -27964,7 +28037,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
   border: none;
 }
 .layout-chat-sidebar .mx-window-content .mx-window-header {
-  background: #264ae5;
+  background: #264ae5 !important;
   cursor: auto;
   border: none;
 }
@@ -27981,10 +28054,6 @@ input[type=checkbox].three-state-checkbox + .control-label {
 }
 .layout-chat-sidebar .mx-window-content .mx-window-body .mx-placeholder {
   height: 100%;
-}
-
-.text-italic {
-  font-style: italic;
 }
 
 .layout-atlas .region-topbar .navbar-brand .mx-navbar-subitem a {

@@ -507,7 +507,7 @@ public class PGPUtils {
 		if ( sig.hasSubpackets() ) {
 			PGPSignatureSubpacketVector sv = sig.getHashedSubPackets();
 			if ( sv.hasSubpacket(PGPUtils.KEY_FLAGS) ) {
-				if ( (sv.getKeyFlags() == 0 && keyUsage == 0) ) {
+				if ( (sv.getKeyFlags() & keyUsage) == 0 ) {
 					return false;
 				}
 			}
