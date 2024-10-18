@@ -5,7 +5,7 @@
 package genaicommons.proxies;
 
 /**
- * This entity represents a discrete piece of knowledge that can be used in embed and store operations.
+ * This entity represents a discrete piece of knowledge that can be used in embed and store operations. It is a specialization of Chunk and it is the relevant entity if you need to both generate embedding vectors and want to store them in a knowledge base.
  */
 public class KnowledgeBaseChunk extends genaicommons.proxies.Chunk
 {

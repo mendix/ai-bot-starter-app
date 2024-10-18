@@ -5,7 +5,7 @@
 package genaicommons.proxies;
 
 /**
- * Represents a piece of information (InputText) and the corresponding embeddings vector retieved from an Embeddings API.
+ * A piece of information (InputText) and the corresponding embeddings vector retrieved from an Embeddings API. This is the relevant entity if you need to generate embedding vectors but do not need to store them in a knowledge base.
  */
 public class Chunk implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
