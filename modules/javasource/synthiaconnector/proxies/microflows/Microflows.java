@@ -55,10 +55,10 @@ public final class Microflows
 	/**
 	 * Microflow can be used to invoke a chat completions API with a simple request where only a single user message is sent. If you want to send multiple historical user or assistant messages, use the ChatCompletions_Execute_WithHistory microflow.
 	 * Inputs:
-	 * - UserPrompt: This is the user input.
+	 * - UserPrompt: The input of the user.
 	 * - Request (optional): Contains messages and optional attributes.
 	 * - Connection: Configuration object that contains endpoint and API key. The SynthiaConnection specialization pointing to a ConfigurationTextGeneration must be passed.
-	 * - FileCollection (optional): Currently not supported by this operation!
+	 * - FileCollection (optional): An optional collection of files to be sent along with the UserPrompt to use Vision or Document Chat.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chatCompletions_Execute_WithoutHistoryBuilder(
 		genaicommons.proxies.Connection _connection,
@@ -78,10 +78,10 @@ public final class Microflows
 	/**
 	 * Microflow can be used to invoke a chat completions API with a simple request where only a single user message is sent. If you want to send multiple historical user or assistant messages, use the ChatCompletions_Execute_WithHistory microflow.
 	 * Inputs:
-	 * - UserPrompt: This is the user input.
+	 * - UserPrompt: The input of the user.
 	 * - Request (optional): Contains messages and optional attributes.
 	 * - Connection: Configuration object that contains endpoint and API key. The SynthiaConnection specialization pointing to a ConfigurationTextGeneration must be passed.
-	 * - FileCollection (optional): Currently not supported by this operation!
+	 * - FileCollection (optional): An optional collection of files to be sent along with the UserPrompt to use Vision or Document Chat.
 	 */
 	public static genaicommons.proxies.Response chatCompletions_Execute_WithoutHistory(
 		IContext context,
@@ -96,6 +96,58 @@ public final class Microflows
 				_userPrompt,
 				_request,
 				_fileCollection
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.Response.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Microflow can be used to invoke a chat completions API. The request is enriched with knowledge from the knowledge base, so that the model can base the answer on the passed knowledge instead of its own training data. You can optionally add other options via the "Configure Retrieve & Generate" action. The Response's Message contains References (see GenAICommons module). 
+	 * Inputs:
+	 * - UserPrompt: Input that is used for the knowledge base retrieval and also sent to the model as the user's request.
+	 * - Request (optional): Contains optional attributes. If a system prompt is passed, this will be added as additional instructions to the final system prompt.
+	 * - Connection_KnowledgeBase: Configuration object that contains endpoint and API key. The SynthiaConnection specialization pointing to a ConfigurationKnowledgeBase must be passed.
+	 * - Connection_TextGeneration: Configuration object that contains endpoint and API key. The SynthiaConnection specialization pointing to a ConfigurationTextGeneration must be passed.
+	 * 
+	 * If the embedded text in the knowledge base is different than what the model should use for generating the response, you can add MetaData to the chunks at insertion stage (key: "knowledge"), for example the embedded chunk might contain information about a problem (=inputtext), but the model should base the response on the actual solution (=knowledge). Additionally, if the references should contain a url as source, you can add MetaData "sourceUrl". The title of the reference is based on the "HumanReadableId" of the chunk in the knowledge base.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chatCompletions_RetrieveAndGenerateBuilder(
+		genaicommons.proxies.Connection _connection_TextGeneration,
+		genaicommons.proxies.Request _request,
+		java.lang.String _userPrompt,
+		genaicommons.proxies.Connection _connection_KnowledgeBase
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("SynthiaConnector.ChatCompletions_RetrieveAndGenerate");
+		builder = builder.withParam("Connection_TextGeneration", _connection_TextGeneration);
+		builder = builder.withParam("Request", _request);
+		builder = builder.withParam("UserPrompt", _userPrompt);
+		builder = builder.withParam("Connection_KnowledgeBase", _connection_KnowledgeBase);
+		return builder;
+	}
+
+	/**
+	 * Microflow can be used to invoke a chat completions API. The request is enriched with knowledge from the knowledge base, so that the model can base the answer on the passed knowledge instead of its own training data. You can optionally add other options via the "Configure Retrieve & Generate" action. The Response's Message contains References (see GenAICommons module). 
+	 * Inputs:
+	 * - UserPrompt: Input that is used for the knowledge base retrieval and also sent to the model as the user's request.
+	 * - Request (optional): Contains optional attributes. If a system prompt is passed, this will be added as additional instructions to the final system prompt.
+	 * - Connection_KnowledgeBase: Configuration object that contains endpoint and API key. The SynthiaConnection specialization pointing to a ConfigurationKnowledgeBase must be passed.
+	 * - Connection_TextGeneration: Configuration object that contains endpoint and API key. The SynthiaConnection specialization pointing to a ConfigurationTextGeneration must be passed.
+	 * 
+	 * If the embedded text in the knowledge base is different than what the model should use for generating the response, you can add MetaData to the chunks at insertion stage (key: "knowledge"), for example the embedded chunk might contain information about a problem (=inputtext), but the model should base the response on the actual solution (=knowledge). Additionally, if the references should contain a url as source, you can add MetaData "sourceUrl". The title of the reference is based on the "HumanReadableId" of the chunk in the knowledge base.
+	 */
+	public static genaicommons.proxies.Response chatCompletions_RetrieveAndGenerate(
+		IContext context,
+		genaicommons.proxies.Connection _connection_TextGeneration,
+		genaicommons.proxies.Request _request,
+		java.lang.String _userPrompt,
+		genaicommons.proxies.Connection _connection_KnowledgeBase
+	)
+	{
+		Object result = chatCompletions_RetrieveAndGenerateBuilder(
+				_connection_TextGeneration,
+				_request,
+				_userPrompt,
+				_connection_KnowledgeBase
 			)
 			.execute(context);
 		return result == null ? null : genaicommons.proxies.Response.initialize(context, (IMendixObject) result);
@@ -466,6 +518,60 @@ public final class Microflows
 	public static void nAV_ConfigurationOverview_Open(IContext context)
 	{
 		nAV_ConfigurationOverview_OpenBuilder().execute(context);
+	}
+	/**
+	 * Microflow can be used to add optional parameters to the Retrieve and Generate Request which then is passed to the ChatCompletions_RetrieveAndGenerate microflow. 
+	 * Inputs:
+	 * - Request: Object that is passed to the ChatCompletions_RetrieveAndGenerate microflow.
+	 * - MaxNumberOfResults (optional): Specify how many results are retrieved from the knowledge base and passed to the model as part of the request. Default: 3
+	 * - MinimumSimilarity (optional): Specify how similar the input text should be compared to the chunks in the knowledge base. Value needs to be between 0 and 1. Default: 0
+	 * - MetadataCollection (optional): Apply filtering when retrieving the results from the knowledge base.
+	 * - ForceModelToUseKnowledgeBase (optional): If set to true, the model can only base the response on the passed knowledge and not use its training data. Default: true
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder retrieveAndGenerateRequest_Extension_CreateBuilder(
+		genaicommons.proxies.Request _request,
+		java.lang.Long _maxNumberOfResults,
+		java.math.BigDecimal _minimumSimilarity,
+		genaicommons.proxies.MetadataCollection _metadataCollection,
+		boolean _forceModelToUseKnowledgeBase
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("SynthiaConnector.RetrieveAndGenerateRequest_Extension_Create");
+		builder = builder.withParam("Request", _request);
+		builder = builder.withParam("MaxNumberOfResults", _maxNumberOfResults);
+		builder = builder.withParam("MinimumSimilarity", _minimumSimilarity);
+		builder = builder.withParam("MetadataCollection", _metadataCollection);
+		builder = builder.withParam("ForceModelToUseKnowledgeBase", _forceModelToUseKnowledgeBase);
+		return builder;
+	}
+
+	/**
+	 * Microflow can be used to add optional parameters to the Retrieve and Generate Request which then is passed to the ChatCompletions_RetrieveAndGenerate microflow. 
+	 * Inputs:
+	 * - Request: Object that is passed to the ChatCompletions_RetrieveAndGenerate microflow.
+	 * - MaxNumberOfResults (optional): Specify how many results are retrieved from the knowledge base and passed to the model as part of the request. Default: 3
+	 * - MinimumSimilarity (optional): Specify how similar the input text should be compared to the chunks in the knowledge base. Value needs to be between 0 and 1. Default: 0
+	 * - MetadataCollection (optional): Apply filtering when retrieving the results from the knowledge base.
+	 * - ForceModelToUseKnowledgeBase (optional): If set to true, the model can only base the response on the passed knowledge and not use its training data. Default: true
+	 */
+	public static synthiaconnector.proxies.RetrieveAndGenerateRequest_Extension retrieveAndGenerateRequest_Extension_Create(
+		IContext context,
+		genaicommons.proxies.Request _request,
+		java.lang.Long _maxNumberOfResults,
+		java.math.BigDecimal _minimumSimilarity,
+		genaicommons.proxies.MetadataCollection _metadataCollection,
+		boolean _forceModelToUseKnowledgeBase
+	)
+	{
+		Object result = retrieveAndGenerateRequest_Extension_CreateBuilder(
+				_request,
+				_maxNumberOfResults,
+				_minimumSimilarity,
+				_metadataCollection,
+				_forceModelToUseKnowledgeBase
+			)
+			.execute(context);
+		return result == null ? null : synthiaconnector.proxies.RetrieveAndGenerateRequest_Extension.initialize(context, (IMendixObject) result);
 	}
 	/**
 	 * Creates a non-persistable connection that contains a configuration. This will be used as input for operations.
