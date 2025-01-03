@@ -20,7 +20,7 @@ import conversationalui.proxies.ProviderConfig;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 /**
- * Adds a new provider config (or a specialization of such depending on the input) to a chat context. The provider config is added to the chat context and set to active if IsActive is set to true. Additionally the action microflow of the new provider config is set.
+ * Adds a new ProviderConfig (or a specialization of such depending on the input entity parameter) to the ChatContext. The passed DeployedModel will be associated to it. The ProviderConfig is set to active/selected only if IsActive is set to "true". In any case, the specified SystemPrompt and ActionMicroflow will be set on the new ProviderConfig.
  */
 public class ChatContext_CreateProviderConfig extends CustomJavaAction<IMendixObject>
 {
@@ -28,27 +28,37 @@ public class ChatContext_CreateProviderConfig extends CustomJavaAction<IMendixOb
 	@java.lang.Deprecated(forRemoval = true)
 	private final IMendixObject __ChatContext;
 	private final conversationalui.proxies.ChatContext ChatContext;
+	/** @deprecated use DeployedModel.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __DeployedModel;
+	private final genaicommons.proxies.DeployedModel DeployedModel;
 	private final java.lang.String ProviderConfigSpecialization;
 	private final java.lang.String ActionMicroflow;
 	private final java.lang.Boolean IsActive;
 	private final java.lang.String ProviderName;
+	private final java.lang.String SystemPrompt;
 
 	public ChatContext_CreateProviderConfig(
 		IContext context,
 		IMendixObject _chatContext,
+		IMendixObject _deployedModel,
 		java.lang.String _providerConfigSpecialization,
 		java.lang.String _actionMicroflow,
 		java.lang.Boolean _isActive,
-		java.lang.String _providerName
+		java.lang.String _providerName,
+		java.lang.String _systemPrompt
 	)
 	{
 		super(context);
 		this.__ChatContext = _chatContext;
 		this.ChatContext = _chatContext == null ? null : conversationalui.proxies.ChatContext.initialize(getContext(), _chatContext);
+		this.__DeployedModel = _deployedModel;
+		this.DeployedModel = _deployedModel == null ? null : genaicommons.proxies.DeployedModel.initialize(getContext(), _deployedModel);
 		this.ProviderConfigSpecialization = _providerConfigSpecialization;
 		this.ActionMicroflow = _actionMicroflow;
 		this.IsActive = _isActive;
 		this.ProviderName = _providerName;
+		this.SystemPrompt = _systemPrompt;
 	}
 
 	@java.lang.Override
@@ -59,17 +69,18 @@ public class ChatContext_CreateProviderConfig extends CustomJavaAction<IMendixOb
 		try {
 		    requireNonNull(ActionMicroflow, "ActionMicroflow is required.");
 		    requireNonNull(ChatContext, "ChatContext is required.");
+		    requireNonNull(DeployedModel, "DeployedModel is required.");
 		    ProviderConfigImpl.validateActionMicroflow(ActionMicroflow);
 
-		    ProviderConfig providerConfig = ProviderConfigImpl.createAndSetProviderConfigSpecialization(getContext(), ProviderConfigSpecialization, ActionMicroflow, ProviderName);
+		    ProviderConfig providerConfig = ProviderConfigImpl.createAndSetProviderConfigSpecialization(getContext(), ProviderConfigSpecialization, ActionMicroflow, ProviderName, DeployedModel, SystemPrompt);
 
 		    updateProviderConfigOnChatContext(providerConfig);
 		    
 		    return providerConfig.getMendixObject();
 
 		} catch (Exception e) {
-		    LOGGER.error(e.getMessage());
-		    throw e;
+		    LOGGER.error(e);
+		    return null;
 		}
 		
 		// END USER CODE

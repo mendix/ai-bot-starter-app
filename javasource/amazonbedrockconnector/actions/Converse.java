@@ -86,16 +86,18 @@ public class Converse extends CustomJavaAction<IMendixObject>
 	@java.lang.Deprecated(forRemoval = true)
 	private final IMendixObject __ConverseRequest;
 	private final amazonbedrockconnector.proxies.ChatCompletionsRequest_Extension ConverseRequest;
-	/** @deprecated use AmazonBedrockConnection.getMendixObject() instead. */
+	/** @deprecated use BedrockDeployedModel.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __AmazonBedrockConnection;
-	private final amazonbedrockconnector.proxies.AmazonBedrockConnection AmazonBedrockConnection;
+	private final IMendixObject __BedrockDeployedModel;
+	private final amazonbedrockconnector.proxies.BedrockDeployedModel BedrockDeployedModel;
+	private final awsauthentication.proxies.ENUM_Region Region;
 
 	public Converse(
 		IContext context,
 		IMendixObject _credentials,
 		IMendixObject _converseRequest,
-		IMendixObject _amazonBedrockConnection
+		IMendixObject _bedrockDeployedModel,
+		java.lang.String _region
 	)
 	{
 		super(context);
@@ -103,8 +105,9 @@ public class Converse extends CustomJavaAction<IMendixObject>
 		this.Credentials = _credentials == null ? null : awsauthentication.proxies.Credentials.initialize(getContext(), _credentials);
 		this.__ConverseRequest = _converseRequest;
 		this.ConverseRequest = _converseRequest == null ? null : amazonbedrockconnector.proxies.ChatCompletionsRequest_Extension.initialize(getContext(), _converseRequest);
-		this.__AmazonBedrockConnection = _amazonBedrockConnection;
-		this.AmazonBedrockConnection = _amazonBedrockConnection == null ? null : amazonbedrockconnector.proxies.AmazonBedrockConnection.initialize(getContext(), _amazonBedrockConnection);
+		this.__BedrockDeployedModel = _bedrockDeployedModel;
+		this.BedrockDeployedModel = _bedrockDeployedModel == null ? null : amazonbedrockconnector.proxies.BedrockDeployedModel.initialize(getContext(), _bedrockDeployedModel);
+		this.Region = _region == null ? null : awsauthentication.proxies.ENUM_Region.valueOf(_region);
 	}
 
 	@java.lang.Override
@@ -114,22 +117,22 @@ public class Converse extends CustomJavaAction<IMendixObject>
 		try {
 			requireNonNull(this.Credentials, "A Credentials object is required");
 			requireNonNull(this.ConverseRequest, "A ConverseRequest_Extension object is required");
-			requireNonNull(this.AmazonBedrockConnection, "An AmazonBedrockConnection object is required");
+			requireNonNull(this.BedrockDeployedModel, "A BedrockDeployedModel object is required");
 			
-			var client = AmazonBedrockClient.getBedrockRuntimeClient(Credentials, AmazonBedrockConnection.getRegion(), ConverseRequest);
+			var client = AmazonBedrockClient.getBedrockRuntimeClient(Credentials, Region, ConverseRequest);
 			
 			var awsRequest = getAwsRequest();
-			LOGGER.debug("AWS Request: " + awsRequest);
+			LOGGER.info("AWS Request: " + awsRequest);
 			
 			var awsResponse = client.converse(awsRequest);
-			LOGGER.debug("AWS Response: " + awsResponse);
+			LOGGER.info("AWS Response: " + awsResponse);
 			
 			Response mxResponse = getMxResponse(awsResponse);
 			
 			return mxResponse.getMendixObject();
 			
 		} catch (Exception e) {
-			LOGGER.error("An error ocurred during Converse operation " + e.getMessage());
+			LOGGER.error("An error ocurred during Converse operation. " + e.getMessage());
 			throw e;
 		}
 		
@@ -166,7 +169,7 @@ public class Converse extends CustomJavaAction<IMendixObject>
 		Request commonRequest = ConverseRequest.getChatCompletionsRequest_Extension_Request();
 		
 		var builder = software.amazon.awssdk.services.bedrockruntime.model.ConverseRequest.builder()
-				.modelId(AmazonBedrockConnection.getModel())
+				.modelId(BedrockDeployedModel.getModel())
 				.inferenceConfig(getAwsInferenceConfig(commonRequest));
 		
 		if (commonRequest.getSystemPrompt() != null && !commonRequest.getSystemPrompt().isBlank()) {
