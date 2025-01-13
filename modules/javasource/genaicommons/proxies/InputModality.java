@@ -5,7 +5,7 @@
 package genaicommons.proxies;
 
 /**
- * Accepetd input modality of the associated deployed model.
+ * Accepted input modality of the associated deployed model.
  */
 public class InputModality implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {

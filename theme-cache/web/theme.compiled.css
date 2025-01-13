@@ -28188,20 +28188,6 @@ input[type=checkbox].three-state-checkbox + .control-label {
   align-items: start;
 }
 
-.combo-deployment-selection {
-  min-width: 360px;
-  z-index: 200;
-}
-.combo-deployment-selection .deployment-selection {
-  display: flex;
-  align-items: center;
-  height: max-content;
-}
-.combo-deployment-selection .mx-image {
-  height: 14px;
-  margin-right: 8px;
-}
-
 .combobox-selection {
   display: flex;
   flex-grow: 1;
@@ -28221,7 +28207,6 @@ input[type=checkbox].three-state-checkbox + .control-label {
   display: flex;
   align-items: center;
   height: max-content;
-  font-weight: 600;
 }
 .combo-model-selection .mx-image {
   height: 14px;
@@ -28494,6 +28479,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .page-container .content-column .card {
   margin-left: 12px;
   margin-right: 12px;
+  padding-bottom: 8px;
 }
 @media (max-width: 1200px) {
   .page-container .content-main {
@@ -28527,25 +28513,28 @@ input[type=checkbox].three-state-checkbox + .control-label {
   flex-direction: row;
   border-bottom: 1px solid #E7E7E9;
   padding-right: 8px;
-  height: 50px;
+  height: fit-content;
 }
 .page-container .panel-header::after {
   content: "";
   height: 80px;
 }
 .page-container .panel-header .header-text {
+  flex-direction: column;
   margin-left: 16px;
-  width: 100%;
+  padding-right: 8px;
+  padding-bottom: 8px;
 }
-.page-container .panel-header .close-icon {
-  border-left: 1px solid #E7E7E9;
+.page-container .panel-header .close-icon-area .close-icon {
   padding-left: 8px;
   margin-right: 8px;
   margin-left: 8px;
   margin-top: 8px;
+  height: fit-content;
 }
 .page-container .panel-header .new-chat-icon {
   margin-top: 8px;
+  height: fit-content;
 }
 .page-container .panel-content {
   flex: 1 1 0;

@@ -7,7 +7,7 @@ package genaicommons.proxies;
 /**
  * The DeployedModel represents a GenAI model that can be invoked by the Mendix app. It contains a display name and a technical name/identifier. It also contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model.
  * 
- * The DeployedModel entity replaces the capabilities that were coverd by the Connection entity in earlier versions of GenAI Commons.
+ * The DeployedModel entity replaces the capabilities that were covered by the Connection entity in earlier versions of GenAI Commons.
  */
 public class DeployedModel implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {

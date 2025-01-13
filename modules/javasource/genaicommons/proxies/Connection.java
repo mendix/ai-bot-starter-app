@@ -5,7 +5,7 @@
 package genaicommons.proxies;
 
 /**
- * The Connection entity used to be input parameter for Chat completions, Embeddings and Image Generation operations but got replaced by DeployedModel. It is currently only used as a connection entitiy for KnowledgeBase interactions.
+ * The Connection entity used to be an input parameter for Chat completions, Embeddings and Image Generation operations but got replaced by DeployedModel. It is currently only used as a general connection entity for KnowledgeBase interactions.
  */
 public class Connection implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
