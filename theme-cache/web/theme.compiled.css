@@ -2964,6 +2964,14 @@
   margin: 8px 0 0 0;
 }
 
+.listview-horizontal.mx-listview > ul {
+  display: inline-block;
+  margin-bottom: 0;
+}
+.listview-horizontal.mx-listview > ul > li {
+  display: inline-block;
+}
+
 .popupmenu--display-flex.popupmenu {
   display: flex;
 }
