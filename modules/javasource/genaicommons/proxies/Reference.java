@@ -27,6 +27,7 @@ public class Reference implements com.mendix.systemwideinterfaces.core.IEntityPr
 		Content("Content"),
 		Source("Source"),
 		SourceType("SourceType"),
+		_Index("_Index"),
 		Reference_Citation("GenAICommons.Reference_Citation");
 
 		private final java.lang.String metaName;
@@ -233,6 +234,42 @@ public class Reference implements com.mendix.systemwideinterfaces.core.IEntityPr
 		} else {
 			getMendixObject().setValue(context, MemberNames.SourceType.toString(), null);
 		}
+	}
+
+	/**
+	 * @return value of _Index
+	 */
+	public final java.lang.Integer get_Index()
+	{
+		return get_Index(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of _Index
+	 */
+	public final java.lang.Integer get_Index(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames._Index.toString());
+	}
+
+	/**
+	 * Set value of _Index
+	 * @param _index
+	 */
+	public final void set_Index(java.lang.Integer _index)
+	{
+		set_Index(getContext(), _index);
+	}
+
+	/**
+	 * Set value of _Index
+	 * @param context
+	 * @param _index
+	 */
+	public final void set_Index(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer _index)
+	{
+		getMendixObject().setValue(context, MemberNames._Index.toString(), _index);
 	}
 
 	/**

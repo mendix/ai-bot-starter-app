@@ -5,7 +5,7 @@
 package genaicommons.proxies;
 
 /**
- * A tool of type function.
+ * A tool of type function, which represents a microflow that can be executed inside this app.
  */
 public class Function extends genaicommons.proxies.Tool
 {
@@ -19,10 +19,10 @@ public class Function extends genaicommons.proxies.Tool
 	 */
 	public enum MemberNames
 	{
-		Microflow("Microflow"),
 		Name("Name"),
 		Description("Description"),
-		ToolType("ToolType");
+		ToolType("ToolType"),
+		Microflow("Microflow");
 
 		private final java.lang.String metaName;
 
@@ -67,42 +67,6 @@ public class Function extends genaicommons.proxies.Tool
 	{
 		com.mendix.systemwideinterfaces.core.IMendixObject mendixObject = com.mendix.core.Core.retrieveId(context, mendixIdentifier);
 		return genaicommons.proxies.Function.initialize(context, mendixObject);
-	}
-
-	/**
-	 * @return value of Microflow
-	 */
-	public final java.lang.String getMicroflow()
-	{
-		return getMicroflow(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of Microflow
-	 */
-	public final java.lang.String getMicroflow(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Microflow.toString());
-	}
-
-	/**
-	 * Set value of Microflow
-	 * @param microflow
-	 */
-	public final void setMicroflow(java.lang.String microflow)
-	{
-		setMicroflow(getContext(), microflow);
-	}
-
-	/**
-	 * Set value of Microflow
-	 * @param context
-	 * @param microflow
-	 */
-	public final void setMicroflow(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String microflow)
-	{
-		getMendixObject().setValue(context, MemberNames.Microflow.toString(), microflow);
 	}
 
 	@java.lang.Override
