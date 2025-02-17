@@ -20,7 +20,7 @@ public class Request_AddKnowledgeBaseRetrieval extends CustomJavaAction<IMendixO
 	private final IMendixObject __Request;
 	private final genaicommons.proxies.Request Request;
 	private final java.lang.String ToolName;
-	private final java.lang.String FunctionMicroflow;
+	private final java.lang.String RetrieveMicroflow;
 	/** @deprecated use Connection.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
 	private final IMendixObject __Connection;
@@ -37,7 +37,7 @@ public class Request_AddKnowledgeBaseRetrieval extends CustomJavaAction<IMendixO
 		IContext context,
 		IMendixObject _request,
 		java.lang.String _toolName,
-		java.lang.String _functionMicroflow,
+		java.lang.String _retrieveMicroflow,
 		IMendixObject _connection,
 		java.lang.String _toolDescription,
 		IMendixObject _metadataCollection,
@@ -49,7 +49,7 @@ public class Request_AddKnowledgeBaseRetrieval extends CustomJavaAction<IMendixO
 		this.__Request = _request;
 		this.Request = _request == null ? null : genaicommons.proxies.Request.initialize(getContext(), _request);
 		this.ToolName = _toolName;
-		this.FunctionMicroflow = _functionMicroflow;
+		this.RetrieveMicroflow = _retrieveMicroflow;
 		this.__Connection = _connection;
 		this.Connection = _connection == null ? null : genaicommons.proxies.Connection.initialize(getContext(), _connection);
 		this.ToolDescription = _toolDescription;
