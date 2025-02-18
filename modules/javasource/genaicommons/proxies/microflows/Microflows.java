@@ -1142,7 +1142,7 @@ public final class Microflows
 		return builder;
 	}
 
-	public static void request_AddMessage_Tool(
+	public static genaicommons.proxies.Message request_AddMessage_Tool(
 		IContext context,
 		genaicommons.proxies.Request _request,
 		genaicommons.proxies.ENUM_MessageRole _eNUM_MessageRole,
@@ -1152,7 +1152,7 @@ public final class Microflows
 		java.lang.String _contentString
 	)
 	{
-		request_AddMessage_ToolBuilder(
+		Object result = request_AddMessage_ToolBuilder(
 				_request,
 				_eNUM_MessageRole,
 				_fileCollection,
@@ -1161,6 +1161,7 @@ public final class Microflows
 				_contentString
 			)
 			.execute(context);
+		return result == null ? null : genaicommons.proxies.Message.initialize(context, (IMendixObject) result);
 	}
 	/**
 	 * This microflow can be used to add an additional stop sequence to the request
@@ -1248,6 +1249,26 @@ public final class Microflows
 			)
 			.execute(context);
 		return result == null ? null : genaicommons.proxies.Request.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder request_GetLastAssistantMessageBuilder(
+		genaicommons.proxies.Request _request
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Request_GetLastAssistantMessage");
+		builder = builder.withParam("Request", _request);
+		return builder;
+	}
+
+	public static genaicommons.proxies.Message request_GetLastAssistantMessage(
+		IContext context,
+		genaicommons.proxies.Request _request
+	)
+	{
+		Object result = request_GetLastAssistantMessageBuilder(
+				_request
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.Message.initialize(context, (IMendixObject) result);
 	}
 	/**
 	 * Use this microflow to set the ToolChoice. This controls which (if any) function is called by the model.
@@ -1414,6 +1435,26 @@ public final class Microflows
 			.execute(context);
 		return result == null ? null : genaicommons.proxies.Function.initialize(context, (IMendixObject) result);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder tool_CastTo_KnowledgeBaseRetrievalBuilder(
+		genaicommons.proxies.Tool _tool
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Tool_CastTo_KnowledgeBaseRetrieval");
+		builder = builder.withParam("Tool", _tool);
+		return builder;
+	}
+
+	public static genaicommons.proxies.KnowledgeBaseRetrieval tool_CastTo_KnowledgeBaseRetrieval(
+		IContext context,
+		genaicommons.proxies.Tool _tool
+	)
+	{
+		Object result = tool_CastTo_KnowledgeBaseRetrievalBuilder(
+				_tool
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.KnowledgeBaseRetrieval.initialize(context, (IMendixObject) result);
+	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder tool_GetSelfBuilder(
 		genaicommons.proxies.Tool _tool
 	)
@@ -1433,6 +1474,36 @@ public final class Microflows
 			)
 			.execute(context);
 		return result == null ? null : genaicommons.proxies.Tool.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Can be used in tool microflows to get the ToolCall based on the Request and Tool.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder tool_Request_GetToolCallBuilder(
+		genaicommons.proxies.Request _request,
+		genaicommons.proxies.Tool _tool
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Tool_Request_GetToolCall");
+		builder = builder.withParam("Request", _request);
+		builder = builder.withParam("Tool", _tool);
+		return builder;
+	}
+
+	/**
+	 * Can be used in tool microflows to get the ToolCall based on the Request and Tool.
+	 */
+	public static genaicommons.proxies.ToolCall tool_Request_GetToolCall(
+		IContext context,
+		genaicommons.proxies.Request _request,
+		genaicommons.proxies.Tool _tool
+	)
+	{
+		Object result = tool_Request_GetToolCallBuilder(
+				_request,
+				_tool
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.ToolCall.initialize(context, (IMendixObject) result);
 	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder toolCall_GetSelfBuilder(
 		genaicommons.proxies.ToolCall _toolCall
@@ -1454,29 +1525,32 @@ public final class Microflows
 			.execute(context);
 		return result == null ? null : genaicommons.proxies.ToolCall.initialize(context, (IMendixObject) result);
 	}
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder toolCall_ProcessAndExecuteFunctionBuilder(
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder toolCall_ProcessAndExecuteToolBuilder(
 		genaicommons.proxies.ToolCall _toolCall,
-		java.util.List<genaicommons.proxies.Tool> _toolList
+		java.util.List<genaicommons.proxies.Tool> _toolList,
+		genaicommons.proxies.Request _request
 	)
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ToolCall_ProcessAndExecuteFunction");
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ToolCall_ProcessAndExecuteTool");
 		builder = builder.withParam("ToolCall", _toolCall);
 		builder = builder.withParam("ToolList", _toolList);
+		builder = builder.withParam("Request", _request);
 		return builder;
 	}
 
-	public static java.lang.String toolCall_ProcessAndExecuteFunction(
+	public static void toolCall_ProcessAndExecuteTool(
 		IContext context,
 		genaicommons.proxies.ToolCall _toolCall,
-		java.util.List<genaicommons.proxies.Tool> _toolList
+		java.util.List<genaicommons.proxies.Tool> _toolList,
+		genaicommons.proxies.Request _request
 	)
 	{
-		Object result = toolCall_ProcessAndExecuteFunctionBuilder(
+		toolCall_ProcessAndExecuteToolBuilder(
 				_toolCall,
-				_toolList
+				_toolList,
+				_request
 			)
 			.execute(context);
-		return (java.lang.String) result;
 	}
 	/**
 	 * Use this microflow to create and store the Usage object based on the EmbeddingsReponse in the Embeddings Operations that follow the principles of GenAI Commons.

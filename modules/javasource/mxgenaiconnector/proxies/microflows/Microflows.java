@@ -17,52 +17,6 @@ public final class Microflows
 
 	// These are the microflows for the MxGenAIConnector module
 	/**
-	 * Microflow can be used to invoke a chat completions API. The request is enriched with knowledge from the knowledge base, so that the model can base the answer on the passed knowledge instead of its own training data. You can optionally add other options via the "Configure MxCloud Retrieve and Generate (add Knowledge Base)" action. The Response's Message contains References (see GenAICommons module). 
-	 * Inputs:
-	 * - UserPrompt: Input that is used for the knowledge base retrieval and also sent to the model as the user's request.
-	 * - Request: The object is associated to the mandatory RetrieveAndGenerateRequest_Extension object which contains the knowledge base connection information. The RetrieveAndGenerateRequest_Extension can be added with the "Configure MxCloud Retrieve and Generate (add Knowledge Base)" toolbox action. Additionally, optional attributes can be set on the Request object. If a system prompt is passed, this will be added as additional instructions to the final system prompt.
-	 * - DeployedModel: The object contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model. The OutputModality needs to be Text.
-	 * 
-	 * If the embedded text in the knowledge base is different than what the model should use for generating the response, you can add Metadata to the chunks at insertion stage (key: "knowledge"), for example the embedded chunk might contain information about a problem (=inputtext), but the model should base the response on the actual solution (=knowledge). Additionally, if the references should contain a url as source, you can add MetaData "sourceUrl". The title of the reference is based on the "HumanReadableId" of the chunk in the knowledge base.
-	 */
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chatCompletions_RetrieveAndGenerateBuilder(
-		genaicommons.proxies.DeployedModel _deployedModel,
-		genaicommons.proxies.Request _request,
-		java.lang.String _userPrompt
-	)
-	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MxGenAIConnector.ChatCompletions_RetrieveAndGenerate");
-		builder = builder.withParam("DeployedModel", _deployedModel);
-		builder = builder.withParam("Request", _request);
-		builder = builder.withParam("UserPrompt", _userPrompt);
-		return builder;
-	}
-
-	/**
-	 * Microflow can be used to invoke a chat completions API. The request is enriched with knowledge from the knowledge base, so that the model can base the answer on the passed knowledge instead of its own training data. You can optionally add other options via the "Configure MxCloud Retrieve and Generate (add Knowledge Base)" action. The Response's Message contains References (see GenAICommons module). 
-	 * Inputs:
-	 * - UserPrompt: Input that is used for the knowledge base retrieval and also sent to the model as the user's request.
-	 * - Request: The object is associated to the mandatory RetrieveAndGenerateRequest_Extension object which contains the knowledge base connection information. The RetrieveAndGenerateRequest_Extension can be added with the "Configure MxCloud Retrieve and Generate (add Knowledge Base)" toolbox action. Additionally, optional attributes can be set on the Request object. If a system prompt is passed, this will be added as additional instructions to the final system prompt.
-	 * - DeployedModel: The object contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model. The OutputModality needs to be Text.
-	 * 
-	 * If the embedded text in the knowledge base is different than what the model should use for generating the response, you can add Metadata to the chunks at insertion stage (key: "knowledge"), for example the embedded chunk might contain information about a problem (=inputtext), but the model should base the response on the actual solution (=knowledge). Additionally, if the references should contain a url as source, you can add MetaData "sourceUrl". The title of the reference is based on the "HumanReadableId" of the chunk in the knowledge base.
-	 */
-	public static genaicommons.proxies.Response chatCompletions_RetrieveAndGenerate(
-		IContext context,
-		genaicommons.proxies.DeployedModel _deployedModel,
-		genaicommons.proxies.Request _request,
-		java.lang.String _userPrompt
-	)
-	{
-		Object result = chatCompletions_RetrieveAndGenerateBuilder(
-				_deployedModel,
-				_request,
-				_userPrompt
-			)
-			.execute(context);
-		return result == null ? null : genaicommons.proxies.Response.initialize(context, (IMendixObject) result);
-	}
-	/**
 	 * Use this operation to add chunks to a Collection. This operation handles a batch of chunks with their metadata in a single operation.
 	 * 
 	 * This operation takes care of the creation of the actual tables if needed. Duplications of chunks are not handled by this operation (neither when passing duplicates in the ChunkCollection nor checking an existing knowledge base prior to inserting).
@@ -389,67 +343,61 @@ public final class Microflows
 		nAV_ConfigurationOverview_OpenBuilder().execute(context);
 	}
 	/**
-	 * Microflow can be used to add optional parameters to the Retrieve and Generate Request which then is passed to the ChatCompletions_RetrieveAndGenerate microflow. Note that this currently works without history only.
-	 * If your use case requires chat with history, see the AI Bot Starter App for an example of how to use function calling to make knowledge base retrieves work with history: ChatContext_MxCloudRetrieveAndGenerate_ActionMicroflow
+	 * This action can be used to add an optional tool for Retrieve and Generate. If the Request is passed to the chat completions operation, the model can call this tool to retrieve data from the knowledge base and use it to generate a response. This works for with and without history cases. Multiple tools can be added at once (e.g., for different knowledge bases).
 	 * 
-	 * Inputs:
-	 * - Request: Object that is passed to the ChatCompletions_RetrieveAndGenerate microflow.
-	 * - MaxNumberOfResults (optional): Specify how many results are retrieved from the knowledge base and passed to the model as part of the request. Default: 3
-	 * - MinimumSimilarity (optional): Specify how similar the input text should be compared to the chunks in the knowledge base. Value needs to be between 0 and 1. Default: 0
-	 * - MetadataCollection (optional): Apply filtering when retrieving the results from the knowledge base.
-	 * - ForceModelToUseKnowledgeBase (optional): If set to true, the model can only base the response on the passed knowledge and not use its training data. Default: true
-	 * -Connection: contains information for connecting to your knowledge base.
+	 * If an error occurs, it gets logged and the return object is empty.
 	 */
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder retrieveAndGenerateRequest_Extension_CreateBuilder(
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder request_AddKnowledgeBaseToolBuilder(
 		genaicommons.proxies.Request _request,
+		mxgenaiconnector.proxies.MxCloudKnowledgeBase _mxCloudKnowledgeBase,
+		java.lang.String _collectionName,
 		java.lang.Long _maxNumberOfResults,
 		java.math.BigDecimal _minimumSimilarity,
 		genaicommons.proxies.MetadataCollection _metadataCollection,
-		boolean _forceModelToUseKnowledgeBase,
-		genaicommons.proxies.Connection _connection
+		java.lang.String _name,
+		java.lang.String _description
 	)
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MxGenAIConnector.RetrieveAndGenerateRequest_Extension_Create");
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MxGenAIConnector.Request_AddKnowledgeBaseTool");
 		builder = builder.withParam("Request", _request);
+		builder = builder.withParam("MxCloudKnowledgeBase", _mxCloudKnowledgeBase);
+		builder = builder.withParam("CollectionName", _collectionName);
 		builder = builder.withParam("MaxNumberOfResults", _maxNumberOfResults);
 		builder = builder.withParam("MinimumSimilarity", _minimumSimilarity);
 		builder = builder.withParam("MetadataCollection", _metadataCollection);
-		builder = builder.withParam("ForceModelToUseKnowledgeBase", _forceModelToUseKnowledgeBase);
-		builder = builder.withParam("Connection", _connection);
+		builder = builder.withParam("Name", _name);
+		builder = builder.withParam("Description", _description);
 		return builder;
 	}
 
 	/**
-	 * Microflow can be used to add optional parameters to the Retrieve and Generate Request which then is passed to the ChatCompletions_RetrieveAndGenerate microflow. Note that this currently works without history only.
-	 * If your use case requires chat with history, see the AI Bot Starter App for an example of how to use function calling to make knowledge base retrieves work with history: ChatContext_MxCloudRetrieveAndGenerate_ActionMicroflow
+	 * This action can be used to add an optional tool for Retrieve and Generate. If the Request is passed to the chat completions operation, the model can call this tool to retrieve data from the knowledge base and use it to generate a response. This works for with and without history cases. Multiple tools can be added at once (e.g., for different knowledge bases).
 	 * 
-	 * Inputs:
-	 * - Request: Object that is passed to the ChatCompletions_RetrieveAndGenerate microflow.
-	 * - MaxNumberOfResults (optional): Specify how many results are retrieved from the knowledge base and passed to the model as part of the request. Default: 3
-	 * - MinimumSimilarity (optional): Specify how similar the input text should be compared to the chunks in the knowledge base. Value needs to be between 0 and 1. Default: 0
-	 * - MetadataCollection (optional): Apply filtering when retrieving the results from the knowledge base.
-	 * - ForceModelToUseKnowledgeBase (optional): If set to true, the model can only base the response on the passed knowledge and not use its training data. Default: true
-	 * -Connection: contains information for connecting to your knowledge base.
+	 * If an error occurs, it gets logged and the return object is empty.
 	 */
-	public static mxgenaiconnector.proxies.RetrieveAndGenerateRequest_Extension retrieveAndGenerateRequest_Extension_Create(
+	public static genaicommons.proxies.KnowledgeBaseRetrieval request_AddKnowledgeBaseTool(
 		IContext context,
 		genaicommons.proxies.Request _request,
+		mxgenaiconnector.proxies.MxCloudKnowledgeBase _mxCloudKnowledgeBase,
+		java.lang.String _collectionName,
 		java.lang.Long _maxNumberOfResults,
 		java.math.BigDecimal _minimumSimilarity,
 		genaicommons.proxies.MetadataCollection _metadataCollection,
-		boolean _forceModelToUseKnowledgeBase,
-		genaicommons.proxies.Connection _connection
+		java.lang.String _name,
+		java.lang.String _description
 	)
 	{
-		Object result = retrieveAndGenerateRequest_Extension_CreateBuilder(
+		Object result = request_AddKnowledgeBaseToolBuilder(
 				_request,
+				_mxCloudKnowledgeBase,
+				_collectionName,
 				_maxNumberOfResults,
 				_minimumSimilarity,
 				_metadataCollection,
-				_forceModelToUseKnowledgeBase,
-				_connection
+				_name,
+				_description
 			)
 			.execute(context);
-		return result == null ? null : mxgenaiconnector.proxies.RetrieveAndGenerateRequest_Extension.initialize(context, (IMendixObject) result);
+		return result == null ? null : genaicommons.proxies.KnowledgeBaseRetrieval.initialize(context, (IMendixObject) result);
 	}
 }
