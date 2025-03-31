@@ -13,6 +13,7 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
 import encryption.pgp.PGPFileProcessor;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Encrypt the FileDocument using PGP encryption.
@@ -22,7 +23,7 @@ import encryption.pgp.PGPFileProcessor;
  * 
  * This action will either return true or an exception
  */
-public class PGPEncryptDocument extends CustomJavaAction<java.lang.Boolean>
+public class PGPEncryptDocument extends UserAction<java.lang.Boolean>
 {
 	/** @deprecated use ExternalPublicKey.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

@@ -10,8 +10,8 @@
 package genaicommons.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Sets the microflow to execute for the specified model and type of the DeployedModel. The microflow should follow the principles from GenAI commons that are applicable for the model type.
@@ -20,7 +20,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * - Input parameters: GenAICommons.Request and GenAICommons.DeployedModel
  * - Return type: GenAICommons.Response
  */
-public class DeployedModel_SetMicroflow extends CustomJavaAction<java.lang.Boolean>
+public class DeployedModel_SetMicroflow extends UserAction<java.lang.Boolean>
 {
 	/** @deprecated use DeployedModel.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

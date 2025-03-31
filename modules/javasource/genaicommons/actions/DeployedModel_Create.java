@@ -10,13 +10,13 @@
 package genaicommons.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Creates a DeployedModel object (or a specialization of such if the specialization is passed) and sets all passed attributes. The DeployedModel entity replaces the Connection entity and is a required input parameter for all chat completion operations. It contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model.
  */
-public class DeployedModel_Create extends CustomJavaAction<IMendixObject>
+public class DeployedModel_Create extends UserAction<IMendixObject>
 {
 	private final java.lang.String DisplayName;
 	private final java.lang.String Architecture;

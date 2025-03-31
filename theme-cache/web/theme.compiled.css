@@ -2972,6 +2972,10 @@
   display: inline-block;
 }
 
+.listview-hide-on-empty.mx-listview > ul > li.mx-listview-empty {
+  display: none;
+}
+
 .popupmenu--display-flex.popupmenu {
   display: flex;
 }
@@ -3017,6 +3021,10 @@
 }
 .listview-horizontal.mx-listview > ul > li {
   display: inline-block;
+}
+
+.listview-hide-on-empty.mx-listview > ul > li.mx-listview-empty {
+  display: none;
 }
 
 .listview-empty-deployed-models.mx-listview > ul > li.mx-listview-empty > label {
@@ -3225,40 +3233,40 @@
   */
   /*== Gray Shades*/
   /*## Different gray shades to be used for our variables and components */
-  --gray-darker: #3b4251;
-  --gray-dark: #606671;
+  --gray-darker: #0a1325;
+  --gray-dark: #474e5c;
   --gray: #787d87;
-  --gray-light: #6c7180;
-  --gray-primary: #ced0d3;
+  --gray-light: #a9acb3;
+  --gray-primary: #e7e7e9;
   --gray-lighter: #f8f8f8;
   /*== Step 1: Brand Colors */
-  --brand-default: #ced0d3;
+  --brand-default: #e7e7e9;
   --brand-primary: #264ae5;
   --brand-success: #3cb33d;
   --brand-warning: #eca51c;
   --brand-danger: #e33f4e;
   --brand-logo: false;
-  --brand-logo-height: 26px;
-  --brand-logo-width: 26px;
+  --brand-logo-height: 32px;
+  --brand-logo-width: 32px;
   /* Only used for CSS brand logo */
   /*== Step 2: UI Customization */
   /* Default Font Size & Color */
   --font-size-default: 14px;
-  --font-color-default: #6c717e;
+  --font-color-default: #0a1325;
   /* Global Border Color */
   --border-color-default: #ced0d3;
-  --border-radius-default: 5px;
+  --border-radius-default: 4px;
   /* Topbar */
-  --topbar-bg: #fff;
-  --topbar-minimalheight: 60px;
+  --topbar-bg: #020557;
+  --topbar-minimalheight: 48px;
   --topbar-border-color: #ced0d3;
   /* Topbar mobile */
   --m-header-height: 45px;
-  --m-header-bg: #264ae5;
+  --m-header-bg: #020557;
   --m-header-color: #fff;
   --m-header-title-size: 16px;
   /* Navbar Brand Name / For your company, product, or project name (used in layouts/base/) */
-  --navbar-brand-name: #6c717e;
+  --navbar-brand-name: #fff;
   /* Background Colors */
   /* Backgrounds */
   --bg-color: #f8f8f8;
@@ -3304,13 +3312,13 @@
   --font-header-margin: 0 0 8px 0;
   /* Text Colors */
   --font-color-detail: #6c717e;
-  --font-color-header: #0a1326;
+  --font-color-header: #0a1325;
   /*== Navigation */
   /*## Used in components/navigation
 
   /* Default Navigation styling */
   --navigation-item-height: unset;
-  --navigation-item-padding: 16px;
+  --navigation-item-padding: 8px;
   --navigation-font-size: 14px;
   --navigation-sub-font-size: 12px;
   --navigation-glyph-size: 20px;
@@ -3318,9 +3326,9 @@
   --navigation-color: #fff;
   --navigation-color-hover: #fff;
   --navigation-color-active: #fff;
-  --navigation-sub-color: #aaa;
-  --navigation-sub-color-hover: #264ae5;
-  --navigation-sub-color-active: #264ae5;
+  --navigation-sub-color: #fff;
+  --navigation-sub-color-hover: #fff;
+  --navigation-sub-color-active: #fff;
   /* Navigation Sidebar */
   --navsidebar-font-size: 14px;
   --navsidebar-sub-font-size: 12px;
@@ -3329,31 +3337,31 @@
   --navsidebar-color: #fff;
   --navsidebar-color-hover: #fff;
   --navsidebar-color-active: #fff;
-  --navsidebar-sub-color: #aaa;
-  --navsidebar-sub-color-hover: #264ae5;
-  --navsidebar-sub-color-active: #264ae5;
+  --navsidebar-sub-color: #fff;
+  --navsidebar-sub-color-hover: #fff;
+  --navsidebar-sub-color-active: #fff;
   --navsidebar-width-closed: 52px;
   --navsidebar-width-open: 232px;
   /* Navigation topbar */
   --navtopbar-font-size: 14px;
   --navtopbar-sub-font-size: 12px;
   --navtopbar-glyph-size: 1.2em;
-  --navtopbar-bg: #fff;
-  --navtopbar-bg-hover: whitesmoke;
-  --navtopbar-bg-active: #ebebeb;
-  --navtopbar-color: #6c717e;
-  --navtopbar-color-hover: #6c717e;
-  --navtopbar-color-active: #6c717e;
-  --navtopbar-sub-bg: white;
-  --navtopbar-sub-bg-hover: white;
-  --navtopbar-sub-bg-active: white;
-  --navtopbar-sub-color: #aaa;
-  --navtopbar-sub-color-hover: #264ae5;
-  --navtopbar-sub-color-active: #264ae5;
+  --navtopbar-bg: #020557;
+  --navtopbar-bg-hover: #282b70;
+  --navtopbar-bg-active: #282b70;
+  --navtopbar-color: #fff;
+  --navtopbar-color-hover: #fff;
+  --navtopbar-color-active: #fff;
+  --navtopbar-sub-bg: #020557;
+  --navtopbar-sub-bg-hover: #282b70;
+  --navtopbar-sub-bg-active: #282b70;
+  --navtopbar-sub-color: #fff;
+  --navtopbar-sub-color-hover: #fff;
+  --navtopbar-sub-color-active: #fff;
   /*== Cards */
   /* Shadow color */
-  --shadow-color-border: rgba(206, 208, 211, 0.5);
-  --shadow-color: rgba(206, 208, 211, 0.66);
+  --shadow-color-border: rgba(231, 231, 233, 0.5);
+  --shadow-color: rgba(231, 231, 233, 0.66);
   /*Shadow size */
   --shadow-small: 0 2px 4px 0;
   --shadow-medium: 0 5px 7px 0;
@@ -3376,20 +3384,20 @@
   --form-input-static-padding-x: 0;
   --form-input-font-size: 14px;
   --form-input-line-height: 1.428571429;
-  --form-input-border-radius: 5px;
+  --form-input-border-radius: 4px;
   /* Form Input styling */
   --form-input-bg: #fff;
   --form-input-bg-focus: #fff;
-  --form-input-bg-hover: #ced0d3;
+  --form-input-bg-hover: #e7e7e9;
   --form-input-bg-disabled: #f8f8f8;
-  --form-input-color: #6c717e;
-  --form-input-focus-color: #6c717e;
+  --form-input-color: #0a1325;
+  --form-input-focus-color: #0a1325;
   --form-input-disabled-color: #9da1a8;
   --form-input-placeholder-color: #6c717c;
-  --form-input-border-color: #ced0d3;
+  --form-input-border-color: #e7e7e9;
   --form-input-border-focus-color: #264ae5;
   /* Form Input Static styling */
-  --form-input-static-border-color: #ced0d3;
+  --form-input-static-border-color: #e7e7e9;
   /* Form Group */
   --form-group-margin-bottom: 16px;
   --form-group-gutter: 16px;
@@ -3399,7 +3407,7 @@
   --btn-font-size: 14px;
   --btn-bordered: false;
   /* Default value false, set to true if you want this effect */
-  --btn-border-radius: 5px;
+  --btn-border-radius: 4px;
   /* Button Background Color */
   --btn-default-bg: #fff;
   --btn-primary-bg: #264ae5;
@@ -3407,7 +3415,7 @@
   --btn-warning-bg: #eca51c;
   --btn-danger-bg: #e33f4e;
   /* Button Border Color */
-  --btn-default-border-color: #ced0d3;
+  --btn-default-border-color: #e7e7e9;
   --btn-primary-border-color: #264ae5;
   --btn-success-border-color: #3cb33d;
   --btn-warning-border-color: #eca51c;
@@ -3421,7 +3429,7 @@
   /* Button Icon Color */
   --btn-default-icon-color: #787d87;
   /* Button Background Color */
-  --btn-default-bg-hover: #ced0d3;
+  --btn-default-bg-hover: #e7e7e9;
   --btn-primary-bg-hover: #1e3bb7;
   --btn-success-bg-hover: #308f31;
   --btn-warning-bg-hover: #bd8416;
@@ -3445,26 +3453,26 @@
   /*== Color variations */
   /*## These variations are used to support several other variables and components */
   /* Color variations */
-  --color-default-darker: #7c7d7f;
-  --color-default-dark: #909294;
-  --color-default-light: #f5f6f6;
+  --color-default-darker: #8b8b8c;
+  --color-default-dark: #a2a2a3;
+  --color-default-light: #f5f5f6;
   --color-default-lighter: #fafafb;
   --color-primary-darker: #172c89;
   --color-primary-dark: #1b34a0;
-  --color-primary-light: #d4dbfa;
-  --color-primary-lighter: #e9edfc;
+  --color-primary-light: #a8b7f5;
+  --color-primary-lighter: #d4dbfa;
   --color-success-darker: #246b25;
   --color-success-dark: #2a7d2b;
-  --color-success-light: #d8f0d8;
-  --color-success-lighter: #ecf7ec;
+  --color-success-light: #b1e1b1;
+  --color-success-lighter: #d8f0d8;
   --color-warning-darker: #8e6311;
   --color-warning-dark: #a57414;
-  --color-warning-light: #fbedd2;
-  --color-warning-lighter: #fdf6e8;
+  --color-warning-light: #f7dba4;
+  --color-warning-lighter: #fbedd2;
   --color-danger-darker: #88262f;
   --color-danger-dark: #9f2c37;
-  --color-danger-light: #f9d9dc;
-  --color-danger-lighter: #fceced;
+  --color-danger-light: #f4b2b8;
+  --color-danger-lighter: #f9d9dc;
   --brand-gradient: linear-gradient(to right top, #264ae5, #2239c5, #1b29a6, #111988, #03096c);
   /*== Grids */
   /*## Used for Datagrid, Templategrid, Listview & Tables (see components folder) */
@@ -3490,22 +3498,22 @@
   /* Striped Background Color */
   --grid-bg-striped: #fafafb;
   /* Background Footer Color */
-  --grid-footer-bg: #ced0d3;
+  --grid-footer-bg: #e7e7e9;
   /* Text Color */
-  --grid-selected-color: #6c717e;
+  --grid-selected-color: #0a1325;
   /* Paging Colors */
   --grid-paging-bg: transparent;
   --grid-paging-bg-hover: transparent;
   --grid-paging-border-color: transparent;
   --grid-paging-border-color-hover: transparent;
-  --grid-paging-color: #6c7180;
+  --grid-paging-color: #a9acb3;
   --grid-paging-color-hover: #264ae5;
   /*== Tabs */
   /*## Default variables for Tab Container Widget (used in components/tabcontainer) */
   /* Text Color */
   --tabs-color: #6c717e;
-  --tabs-color-active: #6c717e;
-  --tabs-lined-color-active: #6c717e;
+  --tabs-color-active: #0a1325;
+  --tabs-lined-color-active: #0a1325;
   --tabs-lined-border-width: 3px;
   /* Border Color */
   --tabs-border-color: #ced0d3;
@@ -3522,7 +3530,7 @@
   /* Border Color */
   --modal-header-border-color: #ced0d3;
   /* Text Color */
-  --modal-header-color: #6c717e;
+  --modal-header-color: #0a1325;
   /*== Dataview */
   /*## Default variables for Dataview Widget (used in components/dataview) */
   /* Controls */
@@ -3530,15 +3538,15 @@
   --dataview-controls-border-color: #ced0d3;
   /* Empty Message */
   --dataview-emptymessage-bg: #f8f8f8;
-  --dataview-emptymessage-color: #6c717e;
+  --dataview-emptymessage-color: #0a1325;
   /*== Alerts */
   /*## Default Bootstrap alerts, not a widget in the Modeler (used in components/alerts) */
   /* Background Color */
-  --alert-primary-bg: #e9edfc;
-  --alert-secondary-bg: #e9edfc;
-  --alert-success-bg: #ecf7ec;
-  --alert-warning-bg: #fdf6e8;
-  --alert-danger-bg: #fceced;
+  --alert-primary-bg: #d4dbfa;
+  --alert-secondary-bg: #d4dbfa;
+  --alert-success-bg: #d8f0d8;
+  --alert-warning-bg: #fbedd2;
+  --alert-danger-bg: #f9d9dc;
   /* Text Color */
   --alert-primary-color: #172c89;
   --alert-secondary-color: #172c89;
@@ -3562,32 +3570,32 @@
   /*Wizard step states */
   --wizard-default-bg: #fff;
   --wizard-default-color: #fff;
-  --wizard-default-step-color: #6c717e;
+  --wizard-default-step-color: #0a1325;
   --wizard-default-border-color: #ced0d3;
-  --wizard-active-bg: #264ae5;
-  --wizard-active-color: #fff;
-  --wizard-active-step-color: #264ae5;
-  --wizard-active-border-color: #264ae5;
-  --wizard-visited-bg: #3cb33d;
-  --wizard-visited-color: #fff;
-  --wizard-visited-step-color: #3cb33d;
-  --wizard-visited-border-color: #3cb33d;
+  --wizard-active-bg: #d4dbfa;
+  --wizard-active-color: #1b34a0;
+  --wizard-active-step-color: #1b34a0;
+  --wizard-active-border-color: #1b34a0;
+  --wizard-visited-bg: #d8f0d8;
+  --wizard-visited-color: #2a7d2b;
+  --wizard-visited-step-color: #2a7d2b;
+  --wizard-visited-border-color: #2a7d2b;
   /*== Labels */
   /*## Default Bootstrap Labels, not a widget in the Modeler (used in components/labels) */
   /* Background Color */
-  --label-default-bg: #ced0d3;
+  --label-default-bg: #e7e7e9;
   --label-primary-bg: #264ae5;
   --label-success-bg: #3cb33d;
   --label-warning-bg: #eca51c;
   --label-danger-bg: #e33f4e;
   /* Border Color */
-  --label-default-border-color: #ced0d3;
+  --label-default-border-color: #e7e7e9;
   --label-primary-border-color: #264ae5;
   --label-success-border-color: #3cb33d;
   --label-warning-border-color: #eca51c;
   --label-danger-border-color: #e33f4e;
   /* Text Color */
-  --label-default-color: #6c717e;
+  --label-default-color: #0a1325;
   --label-primary-color: #fff;
   --label-success-color: #fff;
   --label-warning-color: #fff;
@@ -3595,33 +3603,33 @@
   /*== Groupbox */
   /*## Default variables for Groupbox Widget (used in components/groupbox) */
   /* Background Color */
-  --groupbox-default-bg: #ced0d3;
+  --groupbox-default-bg: #e7e7e9;
   --groupbox-primary-bg: #264ae5;
   --groupbox-success-bg: #3cb33d;
   --groupbox-warning-bg: #eca51c;
   --groupbox-danger-bg: #e33f4e;
   --groupbox-white-bg: #fff;
   /* Text Color */
-  --groupbox-default-color: #6c717e;
+  --groupbox-default-color: #0a1325;
   --groupbox-primary-color: #fff;
   --groupbox-success-color: #fff;
   --groupbox-warning-color: #fff;
   --groupbox-danger-color: #fff;
-  --groupbox-white-color: #6c717e;
+  --groupbox-white-color: #0a1325;
   /*== Callout (groupbox) Colors */
   /*## Extended variables for Groupbox Widget (used in components/groupbox) */
   /* Text and Border Color */
-  --callout-default-color: #6c717e;
+  --callout-default-color: #0a1325;
   --callout-primary-color: #264ae5;
   --callout-success-color: #3cb33d;
   --callout-warning-color: #eca51c;
   --callout-danger-color: #e33f4e;
   /* Background Color */
   --callout-default-bg: #fafafb;
-  --callout-primary-bg: #e9edfc;
-  --callout-success-bg: #ecf7ec;
-  --callout-warning-bg: #fdf6e8;
-  --callout-danger-bg: #fceced;
+  --callout-primary-bg: #d4dbfa;
+  --callout-success-bg: #d8f0d8;
+  --callout-warning-bg: #fbedd2;
+  --callout-danger-bg: #f9d9dc;
   /*== Timeline */
   /*## Extended variables for Timeline Widget */
   /* Colors */
@@ -3640,7 +3648,7 @@
   /* Default */
   --accordion-header-default-bg: #fff;
   --accordion-header-default-bg-hover: #f8f8f8;
-  --accordion-header-default-color: #0a1326;
+  --accordion-header-default-color: #0a1325;
   --accordion-default-border-color: #ced0d3;
   --accordion-bg-striped: #fafafb;
   --accordion-bg-striped-hover: #f0f1f2;
@@ -3651,7 +3659,7 @@
   --accordion-header-warning-bg: #eca51c;
   --accordion-header-danger-bg: #e33f4e;
   --accordion-header-primary-bg-hover: #1e3bb7;
-  --accordion-header-secondary-bg-hover: #ced0d3;
+  --accordion-header-secondary-bg-hover: #e7e7e9;
   --accordion-header-success-bg-hover: #308f31;
   --accordion-header-warning-bg-hover: #bd8416;
   --accordion-header-danger-bg-hover: #b6323e;
@@ -3663,7 +3671,7 @@
   --accordion-header-danger-color: #fff;
   /* Semantic border colors */
   --accordion-primary-border-color: #264ae5;
-  --accordion-secondary-border-color: #ced0d3;
+  --accordion-secondary-border-color: #e7e7e9;
   --accordion-success-border-color: #3cb33d;
   --accordion-warning-border-color: #eca51c;
   --accordion-danger-border-color: #e33f4e;
@@ -3749,16 +3757,16 @@
   --navigation-border-color: #292d7b;
   /* Navigation Sidebar */
   --navsidebar-bg: #24276c;
-  --navsidebar-bg-hover: #1f215d;
-  --navsidebar-bg-active: #1a1c4d;
-  --navsidebar-sub-bg: #1f215d;
-  --navsidebar-sub-bg-hover: #1f215d;
-  --navsidebar-sub-bg-active: #1f215d;
-  --navsidebar-border-color: #1f215d;
+  --navsidebar-bg-hover: #171946;
+  --navsidebar-bg-active: #171946;
+  --navsidebar-sub-bg: #171946;
+  --navsidebar-sub-bg-hover: #24276c;
+  --navsidebar-sub-bg-active: #24276c;
+  --navsidebar-border-color: #171946;
   /*== Form */
   /*## Used in components/inputs */
   /* Form Label */
-  --form-label-color: #24276c;
+  --form-label-color: #0a1325;
   /*== Buttons */
   /*## Define background-color, border-color and text. Used in components/buttons */
   /* Button Background Color */
@@ -3778,7 +3786,7 @@
   /* Color variations */
   --color-inverse-darker: #161741;
   --color-inverse-dark: #191b4c;
-  --color-inverse-light: #a7a9c4;
+  --color-inverse-light: #7c7da7;
   --color-inverse-lighter: #d3d4e2;
   --color-info-darker: #005082;
   --color-info-dark: #005e98;
@@ -3787,7 +3795,7 @@
   /*== Alerts */
   /*## Default Bootstrap alerts, not a widget in the Modeler (used in components/alerts) */
   /* Background Color */
-  --alert-info-bg: #e9edfc;
+  --alert-info-bg: #d4dbfa;
   /* Text Color */
   --alert-info-color: #172c89;
   /* Border Color */
@@ -18919,8 +18927,13 @@ input[type=checkbox] + .control-label {
    Default Mendix data view widget. The data view is used for showing the contents of exactly one object
 ========================================================================== */
 .mx-dataview {
-  /* Dataview-content gives problems for nexted layout grid containers */
+  display: flex;
+  flex-direction: column;
+  /* Dataview-content gives problems for nested layout grid containers */
   /* Dataview empty message */
+}
+.mx-dataview > .mx-dataview-content {
+  flex-grow: 1;
 }
 .mx-dataview > .mx-dataview-content > .mx-container-nested > .row {
   margin-right: 0;
@@ -18932,7 +18945,6 @@ input[type=checkbox] + .control-label {
 }
 
 .mx-dataview-controls {
-  margin-top: 16px;
   padding: 16px 0 0;
   border-top: 1px solid #ced0d3;
   border-radius: 0;
@@ -19299,7 +19311,7 @@ body[dir=rtl] .mx-header-right {
 .groupbox-callout > .mx-groupbox-header,
 .groupbox-callout > .mx-groupbox-body {
   border: 0;
-  background-color: #e9edfc;
+  background-color: #d4dbfa;
 }
 .groupbox-callout > .mx-groupbox-header {
   color: #264ae5;
@@ -19809,7 +19821,7 @@ img.img-scale-down,
   color: #0a1325;
   text-shadow: none;
 }
-.modal-dialog .modal-content .modal-header .close:focus {
+.modal-dialog .modal-content .modal-header .close:focus-visible {
   border-radius: 4px;
   outline: 2px solid #264ae5;
 }
@@ -20064,11 +20076,12 @@ img.img-scale-down,
   box-shadow: 0px 2px 2px rgba(194, 196, 201, 0.30354);
 }
 .region-topbar .mx-navbar ul.nav > .mx-navbar-item.open .dropdown-menu > li.mx-navbar-subitem a {
-  padding: 8px;
-  color: #fff;
   border-radius: 4px;
-  margin-bottom: 8px;
+  color: #fff;
+  font-size: 12px;
   line-height: 1.2;
+  margin: 0 0 8px;
+  padding: 8px;
 }
 .region-topbar .mx-navbar ul.nav > .mx-navbar-item.open .dropdown-menu > li.mx-navbar-subitem a:hover, .region-topbar .mx-navbar ul.nav > .mx-navbar-item.open .dropdown-menu > li.mx-navbar-subitem a:focus {
   color: #fff;
@@ -20450,9 +20463,11 @@ img.img-scale-down,
 .popupmenu {
   position: relative;
   display: inline-flex;
+  overflow: visible;
 }
 
 .popupmenu-trigger {
+  position: relative;
   cursor: pointer;
 }
 
@@ -20493,6 +20508,17 @@ img.img-scale-down,
 .popupmenu-menu .popupmenu-custom-item:last-child {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+}
+
+ul.popupmenu-menu {
+  display: flex;
+  list-style-type: none;
+  padding-inline-start: 0;
+  z-index: 1;
+}
+
+.table .td > .popupmenu {
+  overflow: visible;
 }
 
 .popupmenu-basic-divider {
@@ -23736,27 +23762,27 @@ h6,
 }
 
 .shadow-small {
-  box-shadow: 0 2px 4px 0 rgba(206, 208, 211, 0.66);
+  box-shadow: 0 2px 4px 0 rgba(231, 231, 233, 0.66);
   margin-bottom: 5px;
   border-width: 1px  !important;
   border-style: solid;
-  border-color: rgba(206, 208, 211, 0.5);
+  border-color: rgba(231, 231, 233, 0.5);
 }
 
 .shadow-medium {
-  box-shadow: 0 5px 7px 0 rgba(206, 208, 211, 0.66);
+  box-shadow: 0 5px 7px 0 rgba(231, 231, 233, 0.66);
   margin-bottom: 15px;
   border-width: 1px  !important;
   border-style: solid;
-  border-color: rgba(206, 208, 211, 0.5);
+  border-color: rgba(231, 231, 233, 0.5);
 }
 
 .shadow-large {
-  box-shadow: 0 8px 10px 0 rgba(206, 208, 211, 0.66);
+  box-shadow: 0 8px 10px 0 rgba(231, 231, 233, 0.66);
   margin-bottom: 25px;
   border-width: 1px  !important;
   border-style: solid;
-  border-color: rgba(206, 208, 211, 0.5);
+  border-color: rgba(231, 231, 233, 0.5);
 }
 
 @media (max-width: calc(768px - 1px)) {
@@ -23764,11 +23790,19 @@ h6,
     display: none  !important;
   }
 }
+.profile-phone .hide-phone {
+  display: none  !important;
+}
+
 @media (min-width: 768px) and (max-width: calc(992px - 1px)) {
   .hide-tablet {
     display: none  !important;
   }
 }
+.profile-tablet .hide-tablet {
+  display: none  !important;
+}
+
 @media (min-width: 992px) {
   .hide-desktop {
     display: none  !important;
@@ -25045,7 +25079,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .layout-atlas-responsive-default .mx-scrollcontainer-slide:not(.mx-scrollcontainer-open) > .region-sidebar .mx-scrollcontainer-wrapper .mx-navigationtree ul li.mx-navigationtree-has-items:hover > ul {
     position: absolute;
     z-index: 100;
-    top: 0;
+    top: 48px;
     bottom: 0;
     left: 52px;
     display: block;
@@ -25058,6 +25092,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .layout-atlas-responsive-default .mx-scrollcontainer-shrink:not(.mx-scrollcontainer-open) > .region-sidebar .mx-scrollcontainer-wrapper .mx-navigationtree ul li.mx-navigationtree-has-items:hover > ul > li.mx-navigationtree-has-items:hover > ul,
 .layout-atlas-responsive-default .mx-scrollcontainer-push:not(.mx-scrollcontainer-open) > .region-sidebar .mx-scrollcontainer-wrapper .mx-navigationtree ul li.mx-navigationtree-has-items:hover > ul > li.mx-navigationtree-has-items:hover > ul,
 .layout-atlas-responsive-default .mx-scrollcontainer-slide:not(.mx-scrollcontainer-open) > .region-sidebar .mx-scrollcontainer-wrapper .mx-navigationtree ul li.mx-navigationtree-has-items:hover > ul > li.mx-navigationtree-has-items:hover > ul {
+    top: 0;
     left: 100%;
   }
   .layout-atlas-responsive .mx-scrollcontainer-shrink:not(.mx-scrollcontainer-open) > .region-sidebar .mx-scrollcontainer-wrapper .mx-navigationtree ul li.mx-navigationtree-collapsed ul, .layout-atlas-responsive .mx-scrollcontainer-shrink:not(.mx-scrollcontainer-open) > .region-sidebar .mx-scrollcontainer-wrapper .mx-navigationtree ul li.mx-navigationtree-has-items ul,
@@ -25195,6 +25230,14 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   .layout-atlas-responsive-topbar .region-topbar {
     padding: 0 8px;
   }
+}
+.layout-atlas-responsive-topbar .region-topbar .mx-scrollcontainer-wrapper .mx-layoutgrid,
+.layout-atlas-responsive-topbar .region-topbar .mx-scrollcontainer-wrapper .mx-layoutgrid-fluid {
+  padding: 0 8px;
+}
+.layout-atlas-responsive-topbar .region-topbar .mx-icon-filled,
+.layout-atlas-responsive-topbar .region-topbar .mx-icon-lined {
+  font-size: 20px;
 }
 
 .profile-tablet .mx-scrollcontainer:not(.mx-scrollcontainer-open) > .region-sidebar {
@@ -27658,6 +27701,10 @@ input[type=checkbox].three-state-checkbox + .control-label {
   margin-bottom: 16px;
 }
 
+.spacing-outer-top-smaller {
+  margin-top: 4px;
+}
+
 .flexbox-space-between {
   display: flex !important;
   justify-content: space-between;
@@ -27698,20 +27745,6 @@ input[type=checkbox].three-state-checkbox + .control-label {
   color: #e33f4e;
 }
 
-.border-selected {
-  border-color: #264ae5;
-  border-width: 2px;
-  border: 1px solid;
-  padding: 8px;
-}
-
-.badge--purple {
-  color: #2F008C;
-  background-color: #E2E0FC;
-  font-size: 12px;
-  font-weight: normal;
-}
-
 .icon-info-wrapper {
   display: flex;
   align-items: center;
@@ -27719,6 +27752,10 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .icon-info-wrapper img {
   margin-right: 0;
   margin-bottom: 4px;
+}
+
+.border-right {
+  border-right: 2px;
 }
 
 .accordion-chat-sources .widget-accordion-group {
@@ -27812,10 +27849,21 @@ input[type=checkbox].three-state-checkbox + .control-label {
 
 .btn-run-single {
   border-radius: 4px 4px 4px 4px;
+  padding-top: 1rem;
+}
+.btn-run-single img {
+  height: 22px;
+  width: 22px;
+  margin-right: 0;
 }
 
 .btn-run {
   border-radius: 4px 0 0 4px;
+}
+.btn-run img {
+  height: 22px;
+  width: 22px;
+  margin-right: 0;
 }
 
 .btn-run-all {
@@ -27823,9 +27871,6 @@ input[type=checkbox].three-state-checkbox + .control-label {
   border-radius: 0 4px 4px 0;
   border-left: 1px solid white;
   fill: white;
-}
-.btn-run-all img {
-  margin-right: 0;
 }
 .btn-run-all:active, .btn-run-all:focus, .btn-run-all:hover {
   border-left: 1px solid white;
@@ -27836,7 +27881,37 @@ input[type=checkbox].three-state-checkbox + .control-label {
   padding: 0.6em;
 }
 .btn-icon img {
+  height: 22px;
+  width: 22px;
   margin: 1px;
+}
+
+.btn-icon-small {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+}
+.btn-icon-small img {
+  height: 20px;
+  width: 20px;
+  margin: 1px;
+}
+
+.btn-small {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+}
+
+.custom-img img {
+  height: 22px;
+  width: 22px;
+  margin-right: 0;
 }
 
 .chat-card--full-height {
@@ -27879,12 +27954,8 @@ input[type=checkbox].three-state-checkbox + .control-label {
   overflow: unset;
 }
 
-.card .card-header {
-  display: flex;
-  flex-direction: row;
-}
-.card .card-header .widget-combobox .widget-combobox-input-container {
-  height: 100%;
+.overflow-y-auto {
+  overflow-y: auto !important;
 }
 
 .chat-loading-wrapper {
@@ -28163,14 +28234,16 @@ input[type=checkbox].three-state-checkbox + .control-label {
 
 .datetime-inputs-wrapper {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 .datetime-inputs-wrapper .time-input {
+  display: unset;
   max-width: 100px;
   margin-left: -1px;
   margin-bottom: 0;
 }
 .datetime-inputs-wrapper .date-input {
+  display: unset;
   max-width: 150px;
   margin-left: 16px;
   margin-bottom: 0;
@@ -28179,6 +28252,9 @@ input[type=checkbox].three-state-checkbox + .control-label {
   margin-left: -44px;
   border: 1px solid transparent;
   background: transparent;
+}
+.datetime-inputs-wrapper .has-error .alert {
+  margin-top: 0.5px;
 }
 
 .input-container {
@@ -28193,10 +28269,16 @@ input[type=checkbox].three-state-checkbox + .control-label {
   flex-grow: 1;
 }
 .combobox-selection .mx-image {
-  height: 14px;
+  height: 18px;
   margin-right: 8px;
   margin-left: auto;
   float: right;
+}
+
+.combobox-selection-height-small .widget-combobox-input-container {
+  align-items: center;
+  justify-content: center;
+  height: 32px !important;
 }
 
 .combo-model-selection {
@@ -28209,7 +28291,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
   height: max-content;
 }
 .combo-model-selection .mx-image {
-  height: 14px;
+  height: 18px;
   margin-right: 8px;
 }
 
@@ -28403,8 +28485,9 @@ input[type=checkbox].three-state-checkbox + .control-label {
   flex-direction: column;
 }
 .page-container .page-container-side {
+  z-index: 1000;
   width: 100%;
-  max-width: 540px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
 }
@@ -28460,26 +28543,23 @@ input[type=checkbox].three-state-checkbox + .control-label {
   width: 60%;
   display: flex;
   flex-direction: column;
-  height: fit-content;
-}
-.page-container .content-main .prompt-fields {
-  padding-bottom: 8px;
 }
 .page-container .content-main .card {
   margin-left: 12px;
   margin-right: 12px;
+  max-height: 47vh;
 }
 .page-container .content-column {
   min-width: 400px;
   width: 40%;
   display: flex;
   flex-direction: column;
-  height: fit-content;
 }
 .page-container .content-column .card {
   margin-left: 12px;
   margin-right: 12px;
-  padding-bottom: 8px;
+  max-height: 47vh;
+  padding-bottom: 24px;
 }
 @media (max-width: 1200px) {
   .page-container .content-main {
@@ -28507,6 +28587,8 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .page-container .content-fullwidth .card {
   margin-left: 12px;
   margin-right: 12px;
+  max-height: 50vh;
+  padding-bottom: 24px;
 }
 .page-container .panel-header {
   display: flex;
@@ -28517,7 +28599,6 @@ input[type=checkbox].three-state-checkbox + .control-label {
 }
 .page-container .panel-header::after {
   content: "";
-  height: 80px;
 }
 .page-container .panel-header .header-text {
   flex-direction: column;
@@ -28525,22 +28606,45 @@ input[type=checkbox].three-state-checkbox + .control-label {
   padding-right: 8px;
   padding-bottom: 8px;
 }
-.page-container .panel-header .close-icon-area .close-icon {
+.page-container .panel-header .icon-area {
+  margin-top: 8px;
+  margin-left: auto;
+  max-width: 75px;
+}
+.page-container .panel-header .icon-area .new-chat-icon img {
+  height: 24px;
+  width: 24px;
+  margin-right: 0;
+}
+.page-container .panel-header .icon-area .close-icon {
+  border-left: 2px solid #e7e7e9;
   padding-left: 8px;
   margin-right: 8px;
   margin-left: 8px;
-  margin-top: 8px;
   height: fit-content;
 }
-.page-container .panel-header .new-chat-icon {
-  margin-top: 8px;
-  height: fit-content;
+.page-container .panel-header .icon-area .close-icon img {
+  height: 24px;
+  width: 24px;
+  margin-right: 0;
 }
 .page-container .panel-content {
   flex: 1 1 0;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+}
+.page-container .card-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 37vh;
+  padding-bottom: 4px;
+}
+.page-container .card-header {
+  position: sticky;
+  display: flex;
+  flex-direction: row;
+  z-index: 2;
 }
 
 .table-header {
@@ -28705,6 +28809,24 @@ input[type=checkbox].three-state-checkbox + .control-label {
   background-color: transparent;
 }
 
+.dropdown-hover {
+  background-color: #fff;
+  width: 100%;
+  padding: 10px;
+}
+.dropdown-hover:hover, .dropdown-hover:focus, .dropdown-hover:active {
+  cursor: pointer;
+  border-color: #f8f8f8;
+  background-color: #f8f8f8;
+}
+
+.custom-widget-combobox-menu .widget-combobox-menu .widget-combobox-menu-footer {
+  padding: unset;
+}
+.custom-widget-combobox-menu .combobox-footer-action {
+  padding: 10px;
+}
+
 .segmented-control {
   height: fit-content;
   border: 1px solid #ced0d3;
@@ -28771,6 +28893,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
   word-break: break-word;
   background-color: white;
   border-radius: 4px;
+  color: black;
 }
 
 .prompt-tooltip-w330 .widget-tooltip-content {
@@ -28778,9 +28901,9 @@ input[type=checkbox].three-state-checkbox + .control-label {
   padding: 0 15px 0 15px;
 }
 
-.prompt-tooltip-w250 .widget-tooltip-content {
+.prompt-tooltip-w280 .widget-tooltip-content {
   width: 280px;
-  padding: 15px;
+  padding: 0 15px 0 15px;
 }
 
 .layout-atlas .region-topbar .navbar-brand .mx-navbar-subitem a {

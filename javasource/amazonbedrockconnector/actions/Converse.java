@@ -75,8 +75,9 @@ import software.amazon.awssdk.services.bedrockruntime.model.ToolResultBlock;
 import software.amazon.awssdk.services.bedrockruntime.model.ToolResultContentBlock;
 import software.amazon.awssdk.services.bedrockruntime.model.ToolSpecification;
 import software.amazon.awssdk.services.bedrockruntime.model.ToolUseBlock;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class Converse extends CustomJavaAction<IMendixObject>
+public class Converse extends UserAction<IMendixObject>
 {
 	/** @deprecated use Credentials.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
@@ -930,7 +931,12 @@ public class Converse extends CustomJavaAction<IMendixObject>
 		Map.Entry<String, Document> entry = awsDoc.asMap().entrySet().iterator().next();
 		
 		String key = entry.getKey();
-		String value = entry.getValue().asString();
+		String value;
+		if (entry.getValue().isString()) {
+			value = entry.getValue().asString();
+		} else {
+			value = entry.getValue().toString();
+		}
 		
 		Map<String, String> stringMap = Map.of(key, value);
 		

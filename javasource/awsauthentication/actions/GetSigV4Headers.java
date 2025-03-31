@@ -36,13 +36,14 @@ import awsauthentication.impl.Utils;
 import awsauthentication.proxies.SigV4Headers;
 import awsauthentication.proxies.SigV4Parameter;
 import awsauthentication.proxies.TemporaryCredentials;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * GetSigV4Headers java action calculates and provides headers needed to make a RESTful call to AWS Services.
  * Description of all input entity attributes and the output entity attributes can be found in the attribute documentation in the Domain Model.
  * Note - If you are using temporary credentials (object of type TemporaryCredentials), then add the header 'x-amz-security-token' with value as the TemporaryCredentials/Token attribute in the REST request.
  */
-public class GetSigV4Headers extends CustomJavaAction<IMendixObject>
+public class GetSigV4Headers extends UserAction<IMendixObject>
 {
 	/** @deprecated use Credentials.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

@@ -21,8 +21,9 @@ import amazonbedrockconnector.impl.MxLogger;
 import amazonbedrockconnector.proxies.InvokeModelResponse;
 import software.amazon.awssdk.services.bedrockruntime.BedrockRuntimeClient;
 import software.amazon.awssdk.http.SdkHttpResponse;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class InvokeModel extends CustomJavaAction<IMendixObject>
+public class InvokeModel extends UserAction<IMendixObject>
 {
 	/** @deprecated use Credentials.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

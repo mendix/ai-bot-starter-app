@@ -24,6 +24,8 @@ public final class Microflows
 	 * 
 	 * The Connection entity passed must be of type MxKnowledgeBaseConnection and must contain the CollectionName string attribute filled and a MxCloudKnowledgeBase associated with the connection details to the knowledge base. By providing the CollectionName on the Connection, you determine the collection in which the chunks should be inserted.
 	 * Use MxKnowledgeBaseConnection_Create to create it.
+	 * 
+	 * Once inserted, chunks are available for read operations in the KB within 60-120 seconds due to asynchronous data synchronization for better scalability.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chunkCollection_Embed_InsertBuilder(
 		genaicommons.proxies.Connection _connection,
@@ -44,6 +46,8 @@ public final class Microflows
 	 * 
 	 * The Connection entity passed must be of type MxKnowledgeBaseConnection and must contain the CollectionName string attribute filled and a MxCloudKnowledgeBase associated with the connection details to the knowledge base. By providing the CollectionName on the Connection, you determine the collection in which the chunks should be inserted.
 	 * Use MxKnowledgeBaseConnection_Create to create it.
+	 * 
+	 * Once inserted, chunks are available for read operations in the KB within 60-120 seconds due to asynchronous data synchronization for better scalability.
 	 */
 	public static boolean chunkCollection_Embed_Insert(
 		IContext context,
@@ -65,6 +69,8 @@ public final class Microflows
 	 * 
 	 * The Connection entity passed must be of type MxKnowledgeBaseConnection and must contain the CollectionName string attribute filled and a MxCloudKnowledgeBase associated with the connection details to the knowledge base service. By providing the CollectionName on the Connection, you determine the collection in which the chunks should be replaced.
 	 * Use MxKnowledgeBaseConnection_Create to create it.
+	 * 
+	 * Once inserted, chunks are available for read operations in the KB within 60-120 seconds due to asynchronous data synchronization for better scalability. Note that using "Replace" on the same Mendix Objects within this period may lead to the knowledge base being out of sync.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chunkCollection_Embed_ReplaceBuilder(
 		genaicommons.proxies.ChunkCollection _chunkCollection,
@@ -84,6 +90,8 @@ public final class Microflows
 	 * 
 	 * The Connection entity passed must be of type MxKnowledgeBaseConnection and must contain the CollectionName string attribute filled and a MxCloudKnowledgeBase associated with the connection details to the knowledge base service. By providing the CollectionName on the Connection, you determine the collection in which the chunks should be replaced.
 	 * Use MxKnowledgeBaseConnection_Create to create it.
+	 * 
+	 * Once inserted, chunks are available for read operations in the KB within 60-120 seconds due to asynchronous data synchronization for better scalability. Note that using "Replace" on the same Mendix Objects within this period may lead to the knowledge base being out of sync.
 	 */
 	public static boolean chunkCollection_Embed_Replace(
 		IContext context,
@@ -105,6 +113,8 @@ public final class Microflows
 	 * Use MxKnowledgeBaseConnection_Create to create it.
 	 * 
 	 * If the collection already contains data, it will be removed before inserting the KnowledgeBaseChunks of the ChunkCollection.
+	 * 
+	 * Once inserted, chunks are available for read operations in the KB within 60-120 seconds due to asynchronous data synchronization for better scalability.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chunkCollection_Embed_RepopulateCollectionBuilder(
 		genaicommons.proxies.Connection _connection,
@@ -124,6 +134,8 @@ public final class Microflows
 	 * Use MxKnowledgeBaseConnection_Create to create it.
 	 * 
 	 * If the collection already contains data, it will be removed before inserting the KnowledgeBaseChunks of the ChunkCollection.
+	 * 
+	 * Once inserted, chunks are available for read operations in the KB within 60-120 seconds due to asynchronous data synchronization for better scalability.
 	 */
 	public static boolean chunkCollection_Embed_RepopulateCollection(
 		IContext context,
@@ -247,6 +259,8 @@ public final class Microflows
 	 * Use MxKnowledgeBaseConnection_Create to create it.
 	 * 
 	 * The TargetChunk entity (type parameter) must be a specialization of the KnowledgeBaseChunk entity from the GenAICommons. If it contains associations to (specializations of) the related mendix object for which the chunk was created originally, this will be set by this operation for easy processing afterwards.
+	 * 
+	 * Previously inserted or changed chunks are only available in the knowledge base after 60-120 seconds due to asynchronous data synchronization for better scalability.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder knowledgeBaseChunkList_Embed_RetrieveNearestNeighborsBuilder(
 		java.lang.String _content,
@@ -276,6 +290,8 @@ public final class Microflows
 	 * Use MxKnowledgeBaseConnection_Create to create it.
 	 * 
 	 * The TargetChunk entity (type parameter) must be a specialization of the KnowledgeBaseChunk entity from the GenAICommons. If it contains associations to (specializations of) the related mendix object for which the chunk was created originally, this will be set by this operation for easy processing afterwards.
+	 * 
+	 * Previously inserted or changed chunks are only available in the knowledge base after 60-120 seconds due to asynchronous data synchronization for better scalability.
 	 */
 	public static java.util.List<genaicommons.proxies.KnowledgeBaseChunk> knowledgeBaseChunkList_Embed_RetrieveNearestNeighbors(
 		IContext context,
@@ -298,6 +314,7 @@ public final class Microflows
 	}
 	/**
 	 * Creates a non-persistable connection that contains a configuration with the connection details for the MxCloudKnowledgeBase. This will be used as input for operations that perform knowledge base interactions. The CollectionName is the name of the collection for which the knowledge base interactions should happen.
+	 * Note: the collection name cannot contain any whitespace.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder mxKnowledgeBaseConnection_CreateBuilder(
 		mxgenaiconnector.proxies.MxCloudKnowledgeBase _mxCloudKnowledgeBase,
@@ -312,6 +329,7 @@ public final class Microflows
 
 	/**
 	 * Creates a non-persistable connection that contains a configuration with the connection details for the MxCloudKnowledgeBase. This will be used as input for operations that perform knowledge base interactions. The CollectionName is the name of the collection for which the knowledge base interactions should happen.
+	 * Note: the collection name cannot contain any whitespace.
 	 */
 	public static mxgenaiconnector.proxies.MxKnowledgeBaseConnection mxKnowledgeBaseConnection_Create(
 		IContext context,

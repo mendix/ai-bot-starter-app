@@ -6,7 +6,7 @@ package genaicommons.proxies;
 
 public enum ENUM_SourceType
 {
-	Url(new java.lang.String[][] { new java.lang.String[] { "en_US", "Url" } });
+	Url(new java.lang.String[][] { new java.lang.String[] { "en_US", "Url" }, new java.lang.String[] { "nl_NL", "Url" } });
 
 	private final java.util.Map<java.lang.String, java.lang.String> captions;
 

@@ -17,11 +17,12 @@ import conversationalui.impl.MxLogger;
 import conversationalui.impl.ProviderConfigImpl;
 import conversationalui.proxies.ProviderConfig;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Creates a new chat context with a provider config that is associated to the passed deployed model. Additionally, the system prompt and the action microflow of the new provider config are set.
  */
-public class ChatContext_Create_SetActionMicroflow extends CustomJavaAction<IMendixObject>
+public class ChatContext_Create_SetActionMicroflow extends UserAction<IMendixObject>
 {
 	/** @deprecated use DeployedModel.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

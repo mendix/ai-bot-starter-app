@@ -6,9 +6,9 @@ package genaicommons.proxies;
 
 public enum ENUM_ModelSupport
 {
-	_True(new java.lang.String[][] { new java.lang.String[] { "en_US", "True" } }),
-	_False(new java.lang.String[][] { new java.lang.String[] { "en_US", "False" } }),
-	Unknown(new java.lang.String[][] { new java.lang.String[] { "en_US", "Unknown" } });
+	_True(new java.lang.String[][] { new java.lang.String[] { "en_US", "True" }, new java.lang.String[] { "nl_NL", "True" } }),
+	_False(new java.lang.String[][] { new java.lang.String[] { "en_US", "False" }, new java.lang.String[] { "nl_NL", "False" } }),
+	Unknown(new java.lang.String[][] { new java.lang.String[] { "en_US", "Unknown" }, new java.lang.String[] { "nl_NL", "Unknown" } });
 
 	private final java.util.Map<java.lang.String, java.lang.String> captions;
 

@@ -32,8 +32,9 @@ import software.amazon.awssdk.services.bedrock.model.ModelCustomization;
 import software.amazon.awssdk.services.bedrock.model.InferenceType;
 import software.amazon.awssdk.services.bedrock.model.ModelModality;
 import software.amazon.awssdk.services.bedrock.model.FoundationModelLifecycleStatus;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class ListFoundationModels extends CustomJavaAction<IMendixObject>
+public class ListFoundationModels extends UserAction<IMendixObject>
 {
 	/** @deprecated use Credentials.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

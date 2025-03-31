@@ -29,8 +29,9 @@ import genaicommons.proxies.Message;
 import genaicommons.proxies.Reference;
 import genaicommons.proxies.Request;
 import software.amazon.awssdk.services.bedrockagentruntime.BedrockAgentRuntimeClient;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class Retrieve extends CustomJavaAction<IMendixObject>
+public class Retrieve extends UserAction<IMendixObject>
 {
 	private final awsauthentication.proxies.ENUM_Region Region;
 	/** @deprecated use Credentials.getMendixObject() instead. */

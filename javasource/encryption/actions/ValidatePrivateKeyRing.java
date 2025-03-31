@@ -16,8 +16,9 @@ import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class ValidatePrivateKeyRing extends CustomJavaAction<java.lang.Boolean>
+public class ValidatePrivateKeyRing extends UserAction<java.lang.Boolean>
 {
 	/** @deprecated use PrivateKeyRing.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

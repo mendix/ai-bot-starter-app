@@ -6,8 +6,8 @@ package genaicommons.proxies;
 
 public enum ENUM_MessageType
 {
-	Text(new java.lang.String[][] { new java.lang.String[] { "en_US", "Text" } }),
-	File(new java.lang.String[][] { new java.lang.String[] { "en_US", "File" } });
+	Text(new java.lang.String[][] { new java.lang.String[] { "en_US", "Text" }, new java.lang.String[] { "nl_NL", "Text" } }),
+	File(new java.lang.String[][] { new java.lang.String[] { "en_US", "File" }, new java.lang.String[] { "nl_NL", "File" } });
 
 	private final java.util.Map<java.lang.String, java.lang.String> captions;
 

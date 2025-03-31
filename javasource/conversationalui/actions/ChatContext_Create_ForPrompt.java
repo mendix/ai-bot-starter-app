@@ -17,6 +17,7 @@ import conversationalui.impl.MxLogger;
 import conversationalui.proxies.PromptToUse;
 import genaicommons.proxies.DeployedModel;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * This action is a combination of 'Get Prompt' and 'New Chat'.
@@ -24,7 +25,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * 
  * If an internal error occurs, the operation will return empty and the error is logged.
  */
-public class ChatContext_Create_ForPrompt extends CustomJavaAction<IMendixObject>
+public class ChatContext_Create_ForPrompt extends UserAction<IMendixObject>
 {
 	/** @deprecated use OverwritingDeployedModel.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

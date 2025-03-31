@@ -15,12 +15,13 @@ import com.mendix.webui.CustomJavaAction;
 import conversationalui.impl.MxLogger;
 import conversationalui.impl.ProviderConfigImpl;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * This can be used to set a (custom) ActionMicroflow for your ProviderConfig (or specialization_ that will be executed once a new message is sent.
  * The ActionMicroflow is expected to have an Input of ConversationalUI.ChatContext and must return a Boolean.
  */
-public class ProviderConfig_SetActionMicroflow extends CustomJavaAction<java.lang.Boolean>
+public class ProviderConfig_SetActionMicroflow extends UserAction<java.lang.Boolean>
 {
 	/** @deprecated use ProviderConfig.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

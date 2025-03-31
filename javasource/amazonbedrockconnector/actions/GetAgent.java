@@ -22,8 +22,9 @@ import amazonbedrockconnector.proxies.Agent;
 import amazonbedrockconnector.proxies.AgentFailureReason;
 import software.amazon.awssdk.services.bedrockagent.BedrockAgentClient;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class GetAgent extends CustomJavaAction<IMendixObject>
+public class GetAgent extends UserAction<IMendixObject>
 {
 	/** @deprecated use Credentials.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

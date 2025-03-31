@@ -10,8 +10,8 @@
 package genaicommons.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Use this microflow operation to execute an image generations API call based on a prompt string input. The Response object needs to be processed to create a single or multiple images.
@@ -24,7 +24,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * Outputs:
  * - Response: This is a Response object pointing to a message with a FileCollection containing one or multiple FileContent objects. These FileContent objects can be converted into a single or multiple images using the response handling microflows.
  */
-public class ImageGenerations extends CustomJavaAction<IMendixObject>
+public class ImageGenerations extends UserAction<IMendixObject>
 {
 	private final java.lang.String UserPrompt;
 	/** @deprecated use DeployedModel.getMendixObject() instead. */

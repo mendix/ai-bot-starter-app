@@ -17,8 +17,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import genaicommons.proxies.ENUM_ContentType;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class ImageResponse_PrepareForImportMapping extends CustomJavaAction<java.lang.String>
+public class ImageResponse_PrepareForImportMapping extends UserAction<java.lang.String>
 {
 	private final java.lang.String ImageResponse;
 

@@ -6,8 +6,8 @@ package genaicommons.proxies;
 
 public enum ENUM_ContentType
 {
-	Url(new java.lang.String[][] { new java.lang.String[] { "en_US", "Url" } }),
-	Base64(new java.lang.String[][] { new java.lang.String[] { "en_US", "Base64" } });
+	Url(new java.lang.String[][] { new java.lang.String[] { "en_US", "Url" }, new java.lang.String[] { "nl_NL", "Url" } }),
+	Base64(new java.lang.String[][] { new java.lang.String[] { "en_US", "Base64" }, new java.lang.String[] { "nl_NL", "Base64" } });
 
 	private final java.util.Map<java.lang.String, java.lang.String> captions;
 

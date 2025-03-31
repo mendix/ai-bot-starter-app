@@ -6,10 +6,10 @@ package genaicommons.proxies;
 
 public enum ENUM_ToolChoice
 {
-	auto(new java.lang.String[][] { new java.lang.String[] { "en_US", "Auto" } }),
-	none(new java.lang.String[][] { new java.lang.String[] { "en_US", "None" } }),
-	any(new java.lang.String[][] { new java.lang.String[] { "en_US", "Any" } }),
-	tool(new java.lang.String[][] { new java.lang.String[] { "en_US", "Tool" } });
+	auto(new java.lang.String[][] { new java.lang.String[] { "en_US", "Auto" }, new java.lang.String[] { "nl_NL", "Auto" } }),
+	none(new java.lang.String[][] { new java.lang.String[] { "en_US", "None" }, new java.lang.String[] { "nl_NL", "None" } }),
+	any(new java.lang.String[][] { new java.lang.String[] { "en_US", "Any" }, new java.lang.String[] { "nl_NL", "Any" } }),
+	tool(new java.lang.String[][] { new java.lang.String[] { "en_US", "Tool" }, new java.lang.String[] { "nl_NL", "Tool" } });
 
 	private final java.util.Map<java.lang.String, java.lang.String> captions;
 

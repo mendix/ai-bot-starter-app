@@ -862,6 +862,17 @@ public final class Microflows
 			.execute(context);
 		return result == null ? null : genaicommons.proxies.InputModality.initialize(context, (IMendixObject) result);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder inputModality_GetCreateAllBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.InputModality_GetCreateAll");
+		return builder;
+	}
+
+	public static java.util.List<genaicommons.proxies.InputModality> inputModality_GetCreateAll(IContext context)
+	{
+		Object result = inputModality_GetCreateAllBuilder().execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> genaicommons.proxies.InputModality.initialize(context, obj));
+	}
 	/**
 	 * Adds a Message to the Response (if none already exists).
 	 */

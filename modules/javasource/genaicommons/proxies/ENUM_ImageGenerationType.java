@@ -6,7 +6,7 @@ package genaicommons.proxies;
 
 public enum ENUM_ImageGenerationType
 {
-	TEXT_TO_IMAGE(new java.lang.String[][] { new java.lang.String[] { "en_US", "TEXT_TO_IMAGE" } });
+	TEXT_TO_IMAGE(new java.lang.String[][] { new java.lang.String[] { "en_US", "TEXT_TO_IMAGE" }, new java.lang.String[] { "nl_NL", "TEXT_TO_IMAGE" } });
 
 	private final java.util.Map<java.lang.String, java.lang.String> captions;
 

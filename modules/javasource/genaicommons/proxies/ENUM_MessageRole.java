@@ -6,10 +6,10 @@ package genaicommons.proxies;
 
 public enum ENUM_MessageRole
 {
-	user(new java.lang.String[][] { new java.lang.String[] { "en_US", "User" } }),
-	assistant(new java.lang.String[][] { new java.lang.String[] { "en_US", "Assistant" } }),
-	system(new java.lang.String[][] { new java.lang.String[] { "en_US", "System" } }),
-	tool(new java.lang.String[][] { new java.lang.String[] { "en_US", "Tool" } });
+	user(new java.lang.String[][] { new java.lang.String[] { "en_US", "User" }, new java.lang.String[] { "nl_NL", "User" } }),
+	assistant(new java.lang.String[][] { new java.lang.String[] { "en_US", "Assistant" }, new java.lang.String[] { "nl_NL", "Assistant" } }),
+	system(new java.lang.String[][] { new java.lang.String[] { "en_US", "System" }, new java.lang.String[] { "nl_NL", "System" } }),
+	tool(new java.lang.String[][] { new java.lang.String[] { "en_US", "Tool" }, new java.lang.String[] { "nl_NL", "Tool" } });
 
 	private final java.util.Map<java.lang.String, java.lang.String> captions;
 

@@ -18,8 +18,9 @@ import amazonbedrockconnector.impl.MxIngestionJob;
 import amazonbedrockconnector.impl.MxLogger;
 import software.amazon.awssdk.services.bedrockagent.BedrockAgentClient;
 import software.amazon.awssdk.services.bedrockagent.model.GetIngestionJobRequest;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class GetIngestionJob extends CustomJavaAction<IMendixObject>
+public class GetIngestionJob extends UserAction<IMendixObject>
 {
 	/** @deprecated use Credentials.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

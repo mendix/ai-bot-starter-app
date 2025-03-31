@@ -6,13 +6,13 @@ package genaicommons.proxies;
 
 public enum ENUM_ModelModality
 {
-	Text(new java.lang.String[][] { new java.lang.String[] { "en_US", "Text" } }),
-	Embeddings(new java.lang.String[][] { new java.lang.String[] { "en_US", "Embeddings" } }),
-	Image(new java.lang.String[][] { new java.lang.String[] { "en_US", "Image" } }),
-	File(new java.lang.String[][] { new java.lang.String[] { "en_US", "File" } }),
-	Audio(new java.lang.String[][] { new java.lang.String[] { "en_US", "Audio" } }),
-	Video(new java.lang.String[][] { new java.lang.String[] { "en_US", "Video" } }),
-	Other(new java.lang.String[][] { new java.lang.String[] { "en_US", "Other" } });
+	Text(new java.lang.String[][] { new java.lang.String[] { "en_US", "Text" }, new java.lang.String[] { "nl_NL", "Text" } }),
+	Embeddings(new java.lang.String[][] { new java.lang.String[] { "en_US", "Embeddings" }, new java.lang.String[] { "nl_NL", "Embeddings" } }),
+	Image(new java.lang.String[][] { new java.lang.String[] { "en_US", "Image" }, new java.lang.String[] { "nl_NL", "Image" } }),
+	Document(new java.lang.String[][] { new java.lang.String[] { "en_US", "Document" }, new java.lang.String[] { "nl_NL", "Document" } }),
+	Audio(new java.lang.String[][] { new java.lang.String[] { "en_US", "Audio" }, new java.lang.String[] { "nl_NL", "Audio" } }),
+	Video(new java.lang.String[][] { new java.lang.String[] { "en_US", "Video" }, new java.lang.String[] { "nl_NL", "Video" } }),
+	Other(new java.lang.String[][] { new java.lang.String[] { "en_US", "Other" }, new java.lang.String[] { "nl_NL", "Other" } });
 
 	private final java.util.Map<java.lang.String, java.lang.String> captions;
 
