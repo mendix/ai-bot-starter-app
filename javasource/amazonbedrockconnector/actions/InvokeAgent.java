@@ -71,6 +71,7 @@ import software.amazon.awssdk.services.bedrockagentruntime.model.Source;
 import software.amazon.awssdk.services.bedrockagentruntime.model.Trace;
 import software.amazon.awssdk.services.bedrockagentruntime.model.TracePart;
 import software.amazon.awssdk.services.bedrockagentruntime.model.Type;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * The Amazon Bedrock InvokeAgent action allows you to send a prompt for an agent to process and respond to.
@@ -93,7 +94,7 @@ import software.amazon.awssdk.services.bedrockagentruntime.model.Type;
  * 
  * See also: https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html
  */
-public class InvokeAgent extends CustomJavaAction<java.lang.Void>
+public class InvokeAgent extends UserAction<java.lang.Void>
 {
 	/** @deprecated use InvokeAgentRequest.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

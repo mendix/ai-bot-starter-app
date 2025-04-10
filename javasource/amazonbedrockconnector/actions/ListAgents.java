@@ -20,8 +20,9 @@ import amazonbedrockconnector.proxies.ListAgentsResponse;
 import software.amazon.awssdk.services.bedrockagent.BedrockAgentClient;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import amazonbedrockconnector.impl.AmazonBedrockClient;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class ListAgents extends CustomJavaAction<IMendixObject>
+public class ListAgents extends UserAction<IMendixObject>
 {
 	/** @deprecated use Credentials.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

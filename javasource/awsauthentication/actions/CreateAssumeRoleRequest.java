@@ -35,6 +35,7 @@ import com.mendix.webui.CustomJavaAction;
 import awsauthentication.impl.MxLogger;
 import awsauthentication.impl.Utils;
 import awsauthentication.proxies.AssumeRoleRequest;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * This action is used to generate credentials for AWS call by assuming AWS role using IAM Roles Anywhere.
@@ -48,7 +49,7 @@ import awsauthentication.proxies.AssumeRoleRequest;
  * >Duration: Duration for which the session token should be valid.
  * >Session Name: An identifier for the assumed role session.
  */
-public class CreateAssumeRoleRequest extends CustomJavaAction<IMendixObject>
+public class CreateAssumeRoleRequest extends UserAction<IMendixObject>
 {
 	private final awsauthentication.proxies.ENUM_Region Region;
 	private final java.lang.String RoleARN;

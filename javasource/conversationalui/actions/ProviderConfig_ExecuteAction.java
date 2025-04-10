@@ -16,8 +16,9 @@ import com.mendix.webui.CustomJavaAction;
 import conversationalui.impl.MxLogger;
 import conversationalui.impl.ProviderConfigImpl;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class ProviderConfig_ExecuteAction extends CustomJavaAction<java.lang.Boolean>
+public class ProviderConfig_ExecuteAction extends UserAction<java.lang.Boolean>
 {
 	/** @deprecated use ProviderConfig.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

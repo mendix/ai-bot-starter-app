@@ -18,11 +18,12 @@ import conversationalui.impl.MxLogger;
 import conversationalui.impl.ProviderConfigImpl;
 import conversationalui.proxies.ProviderConfig;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Adds a new ProviderConfig (or a specialization of such depending on the input entity parameter) to the ChatContext. The passed DeployedModel will be associated to it. The ProviderConfig is set to active/selected only if IsActive is set to "true". In any case, the specified SystemPrompt and ActionMicroflow will be set on the new ProviderConfig.
  */
-public class ChatContext_CreateProviderConfig extends CustomJavaAction<IMendixObject>
+public class ChatContext_CreateProviderConfig extends UserAction<IMendixObject>
 {
 	/** @deprecated use ChatContext.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

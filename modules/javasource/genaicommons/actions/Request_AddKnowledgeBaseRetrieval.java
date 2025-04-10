@@ -12,8 +12,9 @@ package genaicommons.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class Request_AddKnowledgeBaseRetrieval extends CustomJavaAction<IMendixObject>
+public class Request_AddKnowledgeBaseRetrieval extends UserAction<IMendixObject>
 {
 	/** @deprecated use Request.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

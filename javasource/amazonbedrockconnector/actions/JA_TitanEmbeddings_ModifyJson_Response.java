@@ -18,8 +18,9 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import amazonbedrockconnector.impl.MxLogger;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class JA_TitanEmbeddings_ModifyJson_Response extends CustomJavaAction<java.lang.String>
+public class JA_TitanEmbeddings_ModifyJson_Response extends UserAction<java.lang.String>
 {
 	private final java.lang.String ResponseBody_ToBeModified;
 

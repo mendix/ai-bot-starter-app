@@ -36,8 +36,9 @@ import software.amazon.awssdk.services.bedrockagentruntime.model.RetrieveAndGene
 import software.amazon.awssdk.services.bedrockagentruntime.model.RetrieveAndGenerateType;
 import software.amazon.awssdk.services.bedrockagentruntime.model.TextInferenceConfig;
 import software.amazon.awssdk.services.bedrockagentruntime.model.PromptTemplate;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class RetrieveAndGenerate extends CustomJavaAction<IMendixObject>
+public class RetrieveAndGenerate extends UserAction<IMendixObject>
 {
 	/** @deprecated use Credentials.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

@@ -12,6 +12,7 @@ package mxgenaiconnector.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Use this operation to retrieve chunks from a collection. This operation returns a list of KnowledgeBaseChunks.
@@ -25,7 +26,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * The Connection entity passed must be of type MxKnowledgeBaseConnection and must contain the CollectionName string attribute filled and a MxCloudKnowledgeBase associated with the connection details to the knowledge base service. By providing the Collection on the Connection, you determine the collection for which the retrieve should happen. 
  * Use MxKnowledgeBaseConnection_Create to create it.
  */
-public class KnowledgeBaseChunkList_Retrieve extends CustomJavaAction<java.util.List<IMendixObject>>
+public class KnowledgeBaseChunkList_Retrieve extends UserAction<java.util.List<IMendixObject>>
 {
 	/** @deprecated use Connection.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

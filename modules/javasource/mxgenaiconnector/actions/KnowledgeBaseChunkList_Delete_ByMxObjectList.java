@@ -12,6 +12,7 @@ package mxgenaiconnector.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Use this operation to delete existing chunks in a collection based on the MxObjectID. 
@@ -20,7 +21,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * The Connection entity passed must be of type MxKnowledgeBaseConnection and must contain the CollectionName string attribute filled and a MxCloudKnowledgeBase associated with the connection details to the knowledge base. By providing the CollectionName on the Connection, you determine the collection from which the chunks should be deleted.
  * Use MxKnowledgeBaseConnection_Create to create it.
  */
-public class KnowledgeBaseChunkList_Delete_ByMxObjectList extends CustomJavaAction<java.lang.Boolean>
+public class KnowledgeBaseChunkList_Delete_ByMxObjectList extends UserAction<java.lang.Boolean>
 {
 	/** @deprecated use Connection.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

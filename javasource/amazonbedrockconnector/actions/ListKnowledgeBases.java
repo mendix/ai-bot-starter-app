@@ -20,8 +20,9 @@ import amazonbedrockconnector.proxies.ListKnowledgeBasesResponse;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import amazonbedrockconnector.impl.AmazonBedrockClient;
 import software.amazon.awssdk.services.bedrockagent.model.KnowledgeBaseStatus;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class ListKnowledgeBases extends CustomJavaAction<IMendixObject>
+public class ListKnowledgeBases extends UserAction<IMendixObject>
 {
 	/** @deprecated use Credentials.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

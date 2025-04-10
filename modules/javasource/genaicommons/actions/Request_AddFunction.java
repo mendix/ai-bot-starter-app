@@ -12,6 +12,7 @@ package genaicommons.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Adds a new Function to a Request.
@@ -23,7 +24,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * 
  * The action returns empty if adding the function was not successful (errors are logged).
  */
-public class Request_AddFunction extends CustomJavaAction<IMendixObject>
+public class Request_AddFunction extends UserAction<IMendixObject>
 {
 	/** @deprecated use Request.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

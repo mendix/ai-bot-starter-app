@@ -12,6 +12,7 @@ package genaicommons.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Use the microflow Embeddings_Execute_ChunkCollection to execute an embeddings API call with a ChunkCollection containing one or multiple Chunk objects. The resulting embedding vectors returned by the model end up in the EmbeddingVector string attribute of the original Chunks.
@@ -23,7 +24,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * Output: 
  * This is a response object containing token usage metric and pointing to a ChunkCollection. The ChunkCollection contains the chunk for which an embedding vector was created. Note that the EmbeddingVector gets updated on the original objects. So for further logic, the ChunkCollection used as input for this operation can be reused and is the same as the ChunkCollection to which the EmbeddingsResponse is pointing.
  */
-public class Embeddings_ChunkCollection extends CustomJavaAction<IMendixObject>
+public class Embeddings_ChunkCollection extends UserAction<IMendixObject>
 {
 	/** @deprecated use DeployedModel.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

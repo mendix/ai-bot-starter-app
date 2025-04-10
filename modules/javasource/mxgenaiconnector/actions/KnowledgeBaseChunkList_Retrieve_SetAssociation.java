@@ -12,6 +12,7 @@ package mxgenaiconnector.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Use this operation to retrieve chunks from a collection and set associations to the related mendix objects (if applicable). This operation returns a list of the same type of the TargetChunk input variable. 
@@ -25,7 +26,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * 
  * The TargetChunk entity must be a specialization of the KnowledgeBaseChunk entity from the GenAICommons. If it contains associations to (specializations of) the related mendix object for which the chunk was created originally, this will be set by this operation for easy processing afterwards.
  */
-public class KnowledgeBaseChunkList_Retrieve_SetAssociation extends CustomJavaAction<java.util.List<IMendixObject>>
+public class KnowledgeBaseChunkList_Retrieve_SetAssociation extends UserAction<java.util.List<IMendixObject>>
 {
 	/** @deprecated use Connection.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

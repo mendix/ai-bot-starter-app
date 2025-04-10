@@ -12,6 +12,7 @@ package genaicommons.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * This Java Action should only be used by connector developers. It executes the Request by calling an LLM via the passed ModelCallMicroflow.
@@ -20,7 +21,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * 
  * Additionally, this java action takes care of storing token usage metrics by calling the Usage_Create_TextAndFiles microflow, if the StoreUsageMetrics constant was set to true by the developer.
  */
-public class Request_ExecuteFromConnector extends CustomJavaAction<IMendixObject>
+public class Request_ExecuteFromConnector extends UserAction<IMendixObject>
 {
 	/** @deprecated use Request.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

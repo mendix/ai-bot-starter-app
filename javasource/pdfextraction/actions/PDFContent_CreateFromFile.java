@@ -21,11 +21,12 @@ import org.apache.pdfbox.text.PDFTextStripper;
 import pdfextraction.proxies.PDFContent;
 import pdfextraction.impl.MxLogger;
 import system.proxies.FileDocument;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Reads the content and meta data of a PDF file. The output object "PDFContent" contains that data.
  */
-public class PDFContent_CreateFromFile extends CustomJavaAction<IMendixObject>
+public class PDFContent_CreateFromFile extends UserAction<IMendixObject>
 {
 	/** @deprecated use Document.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

@@ -37,8 +37,9 @@ import genaicommons.proxies.Function;
 import genaicommons.proxies.ToolCall;
 import genaicommons.proxies.ToolCollection;
 import genaicommons.proxies.ENUM_MessageRole;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class RequestMapping_ManipulateJson extends CustomJavaAction<java.lang.String>
+public class RequestMapping_ManipulateJson extends UserAction<java.lang.String>
 {
 	/** @deprecated use RequestMapping.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

@@ -14,6 +14,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
 import encryption.pgp.PGPFileProcessor;
 import encryption.proxies.microflows.Microflows;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Encrypt the FileDocument using PGP encryption.
@@ -23,7 +24,7 @@ import encryption.proxies.microflows.Microflows;
  * 
  * This action will either return true or an exception
  */
-public class PGPDecryptDocument extends CustomJavaAction<java.lang.Boolean>
+public class PGPDecryptDocument extends UserAction<java.lang.Boolean>
 {
 	/** @deprecated use PrivateDecryptionKey.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

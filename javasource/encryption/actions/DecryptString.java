@@ -22,8 +22,9 @@ import java.util.regex.Matcher;
 import com.mendix.systemwideinterfaces.MendixRuntimeException;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class DecryptString extends CustomJavaAction<java.lang.String>
+public class DecryptString extends UserAction<java.lang.String>
 {
 	private final java.lang.String value;
 	private final java.lang.String key;

@@ -12,6 +12,7 @@ package genaicommons.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Adds a new KnowledgeBaseChunk to the ChunkCollection to create the input for embeddings or knowledge base operations.
@@ -19,7 +20,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * 
  * Please check the documentation for each parameter for more detailed information on how to use this operation in your project.
  */
-public class ChunkCollection_AddKnowledgeBaseChunk extends CustomJavaAction<IMendixObject>
+public class ChunkCollection_AddKnowledgeBaseChunk extends UserAction<IMendixObject>
 {
 	/** @deprecated use ChunkCollection.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
