@@ -1,4 +1,5 @@
 @import "custom-variables";
+@import "../../themesource/atlas_core/web/generated-exclusion-variables";
 
 //fix for atlas topbar submenu item font size 
 .layout-atlas .region-topbar .navbar-brand .mx-navbar-subitem a{
@@ -11,3 +12,32 @@
         display: none;
     }
 }
+
+// When the React client is enabled, the chat card uses viewport height to fix the height: 100% issue.
+// This only applies to the 'Chat' page
+@if $use-modern-client {
+    .custom-height-fix {
+        @media (max-width: 800px) {
+            .chat-card--full-height {
+                height: 80vh;
+            }
+        }
+
+        @media (max-width: 1600px) {
+            .chat-card--full-height {
+                height: 88vh;
+            }
+        }
+
+        @media (min-width: 1601px) {
+            .chat-card--full-height {
+                height: 93vh;
+            }
+        }
+
+        .margin-bottom-0 {
+            margin-bottom: 0;
+        }
+     }
+} 
+
