@@ -51,6 +51,7 @@ public class RandomStrongPassword extends UserAction<java.lang.String>
 			safeLongToInt(MinLength),
 			safeLongToInt(MaxLength),
 			safeLongToInt(NrOfCapitalizedCharacters),
+			0,
 			safeLongToInt(NrOfDigits),
 			safeLongToInt(NrOfSpecialCharacters)
 		);

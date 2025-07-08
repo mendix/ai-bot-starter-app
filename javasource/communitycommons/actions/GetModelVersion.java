@@ -9,8 +9,8 @@
 
 package communitycommons.actions;
 
+import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
-import communitycommons.Misc;
 import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
@@ -27,7 +27,7 @@ public class GetModelVersion extends UserAction<java.lang.String>
 	public java.lang.String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		return Misc.getModelVersion();
+		return Core.getModelVersion();
 		// END USER CODE
 	}
 
