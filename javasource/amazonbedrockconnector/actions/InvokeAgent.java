@@ -23,7 +23,6 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IDataType;
 import com.mendix.systemwideinterfaces.core.IDataType.DataTypeEnum;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
 import amazonbedrockconnector.impl.AmazonBedrockClient;
 import amazonbedrockconnector.impl.MxCitation;
 import amazonbedrockconnector.impl.MxRetrievedReference;
@@ -163,7 +162,7 @@ public class InvokeAgent extends UserAction<java.lang.Void>
 			return null;
 			
 		} catch (Exception e) {
-			LOGGER.error("Exception occurred: ", e.getMessage());
+			LOGGER.error(e);
 			throw e;
 		}
 		// END USER CODE

@@ -12,7 +12,6 @@ package amazonbedrockconnector.actions;
 import static java.util.Objects.requireNonNull;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
 import amazonbedrockconnector.impl.AmazonBedrockClient;
 import amazonbedrockconnector.impl.MxIngestionJob;
 import amazonbedrockconnector.impl.MxLogger;
@@ -69,7 +68,7 @@ public class StartIngestionJob extends UserAction<IMendixObject>
 			
 			return MxIngestionJob.getMxResponse(awsResponse, getContext()).getMendixObject();
 		} catch (Exception e) {
-			LOGGER.error(e.getMessage());
+			LOGGER.error(e);
 			throw e;
 		}	
 		// END USER CODE

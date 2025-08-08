@@ -12,32 +12,33 @@ package openaiconnector.actions;
 import static java.util.Objects.requireNonNull;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.Set;
 import java.util.HashMap;
 import java.util.stream.Collectors;
 import com.mendix.core.Core;
 import com.mendix.core.CoreException;
 import com.mendix.systemwideinterfaces.core.IContext;
+import com.mendix.systemwideinterfaces.core.IDataType;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import openaiconnector.genaicommonsimpl.MessageImpl;
-import openaiconnector.genaicommonsimpl.FunctionMappingImpl;
-import openaiconnector.impl.MxLogger;
-import openaiconnector.proxies.OpenAIRequest_Extension;
-import openaiconnector.proxies.RequestMapping;
-import genaicommons.proxies.ENUM_ToolChoice;
+import genaicommons.impl.MessageImpl;
+import genaicommons.impl.FunctionImpl;
+import genaicommons.impl.FunctionMappingImpl;
 import genaicommons.proxies.Message;
 import genaicommons.proxies.Request;
 import genaicommons.proxies.Tool;
-import genaicommons.proxies.Function;
 import genaicommons.proxies.ToolCall;
 import genaicommons.proxies.ToolCollection;
 import genaicommons.proxies.ENUM_MessageRole;
-import com.mendix.systemwideinterfaces.core.UserAction;
+import openaiconnector.impl.MxLogger;
+import openaiconnector.proxies.OpenAIRequest_Extension;
+import openaiconnector.proxies.RequestMapping;
 
 public class RequestMapping_ManipulateJson extends UserAction<java.lang.String>
 {
@@ -107,7 +108,7 @@ public class RequestMapping_ManipulateJson extends UserAction<java.lang.String>
 		
 	}
 	
-	private void updateMessages(JsonNode rootNode) {
+	private void updateMessages(JsonNode rootNode) throws Exception {
 		//Get messages node
 		JsonNode messagesNode = rootNode.path("messages");
 		//Loop over all messages
@@ -117,7 +118,13 @@ public class RequestMapping_ManipulateJson extends UserAction<java.lang.String>
             removeEmptyArrayNode(messageNode, "tool_calls");
             
             //If a fileCollection has been added replace content node with array of text content and file content
-            updateImageMessages(messageNode);
+            updateMessagesWithFiles(messageNode);
+            
+    		//Set Arguments in tool call messages
+            JsonNode toolCalls = messageNode.path("tool_calls");
+            if(toolCalls != null && !toolCalls.isEmpty()) {
+            	setToolCallArguments(toolCalls);
+            }
         }
 		//Update messages within rootNode
 		((ObjectNode) rootNode).set("messages", messagesNode);
@@ -131,7 +138,7 @@ public class RequestMapping_ManipulateJson extends UserAction<java.lang.String>
 	}
 	
 	
-	private void updateImageMessages(JsonNode messageNode) {
+	private void updateMessagesWithFiles(JsonNode messageNode) {
 		JsonNode fileCollection = messageNode.path("filecollection");
 		
 		//Return if there no images will be sent
@@ -145,27 +152,66 @@ public class RequestMapping_ManipulateJson extends UserAction<java.lang.String>
 		
 		//add image content to array
 		for (JsonNode file : fileCollection) {
-			ObjectNode imageURL = MAPPER.createObjectNode();
-			if(file.path("textcontent") != null && !file.path("textcontent").asText().isBlank()) {
-				addTextContentNode(content, file.path("textcontent").asText());
+			String filetype = file.path("filetype") != null ? file.path("filetype").asText() : null;
+			LOGGER.debug("filetype ", filetype, " file ", file);
+			if(filetype != null && filetype.equals("image")) {
+				addImage(content, file);
+			} else if (filetype != null && filetype.equals("document")) {
+				addDocument(content, file);
 			}
-			
-			imageURL.put("url", file.path("filecontent").asText());
-			
-			if(file.path("detail") != null && !file.path("detail").asText().isBlank()) {
-				imageURL.put("detail", file.path("detail").asText());
-			}
-			
-			ObjectNode imageContent = MAPPER.createObjectNode();
-			imageContent.put("type", "image_url");
-			imageContent.set("image_url", imageURL);
-			content.add(imageContent);
 		}
 			
 		//Remove imageCollection helper structure
 		((ObjectNode) messageNode).remove("filecollection");
 		//Overwrite content node including images
 		((ObjectNode) messageNode).set("content", content);
+	}
+	
+	private void setToolCallArguments(JsonNode toolCallsArray) throws Exception {
+		for (JsonNode toolCall : toolCallsArray) {
+			JsonNode function = toolCall.path("function");
+			JsonNode argumentsArray = function.path("arguments");
+			Map<String, String> argumentsMap = new HashMap<>();
+	        for (JsonNode argument : argumentsArray) {
+	            String key = argument.get("key").asText();
+	            String value = argument.get("value").asText();
+	            argumentsMap.put(key, value);
+	        }
+	        String argumentsString = MAPPER.writeValueAsString(argumentsMap);
+	       ((ObjectNode) function).put("arguments", argumentsString);
+		}
+	}
+
+	private void addImage(ArrayNode content, JsonNode file) {
+		ObjectNode imageURL = MAPPER.createObjectNode();
+		if(file.path("textcontent") != null && !file.path("textcontent").asText().isBlank()) {
+			addTextContentNode(content, file.path("textcontent").asText());
+		}
+		
+		imageURL.put("url", file.path("filecontent").asText());
+		
+		if(file.path("detail") != null && !file.path("detail").asText().isBlank()) {
+			imageURL.put("detail", file.path("detail").asText());
+		}
+		
+		ObjectNode imageContent = MAPPER.createObjectNode();
+		imageContent.put("type", "image_url");
+		imageContent.set("image_url", imageURL);
+		content.add(imageContent);
+	}
+	
+	private void addDocument(ArrayNode content, JsonNode file) {
+		ObjectNode document = MAPPER.createObjectNode();
+		if(file.path("textcontent") != null && !file.path("textcontent").asText().isBlank()) {
+			addTextContentNode(content, file.path("textcontent").asText());
+		}
+		document.put("file_data", file.path("filecontent").asText());
+		document.put("filename", file.path("filename") != null ? file.path("filename").asText() : null);
+		ObjectNode documentContent = MAPPER.createObjectNode();
+		documentContent.put("type", "file");
+		documentContent.set("file", document);
+		LOGGER.debug("documentContent ", documentContent);
+		content.add(documentContent);
 	}
 
 	private void addTextContentNode(ArrayNode content, String text) {
@@ -178,11 +224,42 @@ public class RequestMapping_ManipulateJson extends UserAction<java.lang.String>
 
 	private void setFunctionToolChoice(JsonNode rootNode) throws CoreException {
 		// ToolChoice is not function and thus empty, auto or none
-		if (RequestMapping.getToolChoice() == null || !RequestMapping.getToolChoice().equals(ENUM_ToolChoice.tool)) {
+		if (RequestMapping.getToolChoice() == null) {
 			return;
-
+		}
+			
+		switch (RequestMapping.getToolChoice()) {
+        case tool:
+        	setToolChoiceTool();
+            break;
+        case any:
+        	setToolChoiceAny();
+            break;
+        //auto and none work out of the box
+        case auto:
+        	break;
+        case none:
+        	break;
+        default:
+        	LOGGER.warn(("Unknown type for ToolChoice: " + RequestMapping.getToolChoice().toString()));
+            break;
+		}
+		
+	}
+	
+	//"any" choice can only be used once at the first iteration to prevent infinity loops
+	private void setToolChoiceAny() throws CoreException {
+		if(FunctionMappingImpl.getToolCallMessages(getRequest(RequestMapping),getContext()).size() == 0) {
+            ((ObjectNode) rootNode).put("tool_choice", "required");
+    	}
+    	else {
+    		((ObjectNode) rootNode).remove("tool_choice");
+    	}
+	}
+	
+	private void setToolChoiceTool() throws CoreException {
 		// Add ToolChoice Tool if it has not yet been called in a previous iteration
-		} else if (getToolCollection(RequestMapping) != null) {
+		if(getToolCollection(RequestMapping) != null) {
 			Tool toolChoiceTool = getToolCollection(RequestMapping).getToolCollection_ToolChoice();
 			
 			// Remove tool choice function, because it has already been called
@@ -313,7 +390,7 @@ public class RequestMapping_ManipulateJson extends UserAction<java.lang.String>
 					})
 					.findFirst();
 			if(toolMatch.isPresent()) {
-				Function functionMatch = Function.load(getContext(), toolMatch.get().getMendixObject().getId());
+				Tool functionMatch = Tool.load(getContext(), toolMatch.get().getMendixObject().getId());
 				if(functionMatch != null) {
 				ObjectNode parametersNode = createFunctionParametersNode(functionMatch.getMicroflow());
 					if(parametersNode != null) {
@@ -330,29 +407,22 @@ public class RequestMapping_ManipulateJson extends UserAction<java.lang.String>
 	}
 	
 	private ObjectNode createFunctionParametersNode(String functionMicroflow) {
-		String inputParamName = FunctionMappingImpl.getFirstInputParamName(functionMicroflow);
+		Map<String, IDataType> inputParameters = FunctionMappingImpl.getInputParametersForModel(functionMicroflow);
 		
-		if (inputParamName == null || inputParamName.isBlank()) {
+		if (inputParameters == null || inputParameters.entrySet().isEmpty()) {
 			return null;
 		}
-
+		
 		ObjectNode parametersNode = MAPPER.createObjectNode();
 		ObjectNode propertiesNode = MAPPER.createObjectNode();
-		ObjectNode propertyNode = MAPPER.createObjectNode(); 
 		ArrayNode requiredNode = MAPPER.createArrayNode();
-		
-		propertyNode.put("type", "string");
-		
-		propertiesNode.set(inputParamName, propertyNode);
-		
-		requiredNode.add(inputParamName);
+		inputParameters.entrySet().forEach(t -> FunctionImpl.addProperty(propertiesNode, requiredNode, t));
 		
 		parametersNode.put("type", "object");
 		parametersNode.set("properties", propertiesNode);
 		parametersNode.set("required", requiredNode);
 		
 		return parametersNode;
-	}
-		
+	}		
 	// END EXTRA CODE
 }

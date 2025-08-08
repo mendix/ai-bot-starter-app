@@ -13,7 +13,6 @@ import static java.util.Objects.requireNonNull;
 import java.util.List;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
 import amazonbedrockconnector.impl.AmazonBedrockClient;
 import amazonbedrockconnector.impl.MxLogger;
 import amazonbedrockconnector.proxies.ENUM_CustomizationType;
@@ -82,7 +81,7 @@ public class ListFoundationModels extends UserAction<IMendixObject>
 			return getMxResponse(awsResponse).getMendixObject();
 		
 		} catch (Exception e) {
-			LOGGER.error(e.getMessage());
+			LOGGER.error(e);
 			throw e;
 		}
 		// END USER CODE

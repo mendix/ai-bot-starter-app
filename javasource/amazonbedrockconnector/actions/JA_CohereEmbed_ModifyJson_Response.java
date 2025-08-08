@@ -11,7 +11,6 @@ package amazonbedrockconnector.actions;
 
 import static java.util.Objects.requireNonNull;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -79,7 +78,7 @@ public class JA_CohereEmbed_ModifyJson_Response extends UserAction<java.lang.Str
                         embeddingObject.put("_index", outputEmbeddingsArray.size());
                         outputEmbeddingsArray.add(embeddingObject);
                     } catch (Exception e) {
-                        LOGGER.error("Error processing embedding array: " + e.getMessage());
+                        LOGGER.error("Error processing embedding array: " + e);
                         throw e;
                     }
                 }
@@ -96,7 +95,7 @@ public class JA_CohereEmbed_ModifyJson_Response extends UserAction<java.lang.Str
                             embeddingObject.put("_index", outputEmbeddingsArray.size());
                             outputEmbeddingsArray.add(embeddingObject);
                         } catch (Exception e) {
-                            LOGGER.error("Error processing embedding array: " + e.getMessage());
+                            LOGGER.error("Error processing embedding array: " + e);
                             throw new RuntimeException(e);
                         }
                     }
@@ -116,7 +115,7 @@ public class JA_CohereEmbed_ModifyJson_Response extends UserAction<java.lang.Str
 				// Convert outputNode to String and return
 
 			} catch (Exception e) {
-				LOGGER.error("Error occurred while modifying Cohere Embed response body: " + e.getMessage());
+				LOGGER.error("Error occurred while modifying Cohere Embed response body: " + e);
 				throw e;
 			}
 

@@ -2,6 +2,7 @@ package amazonbedrockconnector.impl;
 import com.mendix.systemwideinterfaces.MendixRuntimeException;
 
 import awsauthentication.impl.AWSBuilderConfigurator;
+import awsauthentication.impl.AWSAsyncBuilderConfigurator;
 import awsauthentication.proxies.AbstractRequest;
 import awsauthentication.proxies.Credentials;
 import awsauthentication.proxies.ENUM_Region;
@@ -21,7 +22,7 @@ public class AmazonBedrockClient {
 		private static final MxLogger LOGGER = new MxLogger(AmazonBedrockClient.class);
 
 		//TODO Replace X.Y.Z below with correct version nr and delete this line in rc-branch
-		private static final String AWS_HEADER_VALUE = "Mendix-Bedrock-6.3.0";
+		private static final String AWS_HEADER_VALUE = "Mendix-Bedrock-9.0.0";
 		
 		public static BedrockClient getBedrockClient(Credentials credentials, ENUM_Region region, AbstractRequest request) {
 			

@@ -11,7 +11,6 @@ package amazonbedrockconnector.actions;
 
 import static java.util.Objects.requireNonNull;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -76,7 +75,7 @@ public class JA_TitanEmbeddings_ModifyJson_Response extends UserAction<java.lang
 
 
 			} catch (Exception e) {
-				LOGGER.error("Error occurred while modifying Titan Embeddings response body: " + e.getMessage());
+				LOGGER.error("Error occurred while modifying Titan Embeddings response body: " + e);
 				throw e;
 			}
 

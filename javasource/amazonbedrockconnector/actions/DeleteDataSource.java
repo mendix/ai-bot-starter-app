@@ -12,7 +12,6 @@ package amazonbedrockconnector.actions;
 import static java.util.Objects.requireNonNull;
 import com.mendix.core.CoreException;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import amazonbedrockconnector.impl.AmazonBedrockClient;
 import amazonbedrockconnector.impl.MxDataSource;
 import amazonbedrockconnector.impl.MxLogger;
@@ -72,7 +71,7 @@ public class DeleteDataSource extends UserAction<IMendixObject>
 			return getMxResponse(awsResponse).getMendixObject();
 		
 		} catch (Exception e) {
-			LOGGER.error(e.getMessage());
+			LOGGER.error(e);
 			throw e;
 		}
 		// END USER CODE
