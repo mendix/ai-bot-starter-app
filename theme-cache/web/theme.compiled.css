@@ -28583,8 +28583,9 @@ input[type=checkbox].three-state-checkbox + .control-label {
   display: none;
 }
 
-.datagrid--no-scroll.widget-datagrid .widget-datagrid-content {
+.datagrid--no-scroll .widget-datagrid-content {
   overflow-y: visible;
+  overflow-x: visible;
 }
 
 .chat-dataview--display-contents {
