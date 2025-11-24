@@ -1,20 +1,22 @@
+@import "../../../atlas_core/web/_variables.scss";
 @import "../../../../theme/web/custom-variables.scss";
 
 .datetime-inputs-wrapper {
     display: flex;
     justify-content: flex-start;
+    gap: 2px;
 
     .time-input {
         display: unset;
-        max-width: 100px;
+        max-width: 120px;
         margin-left: -1px;
         margin-bottom: 0;
     }
 
     .date-input {
         display: unset;
-        max-width: 150px;
-        margin-left: $spacing-medium;
+        max-width: 120px;
+        margin-left: -1px;
         margin-bottom: 0;
     }
 
@@ -29,6 +31,46 @@
     }
 }
 
+.filter-date-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+
+
+    .filter-time-input,
+    .filter-date-input {
+        flex: 1;
+        display: block;
+        width: 100%;
+									 
+        margin-bottom: 0;
+        height: 7rem;
+        position: relative;
+    }
+
+    .mx-compound-control {
+        .btn {
+            margin-left: -44px;
+            border: 1px solid transparent;
+            background: transparent;
+        }
+    }
+
+    .has-error {
+        position: relative;
+        height: 7rem;
+
+        .alert {
+            position: absolute;
+            width: 100%;
+            margin: 0;
+            line-height: 1;
+        }
+    }
+}
+
+
 .input-container {
     border-bottom: 1px solid $light-border-color;
     display: flex;
@@ -40,6 +82,7 @@
 .combobox-selection {
     display: flex;
     flex-grow: 1;
+
     .mx-image {
         height: $font-size-large;
         margin-right: $spacing-small;
@@ -59,19 +102,20 @@
     }
 }
 
-.combo-model-selection {
-    min-width: 360px;
-    z-index: 50;
-    .model-selection{
+.combobox-model-selection {
+    display: flex;
+    flex-grow: 1;
+
+    .model-selection {
         display: flex;
         align-items: center;
+        flex-wrap: nowrap;
         height: max-content;
+	 
+        .mx-image-viewer {
+            margin-right: $spacing-small;
+        }
     }
-    .mx-image {
-        height: $font-size-large;
-        margin-right: $spacing-small;
-    }
-    
 }
 
 .widget-combobox .widget-combobox-input-container {
@@ -130,5 +174,14 @@
                 transform: scale(1);
             }
         }
+    }
+}
+
+.combobox-filter-height {
+    .widget-combobox-input-container {
+        align-items: center;
+        justify-content: center;
+        height: 47.5px !important;
+        border-color: $border-color-default;
     }
 }
