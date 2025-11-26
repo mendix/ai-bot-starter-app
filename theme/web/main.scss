@@ -6,6 +6,11 @@
     font-size: unset;
 }
 
+// overwrite agent commons class with same name
+.table-header {
+    border: unset;
+}
+
 //Remove paging bar on Gallery
 .gallery-hide-paging{
     .widget-gallery-footer{
