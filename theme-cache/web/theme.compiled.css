@@ -31317,6 +31317,10 @@ input[type=checkbox].three-state-checkbox + .control-label {
   font-size: unset;
 }
 
+.table-header {
+  border: unset;
+}
+
 .gallery-hide-paging .widget-gallery-footer {
   display: none;
 }
