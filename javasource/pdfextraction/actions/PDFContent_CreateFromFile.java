@@ -17,6 +17,7 @@ import java.io.InputStream;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.pdfbox.Loader;
 import pdfextraction.proxies.PDFContent;
 import pdfextraction.impl.MxLogger;
 import system.proxies.FileDocument;
@@ -55,9 +56,12 @@ public class PDFContent_CreateFromFile extends UserAction<IMendixObject>
 				throw new IllegalArgumentException("Only PDF files can be passed.");
 			}
 			
-			try(InputStream inputStream = Core.getFileDocumentContent(getContext(), Document.getMendixObject());
-					PDDocument pdfdocument = PDDocument.load(inputStream);){
-				return extractPDFContent(pdfdocument).getMendixObject();
+			try(InputStream inputStream = Core.getFileDocumentContent(getContext(), Document.getMendixObject())) {
+				byte[] pdfBytes = inputStream.readAllBytes();
+				PDDocument pdfdocument = Loader.loadPDF(pdfBytes);
+				try (pdfdocument) {
+					return extractPDFContent(pdfdocument).getMendixObject();
+				}
 			}
 			
 		} catch (Exception e) {

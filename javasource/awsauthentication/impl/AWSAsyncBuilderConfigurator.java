@@ -46,7 +46,7 @@ public class AWSAsyncBuilderConfigurator<BuilderT extends AwsAsyncClientBuilder<
 	private static final MxLogger LOGGER = new MxLogger(AWSAsyncBuilderConfigurator.class);
 	
 	//TODO Replace X.Y.Z below with correct version nr and delete this line in rc-branch
-	private static final String AWS_HEADER_VALUE = "Mendix-Authentication-4.1.1";
+	private static final String AWS_HEADER_VALUE = "Mendix-Authentication-4.1.2";
 	
 	private AbstractRequest abstractRequest;
 	private ENUM_Region region;
